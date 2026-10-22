@@ -28,6 +28,11 @@
       "minimum": 0,
       "maximum": 10
     },
+    "beanId": {
+      "description": "Id of the bean in the bean library (req:history:beans:list); the bean fields below are its copy from when the shot was reviewed",
+      "type": "string",
+      "pattern": "^$|^[A-Za-z0-9_-]{1,32}$"
+    },
     "beanType": {
       "description": "Type or origin of coffee beans; the bean's name on the Shot Review page",
       "type": "string"

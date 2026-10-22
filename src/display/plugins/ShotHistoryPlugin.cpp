@@ -3,6 +3,7 @@
 #include <LittleFS.h>
 #include <SD_MMC.h>
 #include <cmath>
+#include <display/core/BeanStore.h>
 #include <display/core/Controller.h>
 #include <display/core/ProfileManager.h>
 #include <display/core/process/BrewProcess.h>
@@ -638,6 +639,18 @@ void ShotHistoryPlugin::handleRequest(JsonDocument &request, JsonDocument &respo
         updateIndexMetadata(id.toInt(), rating, volume);
 
         response["msg"] = "Ok";
+    } else if (type == "req:history:beans:list") {
+        JsonDocument store(&psramAllocator);
+        loadBeans(store);
+        response["beans"] = store["beans"];
+    } else if (type == "req:history:beans:save") {
+        changeBeans(response, [&request](JsonDocument &store) {
+            return bean_store::upsert(store, request["bean"].as<JsonVariantConst>());
+        });
+    } else if (type == "req:history:beans:delete") {
+        changeBeans(response, [&request](JsonDocument &store) -> const char * {
+            return bean_store::remove(store, request["id"].as<const char *>()) ? nullptr : "No such bean";
+        });
     } else if (type == "req:history:rebuild") {
         // Rebuild is now handled asynchronously by WebUIPlugin
         // This path shouldn't be reached, but handle it just in case
@@ -662,6 +675,74 @@ void ShotHistoryPlugin::loadNotes(const String &id, JsonDocument &notes) {
         file.close();
         deserializeJson(notes, notesStr);
     }
+}
+
+namespace {
+const char *const BEANS_PATH = "/h/beans.json";
+const char *const BEANS_TMP_PATH = "/h/beans.tmp";       // a new library while it is written
+const char *const BEANS_UNREADABLE_PATH = "/h/beans.bad"; // a library that could not be parsed, kept for rescue
+} // namespace
+
+bool ShotHistoryPlugin::readJsonFile(const char *path, JsonDocument &doc) {
+    File file = fs->open(path, "r");
+    if (!file)
+        return false;
+    const String json = file.readString();
+    file.close();
+    return deserializeJson(doc, json) == DeserializationError::Ok;
+}
+
+void ShotHistoryPlugin::loadBeans(JsonDocument &store) {
+    if (!readJsonFile(BEANS_PATH, store)) {
+        store.clear();
+        if (readJsonFile(BEANS_TMP_PATH, store)) {
+            // saveBeans() was cut off after removing the old library: finish the swap.
+            fs->remove(BEANS_PATH);
+            fs->rename(BEANS_TMP_PATH, BEANS_PATH);
+        } else {
+            store.clear();
+            if (fs->exists(BEANS_PATH)) {
+                ESP_LOGW("ShotHistoryPlugin", "Bean library unreadable, moved to %s", BEANS_UNREADABLE_PATH);
+                fs->remove(BEANS_UNREADABLE_PATH);
+                fs->rename(BEANS_PATH, BEANS_UNREADABLE_PATH);
+            }
+        }
+    }
+    bean_store::normalize(store);
+}
+
+// The new library is written next to the old one and renamed over it, so a power cut leaves one of the two
+// complete. LittleFS replaces the old file in the rename; FAT (SD card) needs it removed first, and if power
+// fails in between, loadBeans() takes the library from the temporary file.
+bool ShotHistoryPlugin::saveBeans(const JsonDocument &store) {
+    String json;
+    serializeJson(store, json);
+    File file = fs->open(BEANS_TMP_PATH, FILE_WRITE);
+    if (!file)
+        return false;
+    const bool written = file.print(json) == json.length();
+    file.close();
+    if (!written) {
+        fs->remove(BEANS_TMP_PATH);
+        return false;
+    }
+    if (fs->rename(BEANS_TMP_PATH, BEANS_PATH))
+        return true;
+    fs->remove(BEANS_PATH);
+    return fs->rename(BEANS_TMP_PATH, BEANS_PATH);
+}
+
+void ShotHistoryPlugin::changeBeans(JsonDocument &response,
+                                    const std::function<const char *(JsonDocument &)> &change) {
+    JsonDocument store(&psramAllocator);
+    loadBeans(store);
+    const char *error = change(store);
+    if (error == nullptr && !saveBeans(store))
+        error = "Could not store the bean library";
+    if (error == nullptr)
+        response["msg"] = "Ok";
+    else
+        response["error"] = error;
 }
 
 // Returns the canonical notes path, moving a legacy unpadded-id file onto it (the UI has shown that one since #449)

@@ -339,6 +339,10 @@ msgstr "App Settings"
 msgid "Appearance"
 msgstr "Appearance"
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Archived"
+msgstr "Archived"
+
 #: src/pages/ShotAnalyzer/components/library/LibraryPanel.jsx
 msgid "Are you sure you want to delete \"{itemName}\"?"
 msgstr "Are you sure you want to delete \"{itemName}\"?"
@@ -558,8 +562,8 @@ msgid "Bean bag"
 msgstr "Bean bag"
 
 #: src/pages/ShotReview/BeanPicker.jsx
-msgid "Bean details"
-msgstr "Bean details"
+msgid "Bean library"
+msgstr "Bean library"
 
 #: src/pages/ShotReview/BeanPicker.jsx
 msgid "Bean name"
@@ -1112,9 +1116,18 @@ msgstr "Couldn't connect to {host}: {reason}. Make sure the machine is on and yo
 msgid "Couldn't load shots from the machine."
 msgstr "Couldn't load shots from the machine."
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Couldn't load the bean library: {loadError}"
+msgstr "Couldn't load the bean library: {loadError}"
+
 #: src/pages/ShotReview/ReviewForm.jsx
 msgid "Couldn't save the review. Check the connection to the machine and try again."
 msgstr "Couldn't save the review. Check the connection to the machine and try again."
+
+#. placeholder {0}: e.message
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Couldn't update the bean library on the machine: {0}"
+msgstr "Couldn't update the bean library on the machine: {0}"
 
 #: src/pages/Settings/tabs/MachineTab.jsx
 msgid "Cracking pressure of a grouphead mushroom valve (e.g. 4.0 on Delonghi machines). Subtracted from readings and added to targets only while a brew is running. Leave at 0.0 for a 3-way solenoid."
@@ -1315,8 +1328,14 @@ msgstr "degrees Celsius"
 #: src/pages/ProfileList/index.jsx
 #: src/pages/ShotAnalyzer/components/library/LibraryRow.jsx
 #: src/pages/ShotHistory/HistoryCard.jsx
+#: src/pages/ShotReview/BeanPicker.jsx
 msgid "Delete"
 msgstr "Delete"
+
+#. placeholder {0}: editing.name
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Delete \"{0}\" from the bean library? Shots keep their copy."
+msgstr "Delete \"{0}\" from the bean library? Shots keep their copy."
 
 #: src/pages/ProfileList/index.jsx
 msgid "Delete {label} profile"
@@ -1586,6 +1605,10 @@ msgstr "Edit {label}"
 #: src/pages/ProfileList/index.jsx
 msgid "Edit {label} profile"
 msgstr "Edit {label} profile"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Edit bean"
+msgstr "Edit bean"
 
 #: src/pages/ShotReview/BeanPicker.jsx
 msgid "Edit bean details"
@@ -1937,6 +1960,10 @@ msgstr "Finished"
 msgid "Finished Color"
 msgstr "Finished Color"
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Finished: move it to the archive"
+msgstr "Finished: move it to the archive"
+
 #: src/app/FirmwareWarning.jsx
 msgid "Firmware {version} – not all features may be available."
 msgstr "Firmware {version} – not all features may be available."
@@ -2077,10 +2104,6 @@ msgctxt "date range start"
 msgid "From"
 msgstr "From"
 
-#: src/pages/ShotReview/BeanPicker.jsx
-msgid "From your recent shots"
-msgstr "From your recent shots"
-
 #: src/pages/DashboardSettings/index.jsx
 msgctxt "panel view"
 msgid "Full"
@@ -2220,6 +2243,10 @@ msgstr "Heater wattage in Watts (e.g. Gaggia Classic: 1360 W, Rancilio Silvia 12
 #: src/components/SettingsFormField.jsx
 msgid "Hidden / Available"
 msgstr "Hidden / Available"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Hide archived beans"
+msgstr "Hide archived beans"
 
 #: src/pages/ShotAnalyzer/components/shotChart/controls/compareControls.jsx
 msgid "Hide compare annotations"
@@ -2997,9 +3024,17 @@ msgstr "Nightly gets new features first, built from the same code as the nightly
 msgid "no answer (timed out)"
 msgstr "no answer (timed out)"
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "No bean matches."
+msgstr "No bean matches."
+
 #: src/pages/ShotReview/ReviewForm.jsx
 msgid "No bean selected"
 msgstr "No bean selected"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "No beans yet. Add the one in your grinder."
+msgstr "No beans yet. Add the one in your grinder."
 
 #: src/pages/Statistics/components/statisticsView/helpers.js
 #: src/pages/Statistics/components/toolbar/helpers.js
@@ -3146,6 +3181,10 @@ msgstr "Not found"
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "Not in range. Switch it on to reconnect."
 msgstr "Not in range. Switch it on to reconnect."
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Not in the library"
+msgstr "Not in the library"
 
 #: src/pages/ShotHistory/HistoryCard.jsx
 #: src/pages/ShotReview/ReviewForm.jsx
@@ -3425,6 +3464,10 @@ msgstr "Phases"
 #: src/pages/Settings/tabs/GeneralTab.jsx
 msgid "Physical Buttons"
 msgstr "Physical Buttons"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Pick from your bean library or add one"
+msgstr "Pick from your bean library or add one"
 
 #: src/pages/Settings/tabs/CalibrationTab.jsx
 msgid "PID Autotune"
@@ -4008,10 +4051,6 @@ msgstr "Rebuild Shot History"
 msgid "Receipt"
 msgstr "Receipt"
 
-#: src/pages/ShotReview/BeanPicker.jsx
-msgid "Recent beans"
-msgstr "Recent beans"
-
 #: src/pages/DashboardSettings/index.jsx
 #: src/pages/Home/cards/RecentShotsCard.jsx
 msgid "Recent Shots"
@@ -4245,6 +4284,7 @@ msgstr "Saturday"
 #: src/pages/ProfileEdit/ExtendedProfileForm.jsx
 #: src/pages/ProfileEdit/StandardProfileForm.jsx
 #: src/pages/ShotHistory/ShotNotesCard.jsx
+#: src/pages/ShotReview/BeanPicker.jsx
 msgid "Save"
 msgstr "Save"
 
@@ -4261,6 +4301,10 @@ msgstr "SAVE"
 #: src/pages/Settings/StickyFormFooter.jsx
 msgid "Save & Restart"
 msgstr "Save & Restart"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Save and use for this shot"
+msgstr "Save and use for this shot"
 
 #: src/pages/ShotAnalyzer/components/analysisTable/ColumnControls.jsx
 msgid "Save as New Preset"
@@ -4338,13 +4382,13 @@ msgctxt "scale state"
 msgid "Saved"
 msgstr "Saved"
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Saved in the bean library on the machine."
+msgstr "Saved in the bean library on the machine."
+
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "Saved scale"
 msgstr "Saved scale"
-
-#: src/pages/ShotReview/BeanPicker.jsx
-msgid "Saved with this shot's notes on the machine."
-msgstr "Saved with this shot's notes on the machine."
 
 #: src/components/PumpFlowCalibration/usePumpFlowCalibration.js
 msgid "Saving calibration profile..."
@@ -4434,6 +4478,10 @@ msgstr "Search {labelLower}..."
 #: src/pages/Statistics/components/StatisticsSearchHelp.jsx
 msgid "Search help"
 msgstr "Search help"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Search name or roaster"
+msgstr "Search name or roaster"
 
 #: src/pages/ShotAnalyzer/components/library/LibrarySection.jsx
 msgid "Search profiles..."
@@ -4727,6 +4775,10 @@ msgstr "Shots: {shotCount}"
 #: src/pages/Statistics/components/StatisticsMultiSelectDropdown.jsx
 msgid "Show all {labelLower}"
 msgstr "Show all {labelLower}"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Show archived beans ({archivedCount})"
+msgstr "Show archived beans ({archivedCount})"
 
 #: src/pages/ShotAnalyzer/components/shotChart/controls/compareControls.jsx
 msgid "Show compare annotations"
@@ -5855,10 +5907,6 @@ msgstr "Use <0>></0>, <1>>=</1>, <2><</2>, <3><=</3>, <4>=</4>"
 #: src/pages/Settings/tabs/GeneralTab.jsx
 msgid "Use 24h Format"
 msgstr "Use 24h Format"
-
-#: src/pages/ShotReview/BeanPicker.jsx
-msgid "Use for this shot"
-msgstr "Use for this shot"
 
 #: src/pages/Statistics/components/toolbar/helpers.js
 msgid "Use shot timestamp only"

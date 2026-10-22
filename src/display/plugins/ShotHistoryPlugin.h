@@ -2,6 +2,7 @@
 #define SHOTHISTORYPLUGIN_H
 
 #include <ArduinoJson.h>
+#include <functional>
 #include <LittleFS.h>
 #include <display/core/Plugin.h>
 #include <display/core/utils.h>
@@ -45,6 +46,12 @@ class ShotHistoryPlugin : public Plugin {
     void saveNotes(const String &id, const JsonDocument &notes);
     void loadNotes(const String &id, JsonDocument &notes);
     String resolveNotesPath(uint32_t id);
+    // The bean library (display/core/BeanStore.h) in /h/beans.json.
+    bool readJsonFile(const char *path, JsonDocument &doc);
+    void loadBeans(JsonDocument &store);
+    bool saveBeans(const JsonDocument &store);
+    // Loads the library, applies `change` (nullptr, or why it was refused), stores it and answers the request.
+    void changeBeans(JsonDocument &response, const std::function<const char *(JsonDocument &)> &change);
     void startRecording();
 
     uint16_t getSystemInfo(); // Helper to pack system state bits

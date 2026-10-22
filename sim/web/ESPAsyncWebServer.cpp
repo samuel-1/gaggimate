@@ -125,11 +125,19 @@ std::string base64(const uint8_t *data, size_t len) {
     return out;
 }
 
+// A peer that already closed (a browser tab going away mid-response) must fail the send with EPIPE, not kill
+// the simulator with SIGPIPE. macOS has no MSG_NOSIGNAL; there the sockets get SO_NOSIGPIPE instead.
+#ifdef MSG_NOSIGNAL
+constexpr int SEND_FLAGS = MSG_NOSIGNAL;
+#else
+constexpr int SEND_FLAGS = 0;
+#endif
+
 void sendAll(int fd, const void *data, size_t len) {
     const char *p = (const char *)data;
     size_t sent = 0;
     while (sent < len) {
-        ssize_t n = ::send(fd, p + sent, len - sent, 0);
+        ssize_t n = ::send(fd, p + sent, len - sent, SEND_FLAGS);
         if (n > 0) {
             sent += n;
         } else if (n < 0 && (errno == EAGAIN || errno == EWOULDBLOCK || errno == EINTR)) {
@@ -344,6 +352,9 @@ void AsyncWebServer::acceptNew() {
         fcntl(fd, F_SETFL, O_NONBLOCK);
         int one = 1;
         setsockopt(fd, IPPROTO_TCP, TCP_NODELAY, &one, sizeof(one));
+#ifdef SO_NOSIGPIPE
+        setsockopt(fd, SOL_SOCKET, SO_NOSIGPIPE, &one, sizeof(one)); // see SEND_FLAGS
+#endif
         _conns.push_back(Conn{fd});
     }
 }

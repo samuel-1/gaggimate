@@ -339,6 +339,10 @@ msgstr "应用设置"
 msgid "Appearance"
 msgstr "外观"
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Archived"
+msgstr "已归档"
+
 #: src/pages/ShotAnalyzer/components/library/LibraryPanel.jsx
 msgid "Are you sure you want to delete \"{itemName}\"?"
 msgstr "确定要删除“{itemName}”吗？"
@@ -558,8 +562,8 @@ msgid "Bean bag"
 msgstr "豆袋"
 
 #: src/pages/ShotReview/BeanPicker.jsx
-msgid "Bean details"
-msgstr "咖啡豆信息"
+msgid "Bean library"
+msgstr "豆库"
 
 #: src/pages/ShotReview/BeanPicker.jsx
 msgid "Bean name"
@@ -1112,9 +1116,18 @@ msgstr "无法连接到 {host}：{reason}。请确认咖啡机已开机，并且
 msgid "Couldn't load shots from the machine."
 msgstr "无法从咖啡机读取萃取记录。"
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Couldn't load the bean library: {loadError}"
+msgstr "无法读取豆库：{loadError}"
+
 #: src/pages/ShotReview/ReviewForm.jsx
 msgid "Couldn't save the review. Check the connection to the machine and try again."
 msgstr "点评保存失败，请检查与咖啡机的连接后重试。"
+
+#. placeholder {0}: e.message
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Couldn't update the bean library on the machine: {0}"
+msgstr "无法更新咖啡机上的豆库：{0}"
 
 #: src/pages/Settings/tabs/MachineTab.jsx
 msgid "Cracking pressure of a grouphead mushroom valve (e.g. 4.0 on Delonghi machines). Subtracted from readings and added to targets only while a brew is running. Leave at 0.0 for a 3-way solenoid."
@@ -1315,8 +1328,14 @@ msgstr "摄氏度"
 #: src/pages/ProfileList/index.jsx
 #: src/pages/ShotAnalyzer/components/library/LibraryRow.jsx
 #: src/pages/ShotHistory/HistoryCard.jsx
+#: src/pages/ShotReview/BeanPicker.jsx
 msgid "Delete"
 msgstr "删除"
+
+#. placeholder {0}: editing.name
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Delete \"{0}\" from the bean library? Shots keep their copy."
+msgstr "从豆库删除「{0}」？已有萃取记录里的豆子信息会保留。"
 
 #: src/pages/ProfileList/index.jsx
 msgid "Delete {label} profile"
@@ -1586,6 +1605,10 @@ msgstr "编辑 {label}"
 #: src/pages/ProfileList/index.jsx
 msgid "Edit {label} profile"
 msgstr "编辑 {label} 曲线"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Edit bean"
+msgstr "编辑咖啡豆"
 
 #: src/pages/ShotReview/BeanPicker.jsx
 msgid "Edit bean details"
@@ -1937,6 +1960,10 @@ msgstr "已完成"
 msgid "Finished Color"
 msgstr "完成颜色"
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Finished: move it to the archive"
+msgstr "已经喝完，移入归档"
+
 #: src/app/FirmwareWarning.jsx
 msgid "Firmware {version} – not all features may be available."
 msgstr "固件 {version} – 部分功能可能不可用。"
@@ -2077,10 +2104,6 @@ msgctxt "date range start"
 msgid "From"
 msgstr "从"
 
-#: src/pages/ShotReview/BeanPicker.jsx
-msgid "From your recent shots"
-msgstr "从最近的萃取记录中选择"
-
 #: src/pages/DashboardSettings/index.jsx
 msgctxt "panel view"
 msgid "Full"
@@ -2220,6 +2243,10 @@ msgstr "加热器功率，单位为瓦（例如 Gaggia Classic：1360 W，Rancil
 #: src/components/SettingsFormField.jsx
 msgid "Hidden / Available"
 msgstr "隐藏 / 可用"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Hide archived beans"
+msgstr "隐藏已归档的豆子"
 
 #: src/pages/ShotAnalyzer/components/shotChart/controls/compareControls.jsx
 msgid "Hide compare annotations"
@@ -2960,7 +2987,7 @@ msgstr "NEW"
 
 #: src/pages/ShotReview/BeanPicker.jsx
 msgid "New bean"
-msgstr "新的咖啡豆"
+msgstr "新建咖啡豆"
 
 #: src/components/PumpFlowCalibration/usePumpFlowCalibration.js
 msgid "New shot did not appear in history — was it cancelled?"
@@ -2997,9 +3024,17 @@ msgstr "每夜版会最先获得新功能，与每夜版固件使用相同的代
 msgid "no answer (timed out)"
 msgstr "无应答（超时）"
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "No bean matches."
+msgstr "没有匹配的豆子。"
+
 #: src/pages/ShotReview/ReviewForm.jsx
 msgid "No bean selected"
 msgstr "未选择咖啡豆"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "No beans yet. Add the one in your grinder."
+msgstr "豆库还是空的，先添加磨豆机里的这款豆子吧。"
 
 #: src/pages/Statistics/components/statisticsView/helpers.js
 #: src/pages/Statistics/components/toolbar/helpers.js
@@ -3146,6 +3181,10 @@ msgstr "未找到"
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "Not in range. Switch it on to reconnect."
 msgstr "不在范围内。打开它以重新连接。"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Not in the library"
+msgstr "不在豆库中"
 
 #: src/pages/ShotHistory/HistoryCard.jsx
 #: src/pages/ShotReview/ReviewForm.jsx
@@ -3425,6 +3464,10 @@ msgstr "阶段"
 #: src/pages/Settings/tabs/GeneralTab.jsx
 msgid "Physical Buttons"
 msgstr "实体按钮"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Pick from your bean library or add one"
+msgstr "从豆库选择，或新建一款"
 
 #: src/pages/Settings/tabs/CalibrationTab.jsx
 msgid "PID Autotune"
@@ -4008,10 +4051,6 @@ msgstr "重建萃取历史"
 msgid "Receipt"
 msgstr "小票"
 
-#: src/pages/ShotReview/BeanPicker.jsx
-msgid "Recent beans"
-msgstr "最近用过的咖啡豆"
-
 #: src/pages/DashboardSettings/index.jsx
 #: src/pages/Home/cards/RecentShotsCard.jsx
 msgid "Recent Shots"
@@ -4245,6 +4284,7 @@ msgstr "星期六"
 #: src/pages/ProfileEdit/ExtendedProfileForm.jsx
 #: src/pages/ProfileEdit/StandardProfileForm.jsx
 #: src/pages/ShotHistory/ShotNotesCard.jsx
+#: src/pages/ShotReview/BeanPicker.jsx
 msgid "Save"
 msgstr "保存"
 
@@ -4261,6 +4301,10 @@ msgstr "保存"
 #: src/pages/Settings/StickyFormFooter.jsx
 msgid "Save & Restart"
 msgstr "保存并重启"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Save and use for this shot"
+msgstr "保存并用于这一杯"
 
 #: src/pages/ShotAnalyzer/components/analysisTable/ColumnControls.jsx
 msgid "Save as New Preset"
@@ -4338,13 +4382,13 @@ msgctxt "scale state"
 msgid "Saved"
 msgstr "已保存"
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Saved in the bean library on the machine."
+msgstr "保存在咖啡机上的豆库里。"
+
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "Saved scale"
 msgstr "已保存的秤"
-
-#: src/pages/ShotReview/BeanPicker.jsx
-msgid "Saved with this shot's notes on the machine."
-msgstr "随这杯的备注一起保存在咖啡机上。"
 
 #: src/components/PumpFlowCalibration/usePumpFlowCalibration.js
 msgid "Saving calibration profile..."
@@ -4434,6 +4478,10 @@ msgstr "搜索{labelLower}..."
 #: src/pages/Statistics/components/StatisticsSearchHelp.jsx
 msgid "Search help"
 msgstr "搜索帮助"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Search name or roaster"
+msgstr "搜索名称或烘焙商"
 
 #: src/pages/ShotAnalyzer/components/library/LibrarySection.jsx
 msgid "Search profiles..."
@@ -4727,6 +4775,10 @@ msgstr "萃取次数：{shotCount}"
 #: src/pages/Statistics/components/StatisticsMultiSelectDropdown.jsx
 msgid "Show all {labelLower}"
 msgstr "显示全部{labelLower}"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Show archived beans ({archivedCount})"
+msgstr "显示已归档的豆子（{archivedCount}）"
 
 #: src/pages/ShotAnalyzer/components/shotChart/controls/compareControls.jsx
 msgid "Show compare annotations"
@@ -5855,10 +5907,6 @@ msgstr "使用 <0>></0>、<1>>=</1>、<2><</2>、<3><=</3>、<4>=</4>"
 #: src/pages/Settings/tabs/GeneralTab.jsx
 msgid "Use 24h Format"
 msgstr "使用 24 小时制"
-
-#: src/pages/ShotReview/BeanPicker.jsx
-msgid "Use for this shot"
-msgstr "用于这一杯"
 
 #: src/pages/Statistics/components/toolbar/helpers.js
 msgid "Use shot timestamp only"

@@ -146,6 +146,8 @@ export default function ShotNotesCard({ shot, onNotesUpdate, onNotesLoaded }) {
   const handleInputChange = (field, value) => {
     setNotes(prev => {
       const newNotes = { ...prev, [field]: value };
+      // A typed bean name is no longer the Shot Review bean library's bean (beanId, see beans.js).
+      if (field === 'beanType' && prev.beanId) newNotes.beanId = '';
 
       // Only recalculate ratio if we're changing doseIn or doseOut
       if ((field === 'doseIn' || field === 'doseOut') && initialLoaded) {

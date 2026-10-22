@@ -14,7 +14,7 @@ import { faImage } from '@fortawesome/free-solid-svg-icons/faImage';
 import { Spinner } from '../../components/Spinner.jsx';
 import ShareCardModal from '../../components/ShareCard/ShareCardModal.jsx';
 import { BeanPicker } from './BeanPicker.jsx';
-import { beanKey, beanFromNotes, beanToNotes, halfStarsOf } from '../../utils/shotNotes.js';
+import { beanFromNotes, beanToNotes, halfStarsOf, sameBean } from '../../utils/shotNotes.js';
 import { useRatingWords } from '../../utils/shotNotesLabels.js';
 import { readPref, writePref } from '../../utils/localPrefs.js';
 import { previousUse } from './beans.js';
@@ -35,6 +35,7 @@ const NOTES_MAX = 200;
 
 // The part of the shot notes this page edits; everything else in the notes is kept as is.
 const REVIEW_KEYS = [
+  'beanId',
   'beanType',
   'roaster',
   'roastDate',
@@ -75,6 +76,9 @@ export function ReviewForm({
   onSaved,
   notesCache,
   beans,
+  beanError,
+  onStoreBean,
+  onDeleteBean,
   apiService,
 }) {
   const { t } = useLingui();
@@ -195,7 +199,7 @@ export function ReviewForm({
   };
 
   const selectedBean = beanFromNotes(draft);
-  const currentBean = selectedBean && beans?.find(b => b.key === beanKey(selectedBean));
+  const currentBean = beans?.find(b => sameBean(b, selectedBean));
   const lastGrind = previousUse(currentBean, entry.id)?.grind;
   const half = Number(draft.ratingHalf) || 0;
 
@@ -260,7 +264,15 @@ export function ReviewForm({
         folded={folded.bean}
         onToggle={toggle}
       >
-        <BeanPicker beans={beans} selected={selectedBean} shotId={entry.id} onSelect={applyBean} />
+        <BeanPicker
+          beans={beans}
+          error={beanError}
+          selected={selectedBean}
+          shotId={entry.id}
+          onSelect={applyBean}
+          onStore={onStoreBean}
+          onDelete={onDeleteBean}
+        />
         <div className='mt-3 flex items-center gap-2'>
           <span className='text-base-content/70 text-sm'>
             <Trans>Dose</Trans>

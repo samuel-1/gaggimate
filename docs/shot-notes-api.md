@@ -51,6 +51,7 @@ Requests carry a `rid` that is echoed in the response. Shot ids may be sent padd
     "id": "31",
     "rating": 4,
     "ratingHalf": 7,
+    "beanId": "b-mgk2x1-4f0a",
     "beanType": "Ethiopia Guji",
     "roaster": "Onyx",
     "roastDate": "2026-10-02",
@@ -68,8 +69,8 @@ Requests carry a `rid` that is echoed in the response. Shot ids may be sent padd
 `notes` is `null` if the shot has no notes.
 
 The bean fields (`beanType`, `roaster`, `roastDate`, `roastLevel`) describe the coffee used for that shot.
-There is no separate bean store: the Shot Review page builds its bean list from the notes of recent shots
-and copies a bean's fields into each shot it reviews. `ratingHalf` refines `rating` to half stars; it only
+`beanId` points to the bean in the [bean library](#bean-library); the other fields are a copy of it from
+when the shot was reviewed, so they stay right after the bean is edited or deleted. `ratingHalf` refines `rating` to half stars; it only
 counts while `ceil(ratingHalf / 2)` equals `rating`, since other clients edit `rating` alone.
 
 ### Save notes
@@ -172,3 +173,52 @@ merged with its index entry and notes; see `schema/shot_history.json` for all fi
   }
 }
 ```
+
+## Bean library
+
+The beans the Shot Review page offers live in one table on the machine, `/h/beans.json` next to the shot
+history (`display/core/BeanStore.h`). A bean:
+
+```json
+{
+  "id": "b-mgk2x1-4f0a",
+  "name": "Ethiopia Guji",
+  "roaster": "Onyx",
+  "roastDate": "2026-10-02",
+  "roastLevel": "light",
+  "archived": false
+}
+```
+
+The client makes the id (1-32 characters of `A-Z a-z 0-9 _ -`). `name` is required, `roaster` and
+`roastLevel` are at most 80 bytes, `roastDate` is empty or `YYYY-MM-DD`; other fields are dropped. The
+library holds at most 200 beans.
+
+```json
+{ "tp": "req:history:beans:list", "rid": "3" }
+```
+
+```json
+{
+  "tp": "res:history:beans:list",
+  "rid": "3",
+  "beans": [{ "id": "b-mgk2x1-4f0a", "name": "Ethiopia Guji" }]
+}
+```
+
+```json
+{
+  "tp": "req:history:beans:save",
+  "rid": "4",
+  "bean": { "id": "b-mgk2x1-4f0a", "name": "Ethiopia Guji" }
+}
+```
+
+Adds the bean, or replaces the bean with that id (a save carries the whole bean).
+
+```json
+{ "tp": "req:history:beans:delete", "rid": "5", "id": "b-mgk2x1-4f0a" }
+```
+
+Both answer `{ "msg": "Ok" }`, or `{ "error": "..." }` when the bean is invalid, unknown or the library is
+full. Shots that used a deleted bean keep their copy of it.

@@ -71,7 +71,7 @@ function normalizeNotesForHistoryExport(notes, shotId) {
     rating: merged.rating ?? 0,
     beanType: merged.beanType ?? '',
     // Optional fields written by Shot Review; only exported when present.
-    ...pickPresent(merged, ['ratingHalf', 'roaster', 'roastDate', 'roastLevel']),
+    ...pickPresent(merged, ['ratingHalf', 'beanId', 'roaster', 'roastDate', 'roastLevel']),
     doseIn: merged.doseIn ?? '',
     doseOut: merged.doseOut ?? '',
     ratio: merged.ratio ?? '',

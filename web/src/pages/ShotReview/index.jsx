@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from 'preact/hooks';
+import { useContext, useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { useLocation, useRoute } from 'preact-iso';
 import { computed } from '@preact/signals';
 import { Trans, useLingui } from '@lingui/react/macro';
@@ -8,7 +8,15 @@ import { faClockRotateLeft } from '@fortawesome/free-solid-svg-icons/faClockRota
 import { ApiServiceContext, machine } from '../../services/ApiService.js';
 import { Spinner } from '../../components/Spinner.jsx';
 import { fetchShotList } from './shotData.js';
-import { loadRecentBeans } from './beans.js';
+import {
+  buildLibrary,
+  deleteBean,
+  fetchBeanTable,
+  migrateLegacyBeans,
+  newBeanId,
+  saveBean,
+  scanRecentNotes,
+} from './beans.js';
 import { ReviewForm } from './ReviewForm.jsx';
 import { ReviewList } from './ReviewList.jsx';
 import './ShotReview.css';
@@ -26,7 +34,13 @@ export function ShotReview() {
   const [shots, setShots] = useState(null);
   const [failed, setFailed] = useState(false);
   const [view, setView] = useState('review');
-  const [beans, setBeans] = useState(null); // null while loading
+  const [beanTable, setBeanTable] = useState(null); // the bean library on the machine; null while loading
+  const [beanError, setBeanError] = useState('');
+  // Bumps whenever notesCache changes, so the library recomputes each bean's uses.
+  const [notesRevision, setNotesRevision] = useState(0);
+  // Bumps with every change to the library made on this page, so a slower load can't undo it.
+  const beanEdits = useRef(0);
+  const shotIds = shots?.map(s => s.id).join(',');
   // Notes saved or loaded on this page, so the list shows them without asking the machine again.
   const notesCache = useRef(new Map());
   const rootRef = useRef(null);
@@ -53,15 +67,58 @@ export function ShotReview() {
     return () => controller.abort();
   }, [connected.value]);
 
-  // Beans come from the notes of recent shots. Rescanning after a save only reads the cache.
+  // The bean library, plus the notes of recent shots for each bean's last grind and dose. Beans named
+  // only in notes from before the library are taken into it (once: their notes get the beanId).
   useEffect(() => {
     if (!shots) return;
     const controller = new AbortController();
-    loadRecentBeans(shots, notesCache.current, apiService, controller.signal)
-      .then(list => !controller.signal.aborted && setBeans(list))
-      .catch(e => console.warn('Could not gather beans', e));
+    const signal = controller.signal;
+    const editsAtStart = beanEdits.current;
+    (async () => {
+      let table = await fetchBeanTable(apiService);
+      await scanRecentNotes(shots, notesCache.current, apiService, signal);
+      if (signal.aborted) return;
+      if (await migrateLegacyBeans(apiService, table, shots, notesCache.current, signal)) {
+        table = await fetchBeanTable(apiService);
+      }
+      if (signal.aborted) return;
+      // The user changed the library meanwhile: take the machine's table, which has the change too.
+      if (beanEdits.current !== editsAtStart) table = await fetchBeanTable(apiService);
+      if (signal.aborted) return;
+      setBeanTable(table);
+      setBeanError('');
+      setNotesRevision(n => n + 1);
+    })().catch(e => {
+      console.warn('Could not load the bean library', e);
+      if (!signal.aborted) setBeanError(e.message || String(e));
+    });
     return () => controller.abort();
-  }, [shots]);
+  }, [shotIds, apiService]);
+
+  const beans = useMemo(
+    () => (beanTable && shots ? buildLibrary(beanTable, shots, notesCache.current) : null),
+    [beanTable, shots, notesRevision],
+  );
+
+  // Adds or updates a bean in the library on the machine; resolves with the stored bean.
+  const storeBean = async bean => {
+    const stored = { ...bean, id: bean.id || newBeanId() };
+    beanEdits.current++;
+    await saveBean(apiService, stored);
+    setBeanTable(table => {
+      const list = table ?? [];
+      return list.some(b => b.id === stored.id)
+        ? list.map(b => (b.id === stored.id ? stored : b))
+        : [...list, stored];
+    });
+    return stored;
+  };
+
+  const removeBean = async id => {
+    beanEdits.current++;
+    await deleteBean(apiService, id);
+    setBeanTable(table => (table ?? []).filter(b => b.id !== id));
+  };
 
   const open = id => {
     setView('review');
@@ -74,6 +131,7 @@ export function ShotReview() {
 
   const onSaved = (id, notes) => {
     notesCache.current.set(id, notes);
+    setNotesRevision(n => n + 1); // the bean's uses change with the notes
     // Mirror the whole-star rating the machine keeps in its index.
     setShots(list => list.map(s => (s.id === id ? { ...s, rating: notes.rating || null } : s)));
   };
@@ -141,6 +199,9 @@ export function ShotReview() {
           onSaved={onSaved}
           notesCache={notesCache.current}
           beans={beans}
+          beanError={beanError}
+          onStoreBean={storeBean}
+          onDeleteBean={removeBean}
           apiService={apiService}
         />
       )}

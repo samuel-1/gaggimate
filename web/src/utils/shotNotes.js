@@ -51,47 +51,5 @@ export const roastLevel = id => ROAST_LEVELS.find(level => level.id === id) || n
 
 export const roastColor = id => roastLevel(id)?.color || '#8A5A3C';
 
-export function beanAgeDays(roastDate) {
-  if (!roastDate) return null;
-  const days = Math.floor((Date.now() - new Date(roastDate).getTime()) / 86400000);
-  return Number.isFinite(days) && days >= 0 ? days : null;
-}
-
-// A bean as the UI handles it. In the notes it is spread over beanType (the name), roaster,
-// roastDate and roastLevel.
-export const EMPTY_BEAN = { name: '', roaster: '', roastDate: '', roastLevel: '' };
-
-// Just the bean fields of `bean` (bean list entries also carry usage data).
-export function beanOnly(bean) {
-  return Object.fromEntries(Object.keys(EMPTY_BEAN).map(key => [key, bean?.[key] || '']));
-}
-
-export function beanFromNotes(notes) {
-  const name = notes?.beanType?.trim();
-  if (!name) return null;
-  return {
-    name,
-    roaster: notes.roaster || '',
-    roastDate: notes.roastDate || '',
-    roastLevel: notes.roastLevel || '',
-  };
-}
-
-export function beanToNotes(bean) {
-  return {
-    beanType: bean.name,
-    roaster: bean.roaster || '',
-    roastDate: bean.roastDate || '',
-    roastLevel: bean.roastLevel || '',
-  };
-}
-
-// Two shots used the same bean when name and roaster match (case and spacing ignored).
-export function beanKey(bean) {
-  const norm = s =>
-    String(s || '')
-      .trim()
-      .toLowerCase()
-      .replace(/\s+/g, ' ');
-  return `${norm(bean?.roaster)}|${norm(bean?.name)}`;
-}
+// The bean fields of shot notes; kept apart (no translations) so beans.js is unit tested with node.
+export * from './beanNotes.js';

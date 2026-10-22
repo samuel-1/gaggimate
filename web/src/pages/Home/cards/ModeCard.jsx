@@ -3,7 +3,11 @@ import { ModeTab } from '../ModeTab.jsx';
 
 export function ModeCard({ mode, modes, changeMode, compact = false, locked = false }) {
   return (
-    <div className='bg-base-200/70 @container flex h-9 w-full shrink-0 gap-0.5 rounded-full p-0.5'>
+    <div
+      className={`bg-base-200/70 @container flex w-full shrink-0 gap-0.5 rounded-full p-0.5 ${
+        compact ? 'h-9' : 'min-h-9'
+      }`}
+    >
       {modes.map(m => (
         <ModeTab
           key={m.id}
