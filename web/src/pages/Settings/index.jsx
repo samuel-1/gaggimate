@@ -17,7 +17,6 @@ import {
   setClock24h,
 } from '../../utils/dashboardManager.js';
 import { downloadJson } from '../../utils/download.js';
-import { getStoredTheme, handleThemeChange } from '../../utils/themeManager.js';
 
 import PageLayout from '../../components/PageLayout.jsx';
 import PageHeader from '../../components/PageHeader.jsx';
@@ -262,7 +261,6 @@ export function Settings() {
   const { profiles } = useProfileList();
   const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState({});
-  const [currentTheme, setCurrentTheme] = useState('light');
   const [showWifiPassword, setShowWifiPassword] = useState(false);
   const [showApPassword, setShowApPassword] = useState(false);
   const [autowakeupSchedules, setAutoWakeupSchedules] = useState([
@@ -317,10 +315,6 @@ export function Settings() {
       setAutoWakeupSchedules([{ time: '07:00', days: [true, true, true, true, true, true, true] }]);
     }
   }, [fetchedSettings]);
-
-  useEffect(() => {
-    setCurrentTheme(getStoredTheme());
-  }, []);
 
   const onChange = key => {
     return e => {
@@ -618,9 +612,6 @@ export function Settings() {
               formData={formData}
               onChange={onChange}
               profiles={profiles}
-              currentTheme={currentTheme}
-              setCurrentTheme={setCurrentTheme}
-              handleThemeChange={handleThemeChange}
               showWifiPassword={showWifiPassword}
               setShowWifiPassword={setShowWifiPassword}
               showApPassword={showApPassword}

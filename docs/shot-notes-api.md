@@ -50,7 +50,11 @@ Requests carry a `rid` that is echoed in the response. Shot ids may be sent padd
   "notes": {
     "id": "31",
     "rating": 4,
+    "ratingHalf": 7,
     "beanType": "Ethiopia Guji",
+    "roaster": "Onyx",
+    "roastDate": "2026-10-02",
+    "roastLevel": "light",
     "doseIn": "18.0",
     "doseOut": "36.4",
     "ratio": "2.02",
@@ -62,6 +66,11 @@ Requests carry a `rid` that is echoed in the response. Shot ids may be sent padd
 ```
 
 `notes` is `null` if the shot has no notes.
+
+The bean fields (`beanType`, `roaster`, `roastDate`, `roastLevel`) describe the coffee used for that shot.
+There is no separate bean store: the Shot Review page builds its bean list from the notes of recent shots
+and copies a bean's fields into each shot it reviews. `ratingHalf` refines `rating` to half stars; it only
+counts while `ceil(ratingHalf / 2)` equals `rating`, since other clients edit `rating` alone.
 
 ### Save notes
 

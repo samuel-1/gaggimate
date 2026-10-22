@@ -3,6 +3,9 @@
 
 #include "ControllerOTA.h"
 #include <WiFiClientSecure.h>
+#include <atomic>
+#include <esp_task_wdt.h>
+#include <sdkconfig.h>
 
 #include "semver.h"
 
@@ -18,6 +21,30 @@ using progress_callback_t = std::function<void(uint8_t phase, int progress)>;
 
 extern const uint8_t x509_crt_imported_bundle_bin_start[] asm("_binary_x509_crt_bundle_start");
 
+// Flash erases park core 0 and slow every other task, so IDLE0 and the AsyncTCP service task (both watched by
+// the 5 s task watchdog) can miss their deadline mid-update (seen twice in field coredumps). Widen the timeout for
+// the update instead of unsubscribing anyone: a real hang still reboots, just later. Counted, so overlapping
+// holders (e.g. a web upload's file write and the flash that follows) restore the timeout only when the last ends.
+struct OtaWatchdogRelax {
+    static constexpr uint32_t UPDATE_TIMEOUT_S = 60;
+    OtaWatchdogRelax() {
+        if (holders().fetch_add(1) == 0)
+            esp_task_wdt_init(UPDATE_TIMEOUT_S, true);
+    }
+    ~OtaWatchdogRelax() {
+        if (holders().fetch_sub(1) == 1)
+            esp_task_wdt_init(CONFIG_ESP_TASK_WDT_TIMEOUT_S, true);
+    }
+    OtaWatchdogRelax(const OtaWatchdogRelax &) = delete;
+    OtaWatchdogRelax &operator=(const OtaWatchdogRelax &) = delete;
+
+  private:
+    static std::atomic<int> &holders() {
+        static std::atomic<int> count{0};
+        return count;
+    }
+};
+
 class GitHubOTA {
   public:
     GitHubOTA(const String &display_version, const String &controller_version, const String &release_url,
@@ -30,6 +57,9 @@ class GitHubOTA {
     bool isUpdateAvailable(bool controller = false) const;
     String getCurrentVersion() const;
     void update(bool controller = true, bool display = true, NimBLEClient *client = nullptr);
+    // Flashes the controller from the image at CONTROLLER_FIRMWARE_PATH (web UI upload): no download and no
+    // display restart; reports through the same phase/progress callbacks.
+    bool flashControllerFile(NimBLEClient *client);
     void setReleaseUrl(const String &release_url);
     void setControllerVersion(const String &controller_version);
 

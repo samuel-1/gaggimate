@@ -303,9 +303,13 @@ void AsyncWebServer::begin() {
     int yes = 1;
     setsockopt(_listenFd, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(yes));
     fcntl(_listenFd, F_SETFL, O_NONBLOCK);
+    // Loopback only by default: the WebUI has no login. GAGGIMATE_SIM_LAN=1 also serves the
+    // LAN, e.g. to try the WebUI on a phone.
+    const char *lanEnv = getenv("GAGGIMATE_SIM_LAN");
+    bool lan = lanEnv && *lanEnv && strcmp(lanEnv, "0") != 0;
     sockaddr_in addr{};
     addr.sin_family = AF_INET;
-    addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+    addr.sin_addr.s_addr = htonl(lan ? INADDR_ANY : INADDR_LOOPBACK);
     addr.sin_port = htons(port);
     if (bind(_listenFd, (sockaddr *)&addr, sizeof(addr)) != 0 || listen(_listenFd, 8) != 0) {
         fprintf(stderr, "[sim-web] failed to listen on %u: %s\n", port, strerror(errno));
@@ -313,7 +317,11 @@ void AsyncWebServer::begin() {
         _listenFd = -1;
         return;
     }
-    fprintf(stderr, "[sim-web] WebUI server on http://localhost:%u/\n", port);
+    if (lan) {
+        fprintf(stderr, "[sim-web] WebUI server on http://0.0.0.0:%u/ (all interfaces)\n", port);
+    } else {
+        fprintf(stderr, "[sim-web] WebUI server on http://localhost:%u/ (GAGGIMATE_SIM_LAN=1 for the LAN)\n", port);
+    }
     g_servers.push_back(this);
 }
 

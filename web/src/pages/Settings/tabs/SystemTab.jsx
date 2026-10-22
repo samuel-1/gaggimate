@@ -8,6 +8,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons/faCaretRight';
 import { Spinner } from '../../../components/Spinner.jsx';
 import Section from '../../../components/Card.jsx';
+import { FirmwareUploadSection } from './FirmwareUploadSection.jsx';
 
 const imageUrlToBase64 = async blob => {
   return new Promise((onSuccess, onError) => {
@@ -454,6 +455,8 @@ export function SystemTab() {
           </span>
         </div>
       </Section>
+
+      <FirmwareUploadSection formData={formData} />
 
       <StorageAndMemorySection formData={formData} />
 

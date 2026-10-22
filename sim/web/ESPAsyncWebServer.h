@@ -8,6 +8,7 @@
 #include "Print.h"
 #include "WString.h"
 #include <cstdint>
+#include <cstdlib>
 #include <functional>
 #include <map>
 #include <memory>
@@ -71,6 +72,9 @@ class AsyncWebServer;
 class AsyncWebServerRequest {
   public:
     AsyncWebServerRequest(int fd, AsyncWebServer *server) : _fd(fd), _server(server) {}
+    ~AsyncWebServerRequest() { free(_tempObject); } // like the library: handlers may park a malloc'd value here
+    AsyncWebServerRequest(const AsyncWebServerRequest &) = delete;
+    AsyncWebServerRequest &operator=(const AsyncWebServerRequest &) = delete;
 
     const String &url() const { return _url; }
     int method() const { return _method; }
@@ -98,6 +102,7 @@ class AsyncWebServerRequest {
     std::string _body;
     int _fd;
     AsyncWebServer *_server;
+    void *_tempObject = nullptr;
 };
 
 using ArRequestHandlerFunction = std::function<void(AsyncWebServerRequest *)>;

@@ -29,6 +29,8 @@ class ControllerOTA {
     void init(const ctr_progress_callback_t &progress_callback);
 
     bool update(NimBLEClient *client, const String &release_url);
+    // Flashes the image already stored at CONTROLLER_FIRMWARE_PATH (e.g. uploaded through the web UI).
+    bool updateFromFile(NimBLEClient *client);
 
   private:
     bool resolveCharacteristics();

@@ -7,15 +7,6 @@
 #include <esp_task_wdt.h>
 #include <sdkconfig.h>
 
-// Flash erases park core 0 and slow every other task, so IDLE0 and the AsyncTCP service task (both watched by
-// the 5 s task watchdog) can miss their deadline mid-update (seen twice in field coredumps). Widen the timeout for
-// the update instead of unsubscribing anyone: a real hang still reboots, just later.
-struct OtaWatchdogRelax {
-    static constexpr uint32_t UPDATE_TIMEOUT_S = 60;
-    OtaWatchdogRelax() { esp_task_wdt_init(UPDATE_TIMEOUT_S, true); }
-    ~OtaWatchdogRelax() { esp_task_wdt_init(CONFIG_ESP_TASK_WDT_TIMEOUT_S, true); }
-};
-
 GitHubOTA::GitHubOTA(const String &display_version, const String &controller_version, const String &release_url,
                      const phase_callback_t &phase_callback, const progress_callback_t &progress_callback,
                      const String &firmware_name, const String &filesystem_name, const String &controller_firmware_name) {
@@ -138,6 +129,17 @@ void GitHubOTA::update(bool controller, bool display, NimBLEClient *client) {
 }
 
 void GitHubOTA::setReleaseUrl(const String &release_url) { this->_release_url = release_url; }
+
+bool GitHubOTA::flashControllerFile(NimBLEClient *client) {
+    OtaWatchdogRelax watchdogRelax;
+    // Sets the progress callback, also when the controller never reported ready (e.g. a protocol mismatch,
+    // the very case an uploaded controller image is for).
+    init();
+    setPhase(PHASE_CONTROLLER_FW);
+    const bool ok = _controller_ota.updateFromFile(client);
+    setPhase(ok ? PHASE_FINISHED : PHASE_FAILED);
+    return ok;
+}
 
 bool GitHubOTA::flashDisplayFirmware(const String &url) {
     const char *TAG = "flashDisplayFirmware";

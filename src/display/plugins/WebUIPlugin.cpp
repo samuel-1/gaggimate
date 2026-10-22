@@ -8,6 +8,7 @@
 #include <display/core/ProfileManager.h>
 #include <display/models/profile.h>
 #include <display/plugins/BLEScalePlugin.h>
+#include <display/plugins/FirmwareUploadSinks.h>
 #include <display/plugins/ShotHistoryPlugin.h>
 #include <display/webassets/web_ui_manifest.h>
 #include <esp32-hal-psram.h>
@@ -67,6 +68,9 @@ void WebUIPlugin::setup(Controller *_controller, PluginManager *_pluginManager) 
         ota->setControllerVersion(controller->getSystemInfo().version);
         ota->init();
     });
+    fwDisplaySink.reset(new OtaPartitionSink());
+    fwControllerSink.reset(new ControllerFileSink(controller));
+    fwSession.reset(new firmware_image::UploadSession(BUILD_ENV, *fwDisplaySink, *fwControllerSink));
     wsHandler.setup(controller, pluginManager);
     wsHandler.onOtaSettings([this](JsonDocument &request) { handleOTASettings(request); });
     wsHandler.onOtaStart([this](JsonDocument &request) { handleOTAStart(request); });
@@ -76,6 +80,7 @@ void WebUIPlugin::setup(Controller *_controller, PluginManager *_pluginManager) 
 }
 
 void WebUIPlugin::loop() {
+    loopFirmwareUpload(millis());
     if (updating) {
         // Pass which component is being flashed: a controller update streams the
         // firmware over BLE (wants a low-latency link), a display update is over
@@ -238,6 +243,12 @@ void WebUIPlugin::setupServer() {
         [this](AsyncWebServerRequest *request, uint8_t *data, size_t len, size_t index, size_t total) {
             handleProfileImageBody(request, data, len, index, total);
         });
+    server.on(
+        "/api/ota/upload", HTTP_POST, [this](AsyncWebServerRequest *request) { handleFirmwareUpload(request); },
+        nullptr,
+        [this](AsyncWebServerRequest *request, uint8_t *data, size_t len, size_t index, size_t total) {
+            handleFirmwareUploadBody(request, data, len, index, total);
+        });
     // The web UI is embedded in firmware flash and served from the memory-mapped blob (see serveWebAsset). It is no
     // longer in LittleFS, so OTA never touches the partition holding profiles/shots. The catch-all onNotFound handles
     // every path not claimed by an explicit server.on()/api route above. [GM-106]
@@ -303,6 +314,13 @@ void WebUIPlugin::handleOTASettings(JsonDocument &request) {
 }
 
 void WebUIPlugin::handleOTAStart(JsonDocument &request) {
+    // Under the lock, so an upload can't start between the check and `updating` being set (it reads `updating`
+    // under the same lock).
+    std::lock_guard<std::mutex> lock(fwMutex);
+    if (fwSession->busy() || fwFlashController) {
+        ESP_LOGW("WebUIPlugin", "Ignoring update request during a firmware upload");
+        return;
+    }
     updating = true;
     if (request["cp"].is<String>()) {
         updateComponent = request["cp"].as<String>();
@@ -742,6 +760,7 @@ void WebUIPlugin::updateOTAStatus(const String &version) {
     doc["displayUpdateAvailable"] = ota->isUpdateAvailable(false);
     doc["controllerUpdateAvailable"] = ota->isUpdateAvailable(true);
     doc["displayVersion"] = BUILD_GIT_VERSION;
+    doc["displayEnv"] = BUILD_ENV; // the firmware upload accepts display images built for this env
     doc["controllerVersion"] = controller->getSystemInfo().version;
     doc["hardware"] = controller->getSystemInfo().hardware;
     doc["latestVersion"] = ota->getCurrentVersion();
@@ -938,4 +957,82 @@ void WebUIPlugin::handleCoreDumpDownload(AsyncWebServerRequest *request) {
     response->addHeader("Cache-Control", "no-cache");
 
     request->send(response);
+}
+
+// ---- Firmware upload ------------------------------------------------------------------------------------------
+
+namespace {
+constexpr uint32_t FW_RESTART_DELAY_MS = 1500; // lets the HTTP response reach the browser first
+} // namespace
+
+void WebUIPlugin::handleFirmwareUploadBody(AsyncWebServerRequest *request, uint8_t *data, size_t len, size_t index,
+                                           size_t total) {
+    // The request's ticket: zeroed, freed with the request (see firmware_image::UploadTicket).
+    if (request->_tempObject == nullptr)
+        request->_tempObject = calloc(1, sizeof(firmware_image::UploadTicket));
+    auto *ticket = static_cast<firmware_image::UploadTicket *>(request->_tempObject);
+    if (ticket == nullptr)
+        return; // out of memory: the reply says no firmware was received
+    std::lock_guard<std::mutex> lock(fwMutex);
+    firmware_image::UploadConditions conditions;
+    // The machine's state as loop() last saw it: Controller is not safe to query from this (AsyncTCP) task.
+    conditions.updateRunning = updating || fwFlashController || fwControllerUpdating;
+    conditions.processActive = fwProcessActive;
+    fwSession->chunk(*ticket, request->arg("target").c_str(), request->arg("force") == "1", data, len, index, total,
+                     conditions, millis());
+}
+
+void WebUIPlugin::handleFirmwareUpload(AsyncWebServerRequest *request) {
+    std::lock_guard<std::mutex> lock(fwMutex);
+    const auto *ticket = static_cast<const firmware_image::UploadTicket *>(request->_tempObject);
+    const firmware_image::UploadReply reply =
+        fwSession->reply(ticket != nullptr ? *ticket : firmware_image::UploadTicket{});
+    JsonDocument doc;
+    doc[reply.ok ? "result" : "error"] = reply.text.c_str();
+    String body;
+    serializeJson(doc, body);
+    request->send(reply.status, "application/json", body);
+    if (reply.ok)
+        ESP_LOGI("WebUIPlugin", "Firmware upload accepted: %s", reply.text.c_str());
+    else
+        ESP_LOGW("WebUIPlugin", "Firmware upload refused: %s", reply.text.c_str());
+    if (reply.next == firmware_image::UploadReply::Next::RestartDisplay)
+        fwRestartAt = millis() + FW_RESTART_DELAY_MS;
+    else if (reply.next == firmware_image::UploadReply::Next::FlashController)
+        fwFlashController = true;
+}
+
+void WebUIPlugin::loopFirmwareUpload(uint32_t now) {
+    fwProcessActive = controller->isActive();
+    fwControllerUpdating = controller->isUpdating();
+    bool hold = fwHolding;
+    {
+        // Never wait for the AsyncTCP task here: it may be writing flash. The state keeps until the next loop.
+        std::unique_lock<std::mutex> lock(fwMutex, std::try_to_lock);
+        if (lock.owns_lock()) {
+            fwSession->failIfStalled(now);
+            hold = fwSession->busy() || fwFlashController || fwRestartAt != 0;
+        }
+    }
+    // Follows the state, not single events: a stalled upload replaced by a new one between two loops keeps the
+    // machine held. Wi-Fi keeps the radio while the file comes in.
+    if (hold && !fwHolding)
+        pluginManager->trigger("ota:update:start", "component", "display");
+    else if (!hold && fwHolding)
+        pluginManager->trigger("ota:update:end");
+    fwHolding = hold;
+    if (fwFlashController) {
+        pluginManager->trigger("ota:update:start", "component", "controller"); // BLE gets the radio now
+        const bool ok = ota->flashControllerFile(controller->getClientController()->getClient());
+        LittleFS.remove(CONTROLLER_FIRMWARE_PATH);
+        ESP_LOGI("WebUIPlugin", "Uploaded controller firmware %s", ok ? "flashed" : "failed");
+        pluginManager->trigger("ota:update:end");
+        fwHolding = false;
+        fwFlashController = false;
+    }
+    const uint32_t restartAt = fwRestartAt;
+    if (restartAt != 0 && static_cast<int32_t>(now - restartAt) >= 0) {
+        ESP_LOGI("WebUIPlugin", "Restarting into the uploaded firmware");
+        ESP.restart();
+    }
 }

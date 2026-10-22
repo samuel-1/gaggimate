@@ -2,6 +2,7 @@
 #define MAIN_H
 
 #include "core/Controller.h"
+#include <firmware_id.h>
 #include <version.h>
 
 extern Controller controller;

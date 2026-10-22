@@ -79,6 +79,10 @@ msgstr "{host} isn't answering. Make sure the machine is on and your phone is on
 msgid "{label} severity"
 msgstr "{label} severity"
 
+#: src/pages/ShotReview/HalfStarRating.jsx
+msgid "{label} stars"
+msgstr "{label} stars"
+
 #: src/app/AppSettings.jsx
 msgid "{machineCount, plural, one {Watches # saved machine.} other {Watches all # saved machines.}}"
 msgstr "{machineCount, plural, one {Watches # saved machine.} other {Watches all # saved machines.}}"
@@ -106,6 +110,10 @@ msgstr "{rssi}dB (Roundtrip: {lat} ms, Resends: {rtx})"
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "{scaleName} disconnected"
 msgstr "{scaleName} disconnected"
+
+#: src/pages/ShotReview/HalfStarRating.jsx
+msgid "{stars} of 5 stars"
+msgstr "{stars} of 5 stars"
 
 #: src/pages/ShotHistory/index.jsx
 msgid "{totalFilteredItems} of {historyCount} shots"
@@ -290,6 +298,10 @@ msgstr "All Metrics"
 msgid "All Shots"
 msgstr "All Shots"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Allow files without a GaggiMate firmware id (official releases from before this feature). Files built for another part are always refused."
+msgstr "Allow files without a GaggiMate firmware id (official releases from before this feature). Files built for another part are always refused."
+
 #: src/pages/Settings/tabs/MachineTab.jsx
 msgid "Alt Relay / SSR2 Function"
 msgstr "Alt Relay / SSR2 Function"
@@ -383,6 +395,10 @@ msgstr "Autotune Failed"
 #: src/pages/Settings/tabs/CalibrationTab.jsx
 msgid "Autotune in Progress"
 msgstr "Autotune in Progress"
+
+#: src/pages/ShotReview/ReviewList.jsx
+msgid "Average"
+msgstr "Average"
 
 #: src/pages/Statistics/components/PhaseStatistics.jsx
 msgid "Average target value and deviation"
@@ -500,6 +516,7 @@ msgstr "Avg. Weight Flow"
 #: src/pages/ProfileEdit/ExtendedProfileForm.jsx
 #: src/pages/ProfileEdit/StandardProfileForm.jsx
 #: src/pages/Settings/tabs/SystemTab.jsx
+#: src/pages/ShotReview/BeanPicker.jsx
 msgid "Back"
 msgstr "Back"
 
@@ -536,6 +553,18 @@ msgstr "Basic Metrics"
 msgid "Basics"
 msgstr "Basics"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Bean bag"
+msgstr "Bean bag"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Bean details"
+msgstr "Bean details"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Bean name"
+msgstr "Bean name"
+
 #: src/pages/ShotHistory/ShotNotesCard.jsx
 msgid "Bean Type"
 msgstr "Bean Type"
@@ -543,6 +572,10 @@ msgstr "Bean Type"
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotDetailsCard.jsx
 msgid "Beans"
 msgstr "Beans"
+
+#: src/pages/ShotReview/ReviewList.jsx
+msgid "Best"
+msgstr "Best"
 
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotDetailsCard.jsx
 #: src/pages/ShotHistory/ShotNotesCard.jsx
@@ -613,6 +646,10 @@ msgstr "Brew Phases"
 msgid "Brew phases configuration"
 msgstr "Brew phases configuration"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Brew profile not found on the machine, so the card has no QR code."
+msgstr "Brew profile not found on the machine, so the card has no QR code."
+
 #: src/components/OverviewChart.jsx
 msgid "Brew Progress - {windowSeconds}s View"
 msgstr "Brew Progress - {windowSeconds}s View"
@@ -651,6 +688,11 @@ msgstr "Build"
 #: src/pages/Statistics/components/statisticsView/StatisticsView.jsx
 msgid "Build and show Shot Charts"
 msgstr "Build and show Shot Charts"
+
+#. placeholder {0}: formData.displayEnv
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Build: {0}"
+msgstr "Build: {0}"
 
 #: src/pages/ProfileList/index.jsx
 msgid "Built-in profile, can be edited but not deleted"
@@ -722,6 +764,14 @@ msgstr "Canvas capture is not supported in this browser."
 msgid "Canvas export is not supported in this environment."
 msgstr "Canvas export is not supported in this environment."
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Card style"
+msgstr "Card style"
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Card title"
+msgstr "Card title"
+
 #: src/pages/ProfileEdit/ExtendedPhase.jsx
 #: src/pages/Settings/tabs/MachineTab.jsx
 msgid "celsius"
@@ -735,6 +785,10 @@ msgstr "Chart & Metrics"
 #: src/pages/Settings/tabs/GeneralTab.jsx
 msgid "Chart First"
 msgstr "Chart First"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Choose a bean"
+msgstr "Choose a bean"
 
 #: src/app/ConnectionGate.jsx
 msgid "Choose another machine"
@@ -778,8 +832,11 @@ msgid "Click to open the library. Use Import below or drop files here to import.
 msgstr "Click to open the library. Use Import below or drop files here to import."
 
 #: src/app/MachineSetup.jsx
+#: src/components/ShareCard/ShareCardModal.jsx
+#: src/components/ThemeMenu.jsx
 #: src/components/VisualizerUploadModal.jsx
 #: src/pages/Home/BrewConfirmModal.jsx
+#: src/pages/ShotReview/BeanPicker.jsx
 msgid "Close"
 msgstr "Close"
 
@@ -807,6 +864,18 @@ msgstr "closed, code {code}"
 msgid "Cmd/Ctrl = Add"
 msgstr "Cmd/Ctrl = Add"
 
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Coarse"
+msgstr "Coarse"
+
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Coarser"
+msgstr "Coarser"
+
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Coarsest"
+msgstr "Coarsest"
+
 #: src/components/PumpFlowCalibration/ResultsPanel.jsx
 msgid "Coefficients"
 msgstr "Coefficients"
@@ -815,7 +884,10 @@ msgstr "Coefficients"
 msgid "Coefficients saved to machine: {newCoeffs}"
 msgstr "Coefficients saved to machine: {newCoeffs}"
 
-#: src/pages/Settings/tabs/GeneralTab.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Coffee"
+msgstr "Coffee"
+
 #: src/utils/themeManager.js
 msgctxt "theme"
 msgid "Coffee"
@@ -972,6 +1044,10 @@ msgstr "Connecting…"
 msgid "Control Column Style"
 msgstr "Control Column Style"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Controller"
+msgstr "Controller"
+
 #: src/app/appSettings.js
 msgid "Controller errors and error-level warnings."
 msgstr "Controller errors and error-level warnings."
@@ -1008,6 +1084,10 @@ msgstr "Could not delete calibration profile: {message}"
 msgid "Could not import {importName}: {importMessage}"
 msgstr "Could not import {importName}: {importMessage}"
 
+#: src/pages/ProfileList/index.jsx
+msgid "Could not read that profile code."
+msgstr "Could not read that profile code."
+
 #: src/pages/ProfileEdit/ProfileImageUpload.jsx
 msgid "Could not read this image."
 msgstr "Could not read this image."
@@ -1028,6 +1108,14 @@ msgstr "Couldn't connect to {errorAddress}"
 msgid "Couldn't connect to {host}: {reason}. Make sure the machine is on and your phone is on the same Wi-Fi network."
 msgstr "Couldn't connect to {host}: {reason}. Make sure the machine is on and your phone is on the same Wi-Fi network."
 
+#: src/pages/ShotReview/index.jsx
+msgid "Couldn't load shots from the machine."
+msgstr "Couldn't load shots from the machine."
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Couldn't save the review. Check the connection to the machine and try again."
+msgstr "Couldn't save the review. Check the connection to the machine and try again."
+
 #: src/pages/Settings/tabs/MachineTab.jsx
 msgid "Cracking pressure of a grouphead mushroom valve (e.g. 4.0 on Delonghi machines). Subtracted from readings and added to targets only while a brew is running. Leave at 0.0 for a 3-way solenoid."
 msgstr "Cracking pressure of a grouphead mushroom valve (e.g. 4.0 on Delonghi machines). Subtracted from readings and added to targets only while a brew is running. Leave at 0.0 for a 3-way solenoid."
@@ -1039,6 +1127,10 @@ msgstr "Crafted with <0>{randomIcon}</0> in Italy by <1>Caffinnova S.r.l.</1>"
 #: src/pages/ProfileEdit/index.jsx
 msgid "Create Profile"
 msgstr "Create Profile"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Create share card"
+msgstr "Create share card"
 
 #: src/utils/pumpFlowCalibration.js
 msgid "Current coefficients are not numeric: \"{raw}\""
@@ -1098,8 +1190,11 @@ msgstr "Customize"
 msgid "Daily average: <0>{dailyAvg} shots</0>"
 msgstr "Daily average: <0>{dailyAvg} shots</0>"
 
-#: src/app/AppSettings.jsx
-#: src/pages/Settings/tabs/GeneralTab.jsx
+#: src/utils/shotNotes.js
+msgctxt "roast level"
+msgid "Dark"
+msgstr "Dark"
+
 #: src/utils/themeManager.js
 msgctxt "theme"
 msgid "Dark"
@@ -1187,6 +1282,10 @@ msgstr "Days active: <0>{daysWithShots}</0>"
 #: src/pages/Settings/PluginCard.jsx
 msgid "Days of week selection"
 msgstr "Days of week selection"
+
+#: src/utils/shotNotesLabels.js
+msgid "Decent"
+msgstr "Decent"
 
 #: src/pages/ShotAnalyzer/shotAnalyzer/ShotAnalyzer.jsx
 msgid "Deep Dive Shot Analyzer"
@@ -1312,6 +1411,10 @@ msgstr "Disconnect"
 msgid "Dismiss"
 msgstr "Dismiss"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Display"
+msgstr "Display"
+
 #: src/pages/Settings/tabs/GeneralTab.jsx
 msgid "Display Settings"
 msgstr "Display Settings"
@@ -1345,6 +1448,7 @@ msgid "Done"
 msgstr "Done"
 
 #: src/pages/ProfileEdit/ProfileMainInformation.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
 msgid "Dose"
 msgstr "Dose"
 
@@ -1353,6 +1457,7 @@ msgid "Dose In"
 msgstr "Dose In"
 
 #: src/pages/ShotHistory/ShotNotesCard.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
 msgid "Dose In (g)"
 msgstr "Dose In (g)"
 
@@ -1441,6 +1546,10 @@ msgstr "Duration: {duration}s"
 msgid "During the shot, adjust the valve so pressure reaches 1 bar, then 9 bar. Keep it stable during the <0>Measure</0> phases (10 s each)."
 msgstr "During the shot, adjust the valve so pressure reaches 1 bar, then 9 bar. Keep it stable during the <0>Measure</0> phases (10 s each)."
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "e.g. Ethiopia Guji"
+msgstr "e.g. Ethiopia Guji"
+
 #: src/app/appSettings.js
 msgid "E.g. water tank low, scale battery low."
 msgstr "E.g. water tank low, scale battery low."
@@ -1477,6 +1586,10 @@ msgstr "Edit {label}"
 #: src/pages/ProfileList/index.jsx
 msgid "Edit {label} profile"
 msgstr "Edit {label} profile"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Edit bean details"
+msgstr "Edit bean details"
 
 #: src/pages/Statistics/components/toolbar/subcomponents.jsx
 msgid "Edit date range filter"
@@ -1564,6 +1677,10 @@ msgstr "Enter a name for this profile"
 msgid "Enter the bar rating of the pressure sensor being used"
 msgstr "Enter the bar rating of the pressure sensor being used"
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Enter the bean name"
+msgstr "Enter the bean name"
+
 #: src/app/MachineSetup.jsx
 msgid "Enter the hostname or IP address of your machine."
 msgstr "Enter the hostname or IP address of your machine."
@@ -1606,6 +1723,20 @@ msgstr "Error: {message}"
 msgid "Errors"
 msgstr "Errors"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Espresso"
+msgstr "Espresso"
+
+#: src/utils/themeManager.js
+msgctxt "theme"
+msgid "Espresso"
+msgstr "Espresso"
+
+#: src/utils/themeManager.js
+msgctxt "theme"
+msgid "Espresso Dark"
+msgstr "Espresso Dark"
+
 #: src/components/PumpFlowCalibration/ResultsPanel.jsx
 msgid "estimated flow"
 msgstr "estimated flow"
@@ -1625,6 +1756,10 @@ msgstr "Every"
 #: src/pages/Statistics/components/StatisticsSearchHelp.jsx
 msgid "Examples"
 msgstr "Examples"
+
+#: src/utils/shotNotesLabels.js
+msgid "Excellent"
+msgstr "Excellent"
 
 #: src/pages/ShotAnalyzer/components/analysisTable/analysisTableModel.js
 msgid "Excessive delay while writing samples. Possible causes include a slow SD card or high OS/system load."
@@ -1725,6 +1860,10 @@ msgstr "Extended Record"
 msgid "External LED ({extLedPct}%)"
 msgstr "External LED ({extLedPct}%)"
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Extraction"
+msgstr "Extraction"
+
 #: src/pages/ProfileList/index.jsx
 msgctxt "profile tab"
 msgid "Extraction"
@@ -1772,6 +1911,18 @@ msgstr "File export failed."
 msgid "Filter library source"
 msgstr "Filter library source"
 
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Fine"
+msgstr "Fine"
+
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Finer"
+msgstr "Finer"
+
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Finest"
+msgstr "Finest"
+
 #: src/pages/Home/utils.js
 msgctxt "process action"
 msgid "Finish"
@@ -1790,6 +1941,24 @@ msgstr "Finished Color"
 msgid "Firmware {version} – not all features may be available."
 msgstr "Firmware {version} – not all features may be available."
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Firmware file (.bin)"
+msgstr "Firmware file (.bin)"
+
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Firmware installed. The display is restarting; this page reloads when it is back."
+msgstr "Firmware installed. The display is restarting; this page reloads when it is back."
+
+#. placeholder {0}: file.name
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Flash \"{0}\" onto the controller? The machine can't be used until it finishes."
+msgstr "Flash \"{0}\" onto the controller? The machine can't be used until it finishes."
+
+#. placeholder {0}: file.name
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Flash \"{0}\" onto the display? It restarts when the upload is done."
+msgstr "Flash \"{0}\" onto the display? It restarts when the upload is done."
+
 #: src/utils/panelDefinitions.js
 msgid "Flexible Space"
 msgstr "Flexible Space"
@@ -1797,6 +1966,7 @@ msgstr "Flexible Space"
 #: src/components/ExtendedProfileChart.jsx
 #: src/pages/Home/cards/ProfileCard.jsx
 #: src/pages/Home/cards/RecentShotsCard.jsx
+#: src/pages/ShotReview/ReviewChart.jsx
 #: src/utils/metricDefinitions.js
 msgid "Flow"
 msgstr "Flow"
@@ -1867,6 +2037,15 @@ msgstr "Flush recommended"
 msgid "Flush water"
 msgstr "Flush water"
 
+#. placeholder {0}: formData.displayEnv || 'display'
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "For example .pio/build/{0}/firmware.bin"
+msgstr "For example .pio/build/{0}/firmware.bin"
+
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "For example .pio/build/controller/firmware.bin"
+msgstr "For example .pio/build/controller/firmware.bin"
+
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "Forget"
 msgstr "Forget"
@@ -1897,6 +2076,10 @@ msgstr "Friday"
 msgctxt "date range start"
 msgid "From"
 msgstr "From"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "From your recent shots"
+msgstr "From your recent shots"
 
 #: src/pages/DashboardSettings/index.jsx
 msgctxt "panel view"
@@ -1947,6 +2130,10 @@ msgstr "Global metric averages"
 msgid "Go Home"
 msgstr "Go Home"
 
+#: src/utils/shotNotesLabels.js
+msgid "Good"
+msgstr "Good"
+
 #: src/pages/ProfileEdit/ProfileMainInformation.jsx
 #: src/pages/ProfileEdit/StandardProfileForm.jsx
 msgid "grams"
@@ -1957,7 +2144,14 @@ msgstr "grams"
 msgid "grams per second"
 msgstr "grams per second"
 
+#: src/utils/shotNotesLabels.js
+msgid "Great"
+msgstr "Great"
+
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotDetailsCard.jsx
+#: src/pages/ShotReview/BeanPicker.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
+#: src/pages/ShotReview/ReviewList.jsx
 msgid "Grind"
 msgstr "Grind"
 
@@ -1982,6 +2176,7 @@ msgid "Grind once with GbS to see which recipe number your grinder reports."
 msgstr "Grind once with GbS to see which recipe number your grinder reports."
 
 #: src/pages/ShotHistory/ShotNotesCard.jsx
+#: src/pages/ShotReview/GrindSlider.jsx
 msgid "Grind Setting"
 msgstr "Grind Setting"
 
@@ -2071,6 +2266,10 @@ msgstr "Highest Rated"
 msgid "Highest Volume"
 msgstr "Highest Volume"
 
+#: src/pages/ShotReview/index.jsx
+msgid "History"
+msgstr "History"
+
 #: src/pages/Settings/tabs/GeneralTab.jsx
 msgctxt "flush duration"
 msgid "Hold"
@@ -2148,6 +2347,10 @@ msgid "Import failed. Please check the file format."
 msgstr "Import failed. Please check the file format."
 
 #: src/pages/ProfileList/index.jsx
+msgid "Import from QR code text"
+msgstr "Import from QR code text"
+
+#: src/pages/ProfileList/index.jsx
 msgid "Import profiles"
 msgstr "Import profiles"
 
@@ -2182,6 +2385,10 @@ msgstr "INCOMPLETE"
 #: src/pages/Home/utils.js
 msgid "Infusion"
 msgstr "Infusion"
+
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Install a firmware file you built yourself. The machine checks that the file is meant for the part you pick before using it."
+msgstr "Install a firmware file you built yourself. The machine checks that the file is meant for the part you pick before using it."
 
 #: src/pages/ProfileEdit/ExtendedPhase.jsx
 msgctxt "ramp style"
@@ -2268,6 +2475,10 @@ msgstr "Larger alpha responds faster with less smoothing; smaller alpha is smoot
 msgid "Last Row Fill"
 msgstr "Last Row Fill"
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Last time with this bean: {lastGrind}"
+msgstr "Last time with this bean: {lastGrind}"
+
 #: src/pages/Settings/tabs/GeneralTab.jsx
 msgid "Last used profile"
 msgstr "Last used profile"
@@ -2280,6 +2491,10 @@ msgstr "Last week"
 msgid "Last: {lastTime} · {shotsSince, plural, one {# shot since} other {# shots since}}"
 msgstr "Last: {lastTime} · {shotsSince, plural, one {# shot since} other {# shots since}}"
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Latest"
+msgstr "Latest"
+
 #: src/pages/ShotAnalyzer/components/library/LibrarySection.jsx
 msgid "Length (Long)"
 msgstr "Length (Long)"
@@ -2288,12 +2503,19 @@ msgstr "Length (Long)"
 msgid "Length (Short)"
 msgstr "Length (Short)"
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Less dose"
+msgstr "Less dose"
+
 #: src/pages/Settings/PluginCard.jsx
 msgid "Lets an E64 WS start shots with its knob and dial in its grind from the shot time and weight. A grind selects the profile mapped to its recipe, and the grinder's target weight overrides that profile's weight target. Save and restart to apply."
 msgstr "Lets an E64 WS start shots with its knob and dial in its grind from the shot time and weight. A grind selects the profile mapped to its recipe, and the grinder's target weight overrides that profile's weight target. Save and restart to apply."
 
-#: src/app/AppSettings.jsx
-#: src/pages/Settings/tabs/GeneralTab.jsx
+#: src/utils/shotNotes.js
+msgctxt "roast level"
+msgid "Light"
+msgstr "Light"
+
 #: src/utils/themeManager.js
 msgctxt "theme"
 msgid "Light"
@@ -2550,6 +2772,25 @@ msgstr "Maximum Pump Power (0 - 1)"
 msgid "MediaRecorder is not supported in this browser."
 msgstr "MediaRecorder is not supported in this browser."
 
+#: src/utils/shotNotes.js
+msgctxt "roast level"
+msgid "Medium"
+msgstr "Medium"
+
+#: src/utils/shotNotes.js
+msgctxt "roast level"
+msgid "Medium-dark"
+msgstr "Medium-dark"
+
+#: src/utils/shotNotes.js
+msgctxt "roast level"
+msgid "Medium-light"
+msgstr "Medium-light"
+
+#: src/utils/shotNotesLabels.js
+msgid "Meh"
+msgstr "Meh"
+
 #: src/pages/Statistics/components/PhaseStatistics.jsx
 msgid "Metric"
 msgstr "Metric"
@@ -2619,6 +2860,10 @@ msgstr "Month"
 #: src/pages/ShotAnalyzer/components/library/LibraryActionsMenu.jsx
 msgid "More actions"
 msgstr "More actions"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "More dose"
+msgstr "More dose"
 
 #: src/pages/Settings/index.jsx
 msgid "More options"
@@ -2713,9 +2958,17 @@ msgstr "Never"
 msgid "NEW"
 msgstr "NEW"
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "New bean"
+msgstr "New bean"
+
 #: src/components/PumpFlowCalibration/usePumpFlowCalibration.js
 msgid "New shot did not appear in history — was it cancelled?"
 msgstr "New shot did not appear in history — was it cancelled?"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Newer shot"
+msgstr "Newer shot"
 
 #: src/pages/ShotHistory/index.jsx
 msgid "Newest First"
@@ -2743,6 +2996,10 @@ msgstr "Nightly gets new features first, built from the same code as the nightly
 #: src/app/machines.js
 msgid "no answer (timed out)"
 msgstr "no answer (timed out)"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "No bean selected"
+msgstr "No bean selected"
 
 #: src/pages/Statistics/components/statisticsView/helpers.js
 #: src/pages/Statistics/components/toolbar/helpers.js
@@ -2798,9 +3055,17 @@ msgstr "No pinned items found."
 msgid "No preceding phase"
 msgstr "No preceding phase"
 
+#: src/pages/ProfileList/index.jsx
+msgid "No profile found in that text."
+msgstr "No profile found in that text."
+
 #: src/pages/ShotAnalyzer/components/library/libraryDisplay.js
 msgid "No Profile Loaded"
 msgstr "No Profile Loaded"
+
+#: src/pages/ShotReview/HalfStarRating.jsx
+msgid "No rating"
+msgstr "No rating"
 
 #: src/pages/ShotAnalyzer/services/analyzer/shotAnalysis.js
 msgid "No sample data available for analysis."
@@ -2827,6 +3092,10 @@ msgstr "No shots found for the selected filters."
 #: src/pages/ShotHistory/index.jsx
 msgid "No shots match your search and filter criteria"
 msgstr "No shots match your search and filter criteria"
+
+#: src/pages/ShotReview/index.jsx
+msgid "No shots yet. Pull a shot and it will show up here to review."
+msgstr "No shots yet. Pull a shot and it will show up here to review."
 
 #: src/pages/Statistics/components/statisticsView/StatisticsView.jsx
 msgid "No Statistics Built Yet"
@@ -2879,6 +3148,8 @@ msgid "Not in range. Switch it on to reconnect."
 msgstr "Not in range. Switch it on to reconnect."
 
 #: src/pages/ShotHistory/HistoryCard.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
+#: src/utils/shotNotesLabels.js
 msgid "Not rated"
 msgstr "Not rated"
 
@@ -2910,9 +3181,17 @@ msgctxt "pump mode"
 msgid "Off"
 msgstr "Off"
 
+#: src/utils/shotNotesLabels.js
+msgid "Okay"
+msgstr "Okay"
+
 #: src/app/FirmwareWarning.jsx
 msgid "Old firmware"
 msgstr "Old firmware"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Older shot"
+msgstr "Older shot"
 
 #: src/pages/ShotHistory/index.jsx
 msgid "Oldest First"
@@ -2997,6 +3276,10 @@ msgstr "Open the Home app on your iOS device, select Add Accessory, and enter th
 msgid "Opens imported external shots and profiles temporarily without saving them to the browser library."
 msgstr "Opens imported external shots and profiles temporarily without saving them to the browser library."
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Optional"
+msgstr "Optional"
+
 #: src/pages/ProfileEdit/ProfileMainInformation.jsx
 msgid "Optional description for this profile"
 msgstr "Optional description for this profile"
@@ -3026,6 +3309,10 @@ msgstr "Panel Selection"
 msgid "Parsed {sampleCount} samples (v{version})."
 msgstr "Parsed {sampleCount} samples (v{version})."
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Part to update"
+msgstr "Part to update"
+
 #: src/pages/Settings/PluginCard.jsx
 msgid "password"
 msgstr "password"
@@ -3033,6 +3320,10 @@ msgstr "password"
 #: src/components/VisualizerUploadModal.jsx
 msgid "Password"
 msgstr "Password"
+
+#: src/pages/ProfileList/index.jsx
+msgid "Paste the text from a share-card QR code (starts with GM1.)"
+msgstr "Paste the text from a share-card QR code (starts with GM1.)"
 
 #: src/pages/Home/utils.js
 msgctxt "process action"
@@ -3042,6 +3333,10 @@ msgstr "Pause"
 #: src/pages/ShotAnalyzer/components/shotChart/controls/chartReplayControls.jsx
 msgid "Pause replay"
 msgstr "Pause replay"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Peak"
+msgstr "Peak"
 
 #: src/pages/ShotAnalyzer/components/shotChart/compare/CompareMetricContent.jsx
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotMetricCards.jsx
@@ -3196,6 +3491,10 @@ msgstr "Plugins"
 msgid "PNG, JPEG, WebP or BMP. GIFs are not supported. The image is cropped to a square and scaled to 300×300 pixels for the display."
 msgstr "PNG, JPEG, WebP or BMP. GIFs are not supported. The image is cropped to a square and scaled to 300×300 pixels for the display."
 
+#: src/utils/shotNotesLabels.js
+msgid "Poor"
+msgstr "Poor"
+
 #: src/pages/ProfileEdit/ExtendedPhase.jsx
 #: src/pages/ProfileEdit/StandardProfileForm.jsx
 msgctxt "pump mode"
@@ -3261,9 +3560,11 @@ msgid "Press <0><1/></0> to build a statistic."
 msgstr "Press <0><1/></0> to build a statistic."
 
 #: src/components/ExtendedProfileChart.jsx
+#: src/components/ShareCard/ShareCardModal.jsx
 #: src/pages/Home/cards/ProfileCard.jsx
 #: src/pages/Home/cards/RecentShotsCard.jsx
 #: src/pages/ShotAnalyzer/components/shotChart/labelVisuals.js
+#: src/pages/ShotReview/ReviewChart.jsx
 #: src/pages/Statistics/components/MetricsTable.jsx
 #: src/pages/Statistics/components/PhaseStatistics.jsx
 #: src/utils/metricDefinitions.js
@@ -3328,6 +3629,10 @@ msgstr "Pressure target"
 msgid "Pressure Target"
 msgstr "Pressure Target"
 
+#: src/pages/ShotReview/ReviewChart.jsx
+msgid "Pressure, flow and weight over the shot"
+msgstr "Pressure, flow and weight over the shot"
+
 #: src/pages/ProfileEdit/ExtendedProfileForm.jsx
 #: src/pages/ShotHistory/index.jsx
 msgid "Previous"
@@ -3367,6 +3672,7 @@ msgstr "Processing shot history files ({current}/{total})"
 msgid "profile"
 msgstr "profile"
 
+#: src/components/ShareCard/ShareCardModal.jsx
 #: src/pages/Home/cards/ProfileCard.jsx
 #: src/pages/ShotAnalyzer/components/library/LibrarySection.jsx
 #: src/pages/Statistics/components/ProfileGroupTable.jsx
@@ -3647,7 +3953,10 @@ msgstr "Range"
 msgid "Rated Only"
 msgstr "Rated Only"
 
+#: src/components/ShareCard/ShareCardModal.jsx
 #: src/pages/ShotHistory/ShotNotesCard.jsx
+#: src/pages/ShotReview/HalfStarRating.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
 msgid "Rating"
 msgstr "Rating"
 
@@ -3694,6 +4003,14 @@ msgstr "Ready to steam, open wand"
 #: src/pages/Settings/tabs/SystemTab.jsx
 msgid "Rebuild Shot History"
 msgstr "Rebuild Shot History"
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Receipt"
+msgstr "Receipt"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Recent beans"
+msgstr "Recent beans"
 
 #: src/pages/DashboardSettings/index.jsx
 #: src/pages/Home/cards/RecentShotsCard.jsx
@@ -3828,6 +4145,11 @@ msgstr "Reset columns to system defaults?"
 msgid "Reset Defaults"
 msgstr "Reset Defaults"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Rested {age} days"
+msgstr "Rested {age} days"
+
 #: src/components/PumpFlowCalibration/usePumpFlowCalibration.js
 msgid "Restoring previous profile..."
 msgstr "Restoring previous profile..."
@@ -3852,6 +4174,28 @@ msgstr "REVIEW PHASE {phaseNumber}"
 #: src/pages/ShotAnalyzer/components/analysisTable/analysisTableModel.js
 msgid "Review the stop reason for this phase. The algorithm was only able to identify it after several intermediate calculations."
 msgstr "Review the stop reason for this phase. The algorithm was only able to identify it after several intermediate calculations."
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Roast"
+msgstr "Roast"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Roast date"
+msgstr "Roast date"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Roast level"
+msgstr "Roast level"
+
+#. placeholder {0}: n.roastDate
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Roasted {0}"
+msgstr "Roasted {0}"
+
+#: src/components/ShareCard/ShareCardModal.jsx
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Roaster"
+msgstr "Roaster"
 
 #: src/pages/Statistics/components/StatisticsSearchHelp.jsx
 msgid "Rules are separated with <0>;</0>. Visual filters and DSL are combined with AND."
@@ -3938,6 +4282,10 @@ msgstr "Save current selection as your new 'Standard'?"
 msgid "Save failed: {message}"
 msgstr "Save failed: {message}"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Save image"
+msgstr "Save image"
+
 #: src/app/MachineSetup.jsx
 msgid "Save name"
 msgstr "Save name"
@@ -3946,6 +4294,10 @@ msgstr "Save name"
 #: src/pages/ProfileEdit/StandardProfileForm.jsx
 msgid "Save profile"
 msgstr "Save profile"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Save review"
+msgstr "Save review"
 
 #: src/pages/Settings/index.jsx
 #: src/pages/Settings/StickyFormFooter.jsx
@@ -3972,6 +4324,10 @@ msgstr "Save to Browser. Imported shots and profiles will now be saved to the br
 msgid "Save to machine"
 msgstr "Save to machine"
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Saved"
+msgstr "Saved"
+
 #: src/app/MachineSetup.jsx
 msgctxt "machine status"
 msgid "Saved"
@@ -3985,6 +4341,10 @@ msgstr "Saved"
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "Saved scale"
 msgstr "Saved scale"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Saved with this shot's notes on the machine."
+msgstr "Saved with this shot's notes on the machine."
 
 #: src/components/PumpFlowCalibration/usePumpFlowCalibration.js
 msgid "Saving calibration profile..."
@@ -4030,6 +4390,10 @@ msgstr "Scales are automatically refreshed every 10 seconds. Use the scan button
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "Scan failed"
 msgstr "Scan failed"
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Scan for brew profile"
+msgstr "Scan for brew profile"
 
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "Scan for Devices"
@@ -4192,6 +4556,14 @@ msgstr "Settings have not loaded yet."
 msgid "Share"
 msgstr "Share"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Share card"
+msgstr "Share card"
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Share card preview"
+msgstr "Share card preview"
+
 #: src/pages/Statistics/components/StatisticsMultiSelectDropdown.jsx
 msgid "Shift = Range"
 msgstr "Shift = Range"
@@ -4301,6 +4673,12 @@ msgstr "Shot Metrics"
 msgid "Shot Notes"
 msgstr "Shot Notes"
 
+#: src/components/Navigation.jsx
+#: src/components/ShareCard/ShareCardModal.jsx
+#: src/pages/ShotReview/index.jsx
+msgid "Shot Review"
+msgstr "Shot Review"
+
 #: src/pages/ShotAnalyzer/components/shotChart/compare/compareModel.js
 msgid "Shot start"
 msgstr "Shot start"
@@ -4327,6 +4705,7 @@ msgid "shots"
 msgstr "shots"
 
 #: src/pages/ShotAnalyzer/components/library/LibraryDropdown.jsx
+#: src/pages/ShotReview/ReviewList.jsx
 #: src/pages/Statistics/components/ProfileGroupTable.jsx
 #: src/pages/Statistics/components/toolbar/subcomponents.jsx
 #: src/pages/Statistics/components/TrendChart.jsx
@@ -4373,6 +4752,10 @@ msgstr "Show legend"
 #: src/pages/ShotAnalyzer/components/shotChart/MobileMetricPager.jsx
 msgid "Show metric page {pageNumber}"
 msgstr "Show metric page {pageNumber}"
+
+#: src/pages/ShotReview/ReviewList.jsx
+msgid "Show more"
+msgstr "Show more"
 
 #: src/components/VisualizerUploadModal.jsx
 msgid "Show password"
@@ -4427,6 +4810,10 @@ msgstr "Single Card"
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotDetailsCard.jsx
 msgid "Single Origin, Blend..."
 msgstr "Single Origin, Blend..."
+
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Slider range"
+msgstr "Slider range"
 
 #: src/components/PumpFlowCalibration/api.js
 msgid "slog not ready, waiting for flush... ({attempt})"
@@ -4640,6 +5027,10 @@ msgstr "Steam switch left on"
 msgid "Steam Temp"
 msgstr "Steam Temp"
 
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Step"
+msgstr "Step"
+
 #: src/pages/DashboardSettings/index.jsx
 msgid "Stick first panel to top"
 msgstr "Stick first panel to top"
@@ -4756,8 +5147,6 @@ msgctxt "profile badge"
 msgid "System"
 msgstr "System"
 
-#: src/app/AppSettings.jsx
-#: src/pages/Settings/tabs/GeneralTab.jsx
 #: src/utils/themeManager.js
 msgctxt "theme"
 msgid "System"
@@ -4794,6 +5183,14 @@ msgctxt "Tuesday, one letter"
 msgid "T"
 msgstr "T"
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Tap the left half of a star for half a star"
+msgstr "Tap the left half of a star for half a star"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Tap to change"
+msgstr "Tap to change"
+
 #: src/pages/Settings/tabs/MachineTab.jsx
 msgid "Tare"
 msgstr "Tare"
@@ -4801,6 +5198,10 @@ msgstr "Tare"
 #: src/pages/Settings/tabs/MachineTab.jsx
 msgid "Tare the scale, then place a known weight and calibrate each load cell."
 msgstr "Tare the scale, then place a known weight and calibrate each load cell."
+
+#: src/pages/ShotReview/ReviewChart.jsx
+msgid "Target"
+msgstr "Target"
 
 #: src/pages/Home/cards/ProfileCard.jsx
 msgctxt "process"
@@ -4913,6 +5314,10 @@ msgstr "Tasting notes, brewing observations, etc..."
 msgid "Tasting notes, brewing observations..."
 msgstr "Tasting notes, brewing observations..."
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Tasting notes: acidity, sweetness, body, finish…"
+msgstr "Tasting notes: acidity, sweetness, body, finish…"
+
 #: src/utils/metricDefinitions.js
 msgid "Temp"
 msgstr "Temp"
@@ -4999,6 +5404,10 @@ msgstr "The chart is shown for Pro profiles only"
 msgid "The configured or inferred scale delay is unusually high. Review the scale-delay setting before relying on predictive weight stops."
 msgstr "The configured or inferred scale delay is unusually high. Review the scale-delay setting before relying on predictive weight stops."
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "The connection to the machine was lost during the upload."
+msgstr "The connection to the machine was lost during the upload."
+
 #: src/app/notifications.js
 msgid "The controller reported an error."
 msgstr "The controller reported an error."
@@ -5027,6 +5436,10 @@ msgstr "The machine has been in steam mode for 5 minutes."
 msgid "The profile's dose is saved to the shot history."
 msgstr "The profile's dose is saved to the shot history."
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "The QR code holds this profile as it is now saved on the machine, which may differ from when this shot was pulled."
+msgstr "The QR code holds this profile as it is now saved on the machine, which may differ from when this shot was pulled."
+
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "The scale was found, but the Bluetooth connection failed. Try again or restart the scale."
 msgstr "The scale was found, but the Bluetooth connection failed. Try again or restart the scale."
@@ -5035,12 +5448,16 @@ msgstr "The scale was found, but the Bluetooth connection failed. Try again or r
 msgid "The scale wasn't found. Make sure it's switched on and nearby, then scan again."
 msgstr "The scale wasn't found. Make sure it's switched on and nearby, then scan again."
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "The shot's curve couldn't be loaded."
+msgstr "The shot's curve couldn't be loaded."
+
 #: src/pages/Settings/tabs/SystemTab.jsx
 msgid "The update could not be completed and the device kept its current firmware. Check the network connection and start the update again."
 msgstr "The update could not be completed and the device kept its current firmware. Check the network connection and start the update again."
 
-#: src/app/AppSettings.jsx
-#: src/pages/Settings/tabs/GeneralTab.jsx
+#: src/components/ThemeMenu.jsx
+#: src/components/ThemeSelect.jsx
 msgid "Theme"
 msgstr "Theme"
 
@@ -5055,6 +5472,10 @@ msgstr "Thermal Feedforward Gain"
 #: src/app/machines.js
 msgid "this address is not a GaggiMate"
 msgstr "this address is not a GaggiMate"
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "This browser can't build the profile QR code."
+msgstr "This browser can't build the profile QR code."
 
 #: src/pages/ShotAnalyzer/services/ReplayVideoExportService.js
 msgid "This browser cannot record MP4 video. Please use WebM export instead."
@@ -5076,12 +5497,17 @@ msgstr "This feature controls a Tasmota Plug to turn off your grinder after the 
 msgid "This scale model couldn't be set up."
 msgstr "This scale model couldn't be set up."
 
+#: src/pages/ShotReview/index.jsx
+msgid "This shot"
+msgstr "This shot"
+
 #: src/pages/Settings/PluginCard.jsx
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotMainInfoCard.jsx
 msgid "Thursday"
 msgstr "Thursday"
 
 #: src/pages/ShotAnalyzer/components/analysisTable/analysisTableModel.js
+#: src/pages/ShotReview/ReviewForm.jsx
 msgid "Time"
 msgstr "Time"
 
@@ -5224,6 +5650,10 @@ msgstr "Unavailable / uncalibrated"
 msgid "Unclosed quoted value."
 msgstr "Unclosed quoted value."
 
+#: src/utils/shotNotesLabels.js
+msgid "Undrinkable"
+msgstr "Undrinkable"
+
 #: src/pages/ProfileList/index.jsx
 msgid "Unfavorite"
 msgstr "Unfavorite"
@@ -5263,6 +5693,8 @@ msgid "Unknown field \"{fieldRaw}\". Supported: {supportedFields}."
 msgstr "Unknown field \"{fieldRaw}\". Supported: {supportedFields}."
 
 #: src/pages/ShotHistory/HistoryCard.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
+#: src/pages/ShotReview/ReviewList.jsx
 msgid "Unknown Profile"
 msgstr "Unknown Profile"
 
@@ -5273,6 +5705,10 @@ msgstr "Unknown Scale"
 #: src/pages/Statistics/components/statisticsView/helpers.js
 msgid "Unknown Shot"
 msgstr "Unknown Shot"
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Unnamed coffee"
+msgstr "Unnamed coffee"
 
 #: src/pages/ShotAnalyzer/components/library/LibraryRow.jsx
 msgid "Unpin {displayName}"
@@ -5359,13 +5795,29 @@ msgctxt "date basis"
 msgid "Upload"
 msgstr "Upload"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Upload and install"
+msgstr "Upload and install"
+
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Upload done. Sending the firmware to the controller…"
+msgstr "Upload done. Sending the firmware to the controller…"
+
 #: src/utils/profileImage.js
 msgid "Upload failed"
 msgstr "Upload failed"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Upload failed: {error}"
+msgstr "Upload failed: {error}"
+
 #: src/pages/ShotHistory/HistoryCard.jsx
 msgid "Upload failed: {errorMessage}"
 msgstr "Upload failed: {errorMessage}"
+
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Upload firmware"
+msgstr "Upload firmware"
 
 #: src/pages/ProfileEdit/ProfileImageUpload.jsx
 msgid "Upload image"
@@ -5388,6 +5840,10 @@ msgstr "Upload to Visualizer.coffee"
 msgid "Uploading..."
 msgstr "Uploading..."
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Uploading…"
+msgstr "Uploading…"
+
 #: src/pages/Settings/tabs/CalibrationTab.jsx
 msgid "Upper bound on the identification test. Most espresso boilers resolve within 60–120 s. Extend if Autotune fails before peak slope is detected."
 msgstr "Upper bound on the identification test. Most espresso boilers resolve within 60–120 s. Extend if Autotune fails before peak slope is detected."
@@ -5399,6 +5855,10 @@ msgstr "Use <0>></0>, <1>>=</1>, <2><</2>, <3><=</3>, <4>=</4>"
 #: src/pages/Settings/tabs/GeneralTab.jsx
 msgid "Use 24h Format"
 msgstr "Use 24h Format"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Use for this shot"
+msgstr "Use for this shot"
 
 #: src/pages/Statistics/components/toolbar/helpers.js
 msgid "Use shot timestamp only"
@@ -5472,6 +5932,10 @@ msgstr "Valve state selection"
 #: src/app/AppSettings.jsx
 msgid "Version {bundleVersion}"
 msgstr "Version {bundleVersion}"
+
+#: src/utils/shotNotesLabels.js
+msgid "Very good"
+msgstr "Very good"
 
 #: src/pages/ShotAnalyzer/components/shotChart/controls/chartReplayControls.jsx
 msgid "Video"
@@ -5656,6 +6120,7 @@ msgstr "weeks"
 #: src/pages/ShotAnalyzer/components/shotChart/labelVisuals.js
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotMetricCards.jsx
 #: src/pages/ShotHistory/HistoryChart.jsx
+#: src/pages/ShotReview/ReviewChart.jsx
 #: src/pages/Statistics/components/MetricsTable.jsx
 #: src/pages/Statistics/components/PhaseStatistics.jsx
 #: src/utils/metricDefinitions.js
@@ -5732,6 +6197,10 @@ msgstr "Year"
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotMainInfoCard.jsx
 msgid "Yesterday"
 msgstr "Yesterday"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Yield"
+msgstr "Yield"
 
 #: src/components/VisualizerUploadModal.jsx
 msgid "Yield:"

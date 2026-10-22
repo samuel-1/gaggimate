@@ -62,7 +62,7 @@ The `web/` directory contains a Preact + Vite project. The README inside explain
 - `npm run build` - Builds for production, emitting to `dist/`
 - `npm run preview` - Starts a server at <http://localhost:4173/> to test production build locally
 
-When building the firmware, the `scripts/build_webui.sh` script installs the web dependencies and copies the compiled files to the data/ directory for inclusion in the device’s SPIFFS image.
+The web UI is embedded into the display firmware (`src/display/webassets/`, git-ignored). `scripts/build_webui.sh` installs the web dependencies, builds `web/`, gzips the assets and packs them. A firmware build (`platformio run -e display…` or the simulator) does the same automatically whenever `web/` changed since the embedded bundle was made, so UI changes can't be left out of a flash; set `GAGGIMATE_SKIP_WEBUI_BUILD=1` to keep the existing bundle instead.
 
 ### Next Steps for Learning
 
@@ -75,7 +75,6 @@ When building the firmware, the `scripts/build_webui.sh` script installs the web
 1. **Fork the repository** and create your branch from `master`.
 
 2. **Install dependencies**:
-
    - Run `npm install` inside the `web/` directory for the web interface.
    - Ensure [PlatformIO](https://platformio.org/install/cli) is available for firmware builds.
 
@@ -88,13 +87,18 @@ When building the firmware, the `scripts/build_webui.sh` script installs the web
 
 4. Choose what to deploy:
 
-   | Asset               | Commands                                                                            |
-   | ------------------- |-------------------------------------------------------------------------------------|
-   | Display Firmware    | `platformio run -e display -t upload -t monitor`                                    |
-   | Controller Firmware | `platformio run -e controller -t upload -t monitor`                                 |
-   | Web UI              | <pre>scripts/build_webui.sh<br>platformio run -e display -t upload -t monitor</pre> |
+   | Asset               | Commands                                                                               |
+   | ------------------- | -------------------------------------------------------------------------------------- |
+   | Display Firmware    | `platformio run -e display -t upload -t monitor`                                       |
+   | Controller Firmware | `platformio run -e controller -t upload -t monitor`                                    |
+   | Web UI              | `platformio run -e display -t upload -t monitor` (rebuilds the web UI when it changed) |
 
    **NOTE**: You can omit `-t monitor` if you don't want to immediately attach to the board's serial console.
+
+   **Over Wi-Fi:** once a display runs a build with the firmware upload, later builds can be installed from the
+   web UI under Settings → System → Upload firmware: pick the display or the controller and the `firmware.bin`
+   from `.pio/build/<env>/`. Every image carries its PlatformIO env (`GMFW1:<env>:`, see `src/firmware_id.h`) and
+   the display refuses one built for another board; the controller image is relayed over BLE like an OTA update.
 
 ## Simulator
 

@@ -51,6 +51,14 @@ function normalizeShotSampleForHistoryExport(sample = {}) {
   };
 }
 
+function pickPresent(source, keys) {
+  const out = {};
+  for (const key of keys) {
+    if (source[key] !== undefined && source[key] !== '') out[key] = source[key];
+  }
+  return out;
+}
+
 function normalizeNotesForHistoryExport(notes, shotId) {
   const merged = {
     ...HISTORY_NOTES_DEFAULTS,
@@ -62,6 +70,8 @@ function normalizeNotesForHistoryExport(notes, shotId) {
     id: merged.id,
     rating: merged.rating ?? 0,
     beanType: merged.beanType ?? '',
+    // Optional fields written by Shot Review; only exported when present.
+    ...pickPresent(merged, ['ratingHalf', 'roaster', 'roastDate', 'roastLevel']),
     doseIn: merged.doseIn ?? '',
     doseOut: merged.doseOut ?? '',
     ratio: merged.ratio ?? '',

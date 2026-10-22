@@ -25,6 +25,8 @@ import { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'p
 import { Spinner } from '../../components/Spinner.jsx';
 import Card from '../../components/Card.jsx';
 import { parseProfile } from './utils.js';
+import { containsProfileCode, decodeProfileCode } from '../../utils/profileCode.js';
+import { faQrcode } from '@fortawesome/free-solid-svg-icons/faQrcode';
 import { downloadJson } from '../../utils/download.js';
 import { exportProfileImage, importProfileImage } from '../../utils/profileImage.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -931,27 +933,47 @@ export function ProfileList() {
     downloadJson(exportedProfiles, 'profiles.json');
   }, [profiles]);
 
+  // Saves every profile in JSON text (or in the text of a share-card QR code, "GM1.…") and
+  // reloads the list. Returns how many profiles were found; throws if the text can't be read.
+  const importProfilesText = async text => {
+    setLoading(true);
+    try {
+      const source = containsProfileCode(text) ? await decodeProfileCode(text) : text;
+      const parsed = parseProfile(source);
+      for (const { image, ...p } of parsed) {
+        const response = await apiService.request({ tp: 'req:profiles:save', profile: p });
+        const id = response?.profile?.id;
+        if (image && id && machine.value.capabilities.sdCard) {
+          await importProfileImage(id, image).catch(() => {});
+        }
+      }
+      return parsed.length;
+    } finally {
+      await invalidateProfiles();
+    }
+  };
+
+  const onPasteCode = async () => {
+    const text = prompt(t`Paste the text from a share-card QR code (starts with GM1.)`)?.trim();
+    if (!text) return;
+    try {
+      if (!(await importProfilesText(text))) alert(t`No profile found in that text.`);
+    } catch (e) {
+      console.error('Profile import failed', e);
+      alert(t`Could not read that profile code.`);
+    }
+  };
+
   const onUpload = function (evt) {
     if (evt.target.files.length) {
       const file = evt.target.files[0];
       const reader = new FileReader();
       reader.onload = async e => {
-        const result = e.target.result;
-        if (typeof result === 'string') {
-          setLoading(true);
-          try {
-            const profiles = parseProfile(result);
-            for (const { image, ...p } of profiles) {
-              const response = await apiService.request({ tp: 'req:profiles:save', profile: p });
-              const id = response?.profile?.id;
-              if (image && id && machine.value.capabilities.sdCard) {
-                await importProfileImage(id, image).catch(() => {});
-              }
-            }
-          } catch {
-            // Individual save errors are surfaced by WS timeout; continue to reload list.
-          }
-          await invalidateProfiles();
+        if (typeof e.target.result !== 'string') return;
+        try {
+          await importProfilesText(e.target.result);
+        } catch {
+          // Individual save errors are surfaced by WS timeout; the list is reloaded regardless.
         }
       };
       reader.readAsText(file);
@@ -1026,12 +1048,21 @@ export function ProfileList() {
               <FontAwesomeIcon icon={faFileImport} />
             </label>
           </Tooltip>
+          <Tooltip content={t`Import from QR code text`}>
+            <button
+              onClick={onPasteCode}
+              className='btn btn-ghost btn-sm'
+              aria-label={t`Import from QR code text`}
+            >
+              <FontAwesomeIcon icon={faQrcode} />
+            </button>
+          </Tooltip>
           <input
             onChange={onUpload}
             className='hidden'
             id='profileImport'
             type='file'
-            accept='.json,application/json,.tcl'
+            accept='.json,application/json,.tcl,.txt,text/plain'
             aria-label={t`Select a JSON file containing profile data to import`}
           />
           <ConfirmButton

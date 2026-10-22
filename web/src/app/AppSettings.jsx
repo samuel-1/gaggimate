@@ -6,7 +6,7 @@ import PageHeader from '../components/PageHeader.jsx';
 import Section from '../components/Card.jsx';
 import { SettingsFormField, ToggleField } from '../components/SettingsFormField.jsx';
 import { LanguageSelect } from '../components/LanguageSelect.jsx';
-import { getStoredTheme, handleThemeChange } from '../utils/themeManager.js';
+import { ThemeSelect } from '../components/ThemeSelect.jsx';
 import {
   NOTIFICATION_EVENTS,
   appSettings,
@@ -22,7 +22,6 @@ import { bundleVersion, checkForUpdate, pendingUpdate } from './updates.js';
 // App-only settings stored on the phone; machine settings stay under Device Settings.
 export function AppSettings() {
   const { t } = useLingui();
-  const [theme, setTheme] = useState(getStoredTheme);
   const machineCount = machines.value.length;
   const pending = pendingUpdate.value;
   const name = activeMachine.value?.name;
@@ -44,23 +43,7 @@ export function AppSettings() {
       <PageHeader title={t`App Settings`} />
 
       <Section title={t`Appearance`}>
-        <SettingsFormField label={t`Theme`} htmlFor='app-theme' noMargin>
-          <select
-            id='app-theme'
-            className='select select-bordered w-full'
-            value={theme}
-            onChange={e => {
-              setTheme(e.target.value);
-              handleThemeChange(e);
-            }}
-          >
-            <option value='system'>{t({ message: 'System', context: 'theme' })}</option>
-            <option value='light'>{t({ message: 'Light', context: 'theme' })}</option>
-            <option value='dark'>{t({ message: 'Dark', context: 'theme' })}</option>
-            <option value='coffee'>Coffee</option>
-            <option value='nord'>Nord</option>
-          </select>
-        </SettingsFormField>
+        <ThemeSelect id='app-theme' />
         <div className='mt-4'>
           <LanguageSelect />
         </div>

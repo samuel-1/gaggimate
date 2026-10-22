@@ -14,15 +14,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 # Seed profiles still go into the filesystem image used for fresh USB installs.
 mkdir -p "$ROOT/data/p"
 
-# Build the web application.
-cd "$ROOT/web"
-npm ci
-npm run build
-
-# Gzip the compressible assets in place (served with Content-Encoding: gzip).
-gzip -f dist/assets/*.js
-gzip -f dist/assets/*.css
-gzip -f dist/*.html
-
-# Pack the built bundle into firmware-embeddable flash artifacts.
-python3 "$ROOT/scripts/embed_webui.py" --src "$ROOT/web/dist" --out "$ROOT/src/display/webassets"
+# Build the web application (npm ci -> build -> gzip -> embed_webui.py). The same
+# steps run automatically from the PlatformIO pre-build hook when web/ changed since
+# the embedded bundle; see scripts/build_webui.py.
+python3 "$ROOT/scripts/build_webui.py" --install

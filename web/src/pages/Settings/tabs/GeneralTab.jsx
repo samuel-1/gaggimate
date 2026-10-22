@@ -8,6 +8,7 @@ import { DASHBOARD_LAYOUTS } from '../../../utils/dashboardManager.js';
 import { isApp } from '../../../app/platform.js';
 import Section from '../../../components/Card.jsx';
 import { LanguageSelect } from '../../../components/LanguageSelect.jsx';
+import { ThemeSelect } from '../../../components/ThemeSelect.jsx';
 import { machine } from '../../../services/ApiService.js';
 import { WarningIcon } from '../../../components/WarningIcon.jsx';
 import { WARNING_LEVELS, WARNINGS } from '../../../utils/warnings.js';
@@ -113,9 +114,6 @@ export function GeneralTab({
   formData,
   onChange,
   profiles,
-  currentTheme,
-  setCurrentTheme,
-  handleThemeChange,
   showWifiPassword,
   setShowWifiPassword,
   showApPassword,
@@ -438,24 +436,7 @@ export function GeneralTab({
       {!isApp && (
         <Section title={t`Web Settings`} className='h-full'>
           <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
-            <SettingsFormField label={t`Theme`} htmlFor='webui-theme' noMargin>
-              <select
-                id='webui-theme'
-                name='webui-theme'
-                className='select select-bordered w-full'
-                value={currentTheme}
-                onChange={e => {
-                  setCurrentTheme(e.target.value);
-                  handleThemeChange(e);
-                }}
-              >
-                <option value='system'>{t({ message: 'System', context: 'theme' })}</option>
-                <option value='light'>{t({ message: 'Light', context: 'theme' })}</option>
-                <option value='dark'>{t({ message: 'Dark', context: 'theme' })}</option>
-                <option value='coffee'>{t({ message: 'Coffee', context: 'theme' })}</option>
-                <option value='nord'>Nord</option>
-              </select>
-            </SettingsFormField>
+            <ThemeSelect id='webui-theme' />
             <LanguageSelect />
             <SettingsFormField label={t`Dashboard Layout`} htmlFor='dashboardLayout' noMargin>
               <select

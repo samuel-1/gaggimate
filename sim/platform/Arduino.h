@@ -50,6 +50,7 @@ typedef struct hw_timer_s hw_timer_t;
 #include <algorithm>
 #include <cctype>
 #include <cmath>
+#include <cstdarg>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -57,6 +58,7 @@ typedef struct hw_timer_s hw_timer_t;
 #include <functional>
 #include <map>
 #include <memory>
+#include <stdexcept>
 #include <string>
 #include <vector>
 

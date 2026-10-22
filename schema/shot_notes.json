@@ -22,9 +22,29 @@
       "minimum": 0,
       "maximum": 5
     },
+    "ratingHalf": {
+      "description": "Rating in half stars (0-10, 9 = 4.5 stars), written by the Shot Review page. Clients that only edit rating leave it behind, so it only counts while ceil(ratingHalf / 2) equals rating",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10
+    },
     "beanType": {
-      "description": "Type or origin of coffee beans",
+      "description": "Type or origin of coffee beans; the bean's name on the Shot Review page",
       "type": "string"
+    },
+    "roaster": {
+      "description": "Roaster or brand of the beans",
+      "type": "string"
+    },
+    "roastDate": {
+      "description": "Roast date of the beans (YYYY-MM-DD), empty when unknown",
+      "type": "string",
+      "pattern": "^$|^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "roastLevel": {
+      "description": "Roast level of the beans, empty when unknown",
+      "type": "string",
+      "enum": ["", "light", "medium-light", "medium", "medium-dark", "dark"]
     },
     "doseIn": {
       "description": "Dose in grams; written automatically at the end of a shot from the profile's dose when empty",

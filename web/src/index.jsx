@@ -33,6 +33,7 @@ const Settings = lazy(() => import('./pages/Settings/index.jsx').then(m => m.Set
 const ProfileList = lazy(() => import('./pages/ProfileList/index.jsx').then(m => m.ProfileList));
 const ProfileEdit = lazy(() => import('./pages/ProfileEdit/index.jsx').then(m => m.ProfileEdit));
 const ShotHistory = lazy(() => import('./pages/ShotHistory/index.jsx').then(m => m.ShotHistory));
+const ShotReview = lazy(() => import('./pages/ShotReview/index.jsx').then(m => m.ShotReview));
 const ShotAnalyzer = lazy(() => import('./pages/ShotAnalyzer/index.jsx').then(m => m.ShotAnalyzer));
 const StatisticsPage = lazy(() =>
   import('./pages/Statistics/index.jsx').then(m => m.StatisticsPage),
@@ -108,7 +109,7 @@ export function App() {
     <LocationProvider>
       <ApiServiceContext.Provider value={apiService}>
         {isApp && showMachineSetup.value && <MachineSetup />}
-        <div className='bg-base-300 flex h-screen overflow-hidden pt-[env(safe-area-inset-top)] pr-[env(safe-area-inset-right)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)]'>
+        <div className='bg-base-300 h-app-screen flex overflow-hidden pt-[env(safe-area-inset-top)] pr-[env(safe-area-inset-right)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)]'>
           <Navigation
             collapsed={navCollapsed}
             onToggleCollapsed={() => setNavCollapsed(collapsed => !collapsed)}
@@ -130,6 +131,7 @@ export function App() {
                       <Route path='/scales' component={RedirectTo('/settings/bluetooth')} />
                       <Route path='/pidtune' component={RedirectTo('/settings/calibration')} />
                       <Route path='/history' component={ShotHistory} />
+                      <Route path='/review/:id?' component={ShotReview} />
                       <Route path='/analyzer' component={ShotAnalyzer} />
                       <Route path='/statistics' component={StatisticsPage} />
                       <Route

@@ -79,6 +79,10 @@ msgstr "{host} 没有响应。请确认咖啡机已开机，并且手机与咖�
 msgid "{label} severity"
 msgstr "{label} 严重程度"
 
+#: src/pages/ShotReview/HalfStarRating.jsx
+msgid "{label} stars"
+msgstr "{label} 星"
+
 #: src/app/AppSettings.jsx
 msgid "{machineCount, plural, one {Watches # saved machine.} other {Watches all # saved machines.}}"
 msgstr "{machineCount, plural, other {监控 # 台已保存的咖啡机。}}"
@@ -106,6 +110,10 @@ msgstr "{rssi}dB（往返：{lat} ms，重发：{rtx}）"
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "{scaleName} disconnected"
 msgstr "{scaleName} 已断开"
+
+#: src/pages/ShotReview/HalfStarRating.jsx
+msgid "{stars} of 5 stars"
+msgstr "{stars} / 5 星"
 
 #: src/pages/ShotHistory/index.jsx
 msgid "{totalFilteredItems} of {historyCount} shots"
@@ -290,6 +298,10 @@ msgstr "全部指标"
 msgid "All Shots"
 msgstr "全部萃取"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Allow files without a GaggiMate firmware id (official releases from before this feature). Files built for another part are always refused."
+msgstr "允许没有 GaggiMate 固件标识的文件（例如加入此功能前的官方版本）。为其他部件编译的文件始终会被拒绝。"
+
 #: src/pages/Settings/tabs/MachineTab.jsx
 msgid "Alt Relay / SSR2 Function"
 msgstr "备用继电器 / SSR2 功能"
@@ -383,6 +395,10 @@ msgstr "自动整定失败"
 #: src/pages/Settings/tabs/CalibrationTab.jsx
 msgid "Autotune in Progress"
 msgstr "自动整定进行中"
+
+#: src/pages/ShotReview/ReviewList.jsx
+msgid "Average"
+msgstr "平均分"
 
 #: src/pages/Statistics/components/PhaseStatistics.jsx
 msgid "Average target value and deviation"
@@ -500,6 +516,7 @@ msgstr "平均重量流量"
 #: src/pages/ProfileEdit/ExtendedProfileForm.jsx
 #: src/pages/ProfileEdit/StandardProfileForm.jsx
 #: src/pages/Settings/tabs/SystemTab.jsx
+#: src/pages/ShotReview/BeanPicker.jsx
 msgid "Back"
 msgstr "返回"
 
@@ -536,6 +553,18 @@ msgstr "基础指标"
 msgid "Basics"
 msgstr "基础"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Bean bag"
+msgstr "豆袋"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Bean details"
+msgstr "咖啡豆信息"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Bean name"
+msgstr "豆子名称"
+
 #: src/pages/ShotHistory/ShotNotesCard.jsx
 msgid "Bean Type"
 msgstr "咖啡豆类型"
@@ -543,6 +572,10 @@ msgstr "咖啡豆类型"
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotDetailsCard.jsx
 msgid "Beans"
 msgstr "咖啡豆"
+
+#: src/pages/ShotReview/ReviewList.jsx
+msgid "Best"
+msgstr "最高分"
 
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotDetailsCard.jsx
 #: src/pages/ShotHistory/ShotNotesCard.jsx
@@ -613,6 +646,10 @@ msgstr "冲煮阶段"
 msgid "Brew phases configuration"
 msgstr "冲煮阶段配置"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Brew profile not found on the machine, so the card has no QR code."
+msgstr "机器上找不到这杯用的冲煮曲线，卡片上不会有二维码。"
+
 #: src/components/OverviewChart.jsx
 msgid "Brew Progress - {windowSeconds}s View"
 msgstr "冲煮进度 - {windowSeconds}s 视图"
@@ -651,6 +688,11 @@ msgstr "生成"
 #: src/pages/Statistics/components/statisticsView/StatisticsView.jsx
 msgid "Build and show Shot Charts"
 msgstr "生成并显示萃取图表"
+
+#. placeholder {0}: formData.displayEnv
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Build: {0}"
+msgstr "编译环境：{0}"
 
 #: src/pages/ProfileList/index.jsx
 msgid "Built-in profile, can be edited but not deleted"
@@ -722,6 +764,14 @@ msgstr "此浏览器不支持画布捕获。"
 msgid "Canvas export is not supported in this environment."
 msgstr "此环境不支持画布导出。"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Card style"
+msgstr "卡片样式"
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Card title"
+msgstr "卡片标题"
+
 #: src/pages/ProfileEdit/ExtendedPhase.jsx
 #: src/pages/Settings/tabs/MachineTab.jsx
 msgid "celsius"
@@ -735,6 +785,10 @@ msgstr "图表与指标"
 #: src/pages/Settings/tabs/GeneralTab.jsx
 msgid "Chart First"
 msgstr "图表优先"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Choose a bean"
+msgstr "选择咖啡豆"
 
 #: src/app/ConnectionGate.jsx
 msgid "Choose another machine"
@@ -778,8 +832,11 @@ msgid "Click to open the library. Use Import below or drop files here to import.
 msgstr "点击打开库。使用下方的导入或将文件拖放到此处进行导入。"
 
 #: src/app/MachineSetup.jsx
+#: src/components/ShareCard/ShareCardModal.jsx
+#: src/components/ThemeMenu.jsx
 #: src/components/VisualizerUploadModal.jsx
 #: src/pages/Home/BrewConfirmModal.jsx
+#: src/pages/ShotReview/BeanPicker.jsx
 msgid "Close"
 msgstr "关闭"
 
@@ -807,6 +864,18 @@ msgstr "已关闭，代码 {code}"
 msgid "Cmd/Ctrl = Add"
 msgstr "Cmd/Ctrl = 添加"
 
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Coarse"
+msgstr "粗"
+
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Coarser"
+msgstr "调粗"
+
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Coarsest"
+msgstr "最粗"
+
 #: src/components/PumpFlowCalibration/ResultsPanel.jsx
 msgid "Coefficients"
 msgstr "系数"
@@ -815,7 +884,10 @@ msgstr "系数"
 msgid "Coefficients saved to machine: {newCoeffs}"
 msgstr "系数已保存到咖啡机：{newCoeffs}"
 
-#: src/pages/Settings/tabs/GeneralTab.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Coffee"
+msgstr "咖啡豆"
+
 #: src/utils/themeManager.js
 msgctxt "theme"
 msgid "Coffee"
@@ -972,6 +1044,10 @@ msgstr "连接中…"
 msgid "Control Column Style"
 msgstr "控制列样式"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Controller"
+msgstr "主控板"
+
 #: src/app/appSettings.js
 msgid "Controller errors and error-level warnings."
 msgstr "控制器错误和错误级警告。"
@@ -1008,6 +1084,10 @@ msgstr "无法删除校准曲线：{message}"
 msgid "Could not import {importName}: {importMessage}"
 msgstr "无法导入 {importName}：{importMessage}"
 
+#: src/pages/ProfileList/index.jsx
+msgid "Could not read that profile code."
+msgstr "无法识别这段曲线代码。"
+
 #: src/pages/ProfileEdit/ProfileImageUpload.jsx
 msgid "Could not read this image."
 msgstr "无法读取此图片。"
@@ -1028,6 +1108,14 @@ msgstr "无法连接到 {errorAddress}"
 msgid "Couldn't connect to {host}: {reason}. Make sure the machine is on and your phone is on the same Wi-Fi network."
 msgstr "无法连接到 {host}：{reason}。请确认咖啡机已开机，并且手机与咖啡机处于同一 Wi-Fi 网络。"
 
+#: src/pages/ShotReview/index.jsx
+msgid "Couldn't load shots from the machine."
+msgstr "无法从咖啡机读取萃取记录。"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Couldn't save the review. Check the connection to the machine and try again."
+msgstr "点评保存失败，请检查与咖啡机的连接后重试。"
+
 #: src/pages/Settings/tabs/MachineTab.jsx
 msgid "Cracking pressure of a grouphead mushroom valve (e.g. 4.0 on Delonghi machines). Subtracted from readings and added to targets only while a brew is running. Leave at 0.0 for a 3-way solenoid."
 msgstr "冲煮头蘑菇阀的开启压力（例如 Delonghi 咖啡机为 4.0）。仅在冲煮过程中从读数中减去并加到目标值上。使用三通电磁阀时保持 0.0。"
@@ -1039,6 +1127,10 @@ msgstr "由 <1>Caffinnova S.r.l.</1> 在意大利用 <0>{randomIcon}</0> 打造"
 #: src/pages/ProfileEdit/index.jsx
 msgid "Create Profile"
 msgstr "创建曲线"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Create share card"
+msgstr "生成分享卡片"
 
 #: src/utils/pumpFlowCalibration.js
 msgid "Current coefficients are not numeric: \"{raw}\""
@@ -1098,8 +1190,11 @@ msgstr "自定义"
 msgid "Daily average: <0>{dailyAvg} shots</0>"
 msgstr "日均：<0>{dailyAvg} 次萃取</0>"
 
-#: src/app/AppSettings.jsx
-#: src/pages/Settings/tabs/GeneralTab.jsx
+#: src/utils/shotNotes.js
+msgctxt "roast level"
+msgid "Dark"
+msgstr "深烘"
+
 #: src/utils/themeManager.js
 msgctxt "theme"
 msgid "Dark"
@@ -1187,6 +1282,10 @@ msgstr "活跃天数：<0>{daysWithShots}</0>"
 #: src/pages/Settings/PluginCard.jsx
 msgid "Days of week selection"
 msgstr "星期选择"
+
+#: src/utils/shotNotesLabels.js
+msgid "Decent"
+msgstr "不错"
 
 #: src/pages/ShotAnalyzer/shotAnalyzer/ShotAnalyzer.jsx
 msgid "Deep Dive Shot Analyzer"
@@ -1312,6 +1411,10 @@ msgstr "断开连接"
 msgid "Dismiss"
 msgstr "忽略"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Display"
+msgstr "显示屏"
+
 #: src/pages/Settings/tabs/GeneralTab.jsx
 msgid "Display Settings"
 msgstr "显示设置"
@@ -1345,6 +1448,7 @@ msgid "Done"
 msgstr "完成"
 
 #: src/pages/ProfileEdit/ProfileMainInformation.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
 msgid "Dose"
 msgstr "粉量"
 
@@ -1353,6 +1457,7 @@ msgid "Dose In"
 msgstr "粉量"
 
 #: src/pages/ShotHistory/ShotNotesCard.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
 msgid "Dose In (g)"
 msgstr "粉量 (g)"
 
@@ -1441,6 +1546,10 @@ msgstr "时长：{duration}s"
 msgid "During the shot, adjust the valve so pressure reaches 1 bar, then 9 bar. Keep it stable during the <0>Measure</0> phases (10 s each)."
 msgstr "萃取过程中，调节阀门使压力先达到 1 bar，再达到 9 bar。在 <0>Measure</0> 阶段（每次 10 秒）保持稳定。"
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "e.g. Ethiopia Guji"
+msgstr "例如：埃塞俄比亚 古吉"
+
 #: src/app/appSettings.js
 msgid "E.g. water tank low, scale battery low."
 msgstr "例如水箱水位低、秤电量低。"
@@ -1477,6 +1586,10 @@ msgstr "编辑 {label}"
 #: src/pages/ProfileList/index.jsx
 msgid "Edit {label} profile"
 msgstr "编辑 {label} 曲线"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Edit bean details"
+msgstr "编辑咖啡豆信息"
 
 #: src/pages/Statistics/components/toolbar/subcomponents.jsx
 msgid "Edit date range filter"
@@ -1564,6 +1677,10 @@ msgstr "为此曲线输入名称"
 msgid "Enter the bar rating of the pressure sensor being used"
 msgstr "输入所用压力传感器的额定 bar 值"
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Enter the bean name"
+msgstr "请填写豆子名称"
+
 #: src/app/MachineSetup.jsx
 msgid "Enter the hostname or IP address of your machine."
 msgstr "输入咖啡机的主机名或 IP 地址。"
@@ -1606,6 +1723,20 @@ msgstr "错误：{message}"
 msgid "Errors"
 msgstr "错误"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Espresso"
+msgstr "浓缩"
+
+#: src/utils/themeManager.js
+msgctxt "theme"
+msgid "Espresso"
+msgstr "浓缩"
+
+#: src/utils/themeManager.js
+msgctxt "theme"
+msgid "Espresso Dark"
+msgstr "浓缩（深色）"
+
 #: src/components/PumpFlowCalibration/ResultsPanel.jsx
 msgid "estimated flow"
 msgstr "估算流量"
@@ -1625,6 +1756,10 @@ msgstr "每"
 #: src/pages/Statistics/components/StatisticsSearchHelp.jsx
 msgid "Examples"
 msgstr "示例"
+
+#: src/utils/shotNotesLabels.js
+msgid "Excellent"
+msgstr "惊艳"
 
 #: src/pages/ShotAnalyzer/components/analysisTable/analysisTableModel.js
 msgid "Excessive delay while writing samples. Possible causes include a slow SD card or high OS/system load."
@@ -1725,6 +1860,10 @@ msgstr "含扩展记录"
 msgid "External LED ({extLedPct}%)"
 msgstr "外部 LED（{extLedPct}%）"
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Extraction"
+msgstr "萃取曲线"
+
 #: src/pages/ProfileList/index.jsx
 msgctxt "profile tab"
 msgid "Extraction"
@@ -1772,6 +1911,18 @@ msgstr "文件导出失败。"
 msgid "Filter library source"
 msgstr "筛选库来源"
 
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Fine"
+msgstr "细"
+
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Finer"
+msgstr "调细"
+
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Finest"
+msgstr "最细"
+
 #: src/pages/Home/utils.js
 msgctxt "process action"
 msgid "Finish"
@@ -1790,6 +1941,24 @@ msgstr "完成颜色"
 msgid "Firmware {version} – not all features may be available."
 msgstr "固件 {version} – 部分功能可能不可用。"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Firmware file (.bin)"
+msgstr "固件文件（.bin）"
+
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Firmware installed. The display is restarting; this page reloads when it is back."
+msgstr "固件已安装，显示屏正在重启；重新连上后本页会自动刷新。"
+
+#. placeholder {0}: file.name
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Flash \"{0}\" onto the controller? The machine can't be used until it finishes."
+msgstr "把「{0}」刷入主控板？完成之前咖啡机无法使用。"
+
+#. placeholder {0}: file.name
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Flash \"{0}\" onto the display? It restarts when the upload is done."
+msgstr "把「{0}」刷入显示屏？上传完成后显示屏会重启。"
+
 #: src/utils/panelDefinitions.js
 msgid "Flexible Space"
 msgstr "弹性空间"
@@ -1797,6 +1966,7 @@ msgstr "弹性空间"
 #: src/components/ExtendedProfileChart.jsx
 #: src/pages/Home/cards/ProfileCard.jsx
 #: src/pages/Home/cards/RecentShotsCard.jsx
+#: src/pages/ShotReview/ReviewChart.jsx
 #: src/utils/metricDefinitions.js
 msgid "Flow"
 msgstr "流量"
@@ -1867,6 +2037,15 @@ msgstr "建议冲洗"
 msgid "Flush water"
 msgstr "冲洗水"
 
+#. placeholder {0}: formData.displayEnv || 'display'
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "For example .pio/build/{0}/firmware.bin"
+msgstr "例如 .pio/build/{0}/firmware.bin"
+
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "For example .pio/build/controller/firmware.bin"
+msgstr "例如 .pio/build/controller/firmware.bin"
+
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "Forget"
 msgstr "忘记"
@@ -1897,6 +2076,10 @@ msgstr "星期五"
 msgctxt "date range start"
 msgid "From"
 msgstr "从"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "From your recent shots"
+msgstr "从最近的萃取记录中选择"
 
 #: src/pages/DashboardSettings/index.jsx
 msgctxt "panel view"
@@ -1947,6 +2130,10 @@ msgstr "全局指标平均值"
 msgid "Go Home"
 msgstr "返回首页"
 
+#: src/utils/shotNotesLabels.js
+msgid "Good"
+msgstr "挺好"
+
 #: src/pages/ProfileEdit/ProfileMainInformation.jsx
 #: src/pages/ProfileEdit/StandardProfileForm.jsx
 msgid "grams"
@@ -1957,7 +2144,14 @@ msgstr "克"
 msgid "grams per second"
 msgstr "克/秒"
 
+#: src/utils/shotNotesLabels.js
+msgid "Great"
+msgstr "非常好"
+
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotDetailsCard.jsx
+#: src/pages/ShotReview/BeanPicker.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
+#: src/pages/ShotReview/ReviewList.jsx
 msgid "Grind"
 msgstr "研磨"
 
@@ -1982,6 +2176,7 @@ msgid "Grind once with GbS to see which recipe number your grinder reports."
 msgstr "使用 GbS 研磨一次，即可查看磨豆机报告的配方编号。"
 
 #: src/pages/ShotHistory/ShotNotesCard.jsx
+#: src/pages/ShotReview/GrindSlider.jsx
 msgid "Grind Setting"
 msgstr "研磨度"
 
@@ -2071,6 +2266,10 @@ msgstr "评分最高"
 msgid "Highest Volume"
 msgstr "出液量最多"
 
+#: src/pages/ShotReview/index.jsx
+msgid "History"
+msgstr "历史"
+
 #: src/pages/Settings/tabs/GeneralTab.jsx
 msgctxt "flush duration"
 msgid "Hold"
@@ -2148,6 +2347,10 @@ msgid "Import failed. Please check the file format."
 msgstr "导入失败。请检查文件格式。"
 
 #: src/pages/ProfileList/index.jsx
+msgid "Import from QR code text"
+msgstr "从二维码文字导入"
+
+#: src/pages/ProfileList/index.jsx
 msgid "Import profiles"
 msgstr "导入曲线"
 
@@ -2182,6 +2385,10 @@ msgstr "未完成"
 #: src/pages/Home/utils.js
 msgid "Infusion"
 msgstr "浸润"
+
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Install a firmware file you built yourself. The machine checks that the file is meant for the part you pick before using it."
+msgstr "安装你自己编译的固件文件。启用前，咖啡机会先检查这个文件是否属于你选择的部件。"
 
 #: src/pages/ProfileEdit/ExtendedPhase.jsx
 msgctxt "ramp style"
@@ -2268,6 +2475,10 @@ msgstr "alpha 越大响应越快、平滑越少；alpha 越小越平滑但响应
 msgid "Last Row Fill"
 msgstr "末行填充"
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Last time with this bean: {lastGrind}"
+msgstr "这支豆上次用 {lastGrind}"
+
 #: src/pages/Settings/tabs/GeneralTab.jsx
 msgid "Last used profile"
 msgstr "上次使用的曲线"
@@ -2280,6 +2491,10 @@ msgstr "上周"
 msgid "Last: {lastTime} · {shotsSince, plural, one {# shot since} other {# shots since}}"
 msgstr "上次：{lastTime} · {shotsSince, plural, other {此后 # 次萃取}}"
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Latest"
+msgstr "最新"
+
 #: src/pages/ShotAnalyzer/components/library/LibrarySection.jsx
 msgid "Length (Long)"
 msgstr "长度（长）"
@@ -2288,12 +2503,19 @@ msgstr "长度（长）"
 msgid "Length (Short)"
 msgstr "长度（短）"
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Less dose"
+msgstr "减少粉量"
+
 #: src/pages/Settings/PluginCard.jsx
 msgid "Lets an E64 WS start shots with its knob and dial in its grind from the shot time and weight. A grind selects the profile mapped to its recipe, and the grinder's target weight overrides that profile's weight target. Save and restart to apply."
 msgstr "允许 E64 WS 通过旋钮启动萃取，并根据萃取时间和重量调整研磨度。研磨时会选择与其配方对应的曲线，磨豆机的目标重量将覆盖该曲线的重量目标。保存并重启后生效。"
 
-#: src/app/AppSettings.jsx
-#: src/pages/Settings/tabs/GeneralTab.jsx
+#: src/utils/shotNotes.js
+msgctxt "roast level"
+msgid "Light"
+msgstr "浅烘"
+
 #: src/utils/themeManager.js
 msgctxt "theme"
 msgid "Light"
@@ -2550,6 +2772,25 @@ msgstr "最大泵功率 (0 - 1)"
 msgid "MediaRecorder is not supported in this browser."
 msgstr "此浏览器不支持 MediaRecorder。"
 
+#: src/utils/shotNotes.js
+msgctxt "roast level"
+msgid "Medium"
+msgstr "中烘"
+
+#: src/utils/shotNotes.js
+msgctxt "roast level"
+msgid "Medium-dark"
+msgstr "中深"
+
+#: src/utils/shotNotes.js
+msgctxt "roast level"
+msgid "Medium-light"
+msgstr "中浅"
+
+#: src/utils/shotNotesLabels.js
+msgid "Meh"
+msgstr "一般"
+
 #: src/pages/Statistics/components/PhaseStatistics.jsx
 msgid "Metric"
 msgstr "指标"
@@ -2619,6 +2860,10 @@ msgstr "月"
 #: src/pages/ShotAnalyzer/components/library/LibraryActionsMenu.jsx
 msgid "More actions"
 msgstr "更多操作"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "More dose"
+msgstr "增加粉量"
 
 #: src/pages/Settings/index.jsx
 msgid "More options"
@@ -2713,9 +2958,17 @@ msgstr "从不"
 msgid "NEW"
 msgstr "NEW"
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "New bean"
+msgstr "新的咖啡豆"
+
 #: src/components/PumpFlowCalibration/usePumpFlowCalibration.js
 msgid "New shot did not appear in history — was it cancelled?"
 msgstr "新的萃取未出现在历史记录中 — 是否已取消？"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Newer shot"
+msgstr "后一杯"
 
 #: src/pages/ShotHistory/index.jsx
 msgid "Newest First"
@@ -2743,6 +2996,10 @@ msgstr "每夜版会最先获得新功能，与每夜版固件使用相同的代
 #: src/app/machines.js
 msgid "no answer (timed out)"
 msgstr "无应答（超时）"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "No bean selected"
+msgstr "未选择咖啡豆"
 
 #: src/pages/Statistics/components/statisticsView/helpers.js
 #: src/pages/Statistics/components/toolbar/helpers.js
@@ -2798,9 +3055,17 @@ msgstr "未找到固定的项目。"
 msgid "No preceding phase"
 msgstr "无前一阶段"
 
+#: src/pages/ProfileList/index.jsx
+msgid "No profile found in that text."
+msgstr "这段文字里没有找到曲线。"
+
 #: src/pages/ShotAnalyzer/components/library/libraryDisplay.js
 msgid "No Profile Loaded"
 msgstr "未加载曲线"
+
+#: src/pages/ShotReview/HalfStarRating.jsx
+msgid "No rating"
+msgstr "未评分"
 
 #: src/pages/ShotAnalyzer/services/analyzer/shotAnalysis.js
 msgid "No sample data available for analysis."
@@ -2827,6 +3092,10 @@ msgstr "所选筛选条件下没有萃取记录。"
 #: src/pages/ShotHistory/index.jsx
 msgid "No shots match your search and filter criteria"
 msgstr "没有符合搜索和筛选条件的萃取记录"
+
+#: src/pages/ShotReview/index.jsx
+msgid "No shots yet. Pull a shot and it will show up here to review."
+msgstr "还没有萃取记录。冲一杯，它就会出现在这里等你点评。"
 
 #: src/pages/Statistics/components/statisticsView/StatisticsView.jsx
 msgid "No Statistics Built Yet"
@@ -2879,6 +3148,8 @@ msgid "Not in range. Switch it on to reconnect."
 msgstr "不在范围内。打开它以重新连接。"
 
 #: src/pages/ShotHistory/HistoryCard.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
+#: src/utils/shotNotesLabels.js
 msgid "Not rated"
 msgstr "未评分"
 
@@ -2910,9 +3181,17 @@ msgctxt "pump mode"
 msgid "Off"
 msgstr "关闭"
 
+#: src/utils/shotNotesLabels.js
+msgid "Okay"
+msgstr "还可以"
+
 #: src/app/FirmwareWarning.jsx
 msgid "Old firmware"
 msgstr "旧版固件"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Older shot"
+msgstr "前一杯"
 
 #: src/pages/ShotHistory/index.jsx
 msgid "Oldest First"
@@ -2997,6 +3276,10 @@ msgstr "在 iOS 设备上打开“家庭”App，选择“添加配件”，然�
 msgid "Opens imported external shots and profiles temporarily without saving them to the browser library."
 msgstr "临时打开导入的外部萃取和曲线，不保存到浏览器库中。"
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Optional"
+msgstr "选填"
+
 #: src/pages/ProfileEdit/ProfileMainInformation.jsx
 msgid "Optional description for this profile"
 msgstr "此曲线的可选描述"
@@ -3026,6 +3309,10 @@ msgstr "面板选择"
 msgid "Parsed {sampleCount} samples (v{version})."
 msgstr "已解析 {sampleCount} 个样本 (v{version})。"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Part to update"
+msgstr "要更新的部件"
+
 #: src/pages/Settings/PluginCard.jsx
 msgid "password"
 msgstr "密码"
@@ -3033,6 +3320,10 @@ msgstr "密码"
 #: src/components/VisualizerUploadModal.jsx
 msgid "Password"
 msgstr "密码"
+
+#: src/pages/ProfileList/index.jsx
+msgid "Paste the text from a share-card QR code (starts with GM1.)"
+msgstr "粘贴扫描分享卡片二维码得到的文字（以 GM1. 开头）"
 
 #: src/pages/Home/utils.js
 msgctxt "process action"
@@ -3042,6 +3333,10 @@ msgstr "暂停"
 #: src/pages/ShotAnalyzer/components/shotChart/controls/chartReplayControls.jsx
 msgid "Pause replay"
 msgstr "暂停回放"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Peak"
+msgstr "峰值压力"
 
 #: src/pages/ShotAnalyzer/components/shotChart/compare/CompareMetricContent.jsx
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotMetricCards.jsx
@@ -3196,6 +3491,10 @@ msgstr "插件"
 msgid "PNG, JPEG, WebP or BMP. GIFs are not supported. The image is cropped to a square and scaled to 300×300 pixels for the display."
 msgstr "PNG、JPEG、WebP 或 BMP。不支持 GIF。图片将被裁剪为正方形，并缩放为 300×300 像素用于显示屏。"
 
+#: src/utils/shotNotesLabels.js
+msgid "Poor"
+msgstr "不太行"
+
 #: src/pages/ProfileEdit/ExtendedPhase.jsx
 #: src/pages/ProfileEdit/StandardProfileForm.jsx
 msgctxt "pump mode"
@@ -3261,9 +3560,11 @@ msgid "Press <0><1/></0> to build a statistic."
 msgstr "按 <0><1/></0> 生成统计。"
 
 #: src/components/ExtendedProfileChart.jsx
+#: src/components/ShareCard/ShareCardModal.jsx
 #: src/pages/Home/cards/ProfileCard.jsx
 #: src/pages/Home/cards/RecentShotsCard.jsx
 #: src/pages/ShotAnalyzer/components/shotChart/labelVisuals.js
+#: src/pages/ShotReview/ReviewChart.jsx
 #: src/pages/Statistics/components/MetricsTable.jsx
 #: src/pages/Statistics/components/PhaseStatistics.jsx
 #: src/utils/metricDefinitions.js
@@ -3328,6 +3629,10 @@ msgstr "压力目标"
 msgid "Pressure Target"
 msgstr "压力目标"
 
+#: src/pages/ShotReview/ReviewChart.jsx
+msgid "Pressure, flow and weight over the shot"
+msgstr "整杯萃取的压力、流量和重量曲线"
+
 #: src/pages/ProfileEdit/ExtendedProfileForm.jsx
 #: src/pages/ShotHistory/index.jsx
 msgid "Previous"
@@ -3367,6 +3672,7 @@ msgstr "正在处理萃取历史文件（{current}/{total}）"
 msgid "profile"
 msgstr "曲线"
 
+#: src/components/ShareCard/ShareCardModal.jsx
 #: src/pages/Home/cards/ProfileCard.jsx
 #: src/pages/ShotAnalyzer/components/library/LibrarySection.jsx
 #: src/pages/Statistics/components/ProfileGroupTable.jsx
@@ -3647,7 +3953,10 @@ msgstr "范围"
 msgid "Rated Only"
 msgstr "仅已评分"
 
+#: src/components/ShareCard/ShareCardModal.jsx
 #: src/pages/ShotHistory/ShotNotesCard.jsx
+#: src/pages/ShotReview/HalfStarRating.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
 msgid "Rating"
 msgstr "评分"
 
@@ -3694,6 +4003,14 @@ msgstr "可以打蒸汽，请打开蒸汽棒"
 #: src/pages/Settings/tabs/SystemTab.jsx
 msgid "Rebuild Shot History"
 msgstr "重建萃取历史"
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Receipt"
+msgstr "小票"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Recent beans"
+msgstr "最近用过的咖啡豆"
 
 #: src/pages/DashboardSettings/index.jsx
 #: src/pages/Home/cards/RecentShotsCard.jsx
@@ -3828,6 +4145,11 @@ msgstr "将列重置为系统默认值？"
 msgid "Reset Defaults"
 msgstr "恢复默认"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Rested {age} days"
+msgstr "养豆 {age} 天"
+
 #: src/components/PumpFlowCalibration/usePumpFlowCalibration.js
 msgid "Restoring previous profile..."
 msgstr "正在恢复之前的曲线..."
@@ -3852,6 +4174,28 @@ msgstr "检查阶段 {phaseNumber}"
 #: src/pages/ShotAnalyzer/components/analysisTable/analysisTableModel.js
 msgid "Review the stop reason for this phase. The algorithm was only able to identify it after several intermediate calculations."
 msgstr "请检查此阶段的停止原因。算法经过多次中间计算后才得以识别。"
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Roast"
+msgstr "烘焙度"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Roast date"
+msgstr "烘焙日期"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Roast level"
+msgstr "烘焙度"
+
+#. placeholder {0}: n.roastDate
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Roasted {0}"
+msgstr "烘焙 {0}"
+
+#: src/components/ShareCard/ShareCardModal.jsx
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Roaster"
+msgstr "烘焙商"
 
 #: src/pages/Statistics/components/StatisticsSearchHelp.jsx
 msgid "Rules are separated with <0>;</0>. Visual filters and DSL are combined with AND."
@@ -3938,6 +4282,10 @@ msgstr "将当前选择保存为新的“标准”？"
 msgid "Save failed: {message}"
 msgstr "保存失败：{message}"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Save image"
+msgstr "保存图片"
+
 #: src/app/MachineSetup.jsx
 msgid "Save name"
 msgstr "保存名称"
@@ -3946,6 +4294,10 @@ msgstr "保存名称"
 #: src/pages/ProfileEdit/StandardProfileForm.jsx
 msgid "Save profile"
 msgstr "保存曲线"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Save review"
+msgstr "保存点评"
 
 #: src/pages/Settings/index.jsx
 #: src/pages/Settings/StickyFormFooter.jsx
@@ -3972,6 +4324,10 @@ msgstr "保存到浏览器。导入的萃取和曲线将保存到浏览器库中
 msgid "Save to machine"
 msgstr "保存到咖啡机"
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Saved"
+msgstr "已保存"
+
 #: src/app/MachineSetup.jsx
 msgctxt "machine status"
 msgid "Saved"
@@ -3985,6 +4341,10 @@ msgstr "已保存"
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "Saved scale"
 msgstr "已保存的秤"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Saved with this shot's notes on the machine."
+msgstr "随这杯的备注一起保存在咖啡机上。"
 
 #: src/components/PumpFlowCalibration/usePumpFlowCalibration.js
 msgid "Saving calibration profile..."
@@ -4030,6 +4390,10 @@ msgstr "秤列表每 10 秒自动刷新。使用扫描按钮发现新设备。"
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "Scan failed"
 msgstr "扫描失败"
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Scan for brew profile"
+msgstr "扫码获取冲煮曲线"
 
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "Scan for Devices"
@@ -4192,6 +4556,14 @@ msgstr "设置尚未加载。"
 msgid "Share"
 msgstr "分享"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Share card"
+msgstr "分享卡片"
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Share card preview"
+msgstr "分享卡片预览"
+
 #: src/pages/Statistics/components/StatisticsMultiSelectDropdown.jsx
 msgid "Shift = Range"
 msgstr "Shift = 范围"
@@ -4301,6 +4673,12 @@ msgstr "萃取指标"
 msgid "Shot Notes"
 msgstr "萃取备注"
 
+#: src/components/Navigation.jsx
+#: src/components/ShareCard/ShareCardModal.jsx
+#: src/pages/ShotReview/index.jsx
+msgid "Shot Review"
+msgstr "萃取点评"
+
 #: src/pages/ShotAnalyzer/components/shotChart/compare/compareModel.js
 msgid "Shot start"
 msgstr "萃取开始"
@@ -4327,6 +4705,7 @@ msgid "shots"
 msgstr "萃取"
 
 #: src/pages/ShotAnalyzer/components/library/LibraryDropdown.jsx
+#: src/pages/ShotReview/ReviewList.jsx
 #: src/pages/Statistics/components/ProfileGroupTable.jsx
 #: src/pages/Statistics/components/toolbar/subcomponents.jsx
 #: src/pages/Statistics/components/TrendChart.jsx
@@ -4373,6 +4752,10 @@ msgstr "显示图例"
 #: src/pages/ShotAnalyzer/components/shotChart/MobileMetricPager.jsx
 msgid "Show metric page {pageNumber}"
 msgstr "显示指标第 {pageNumber} 页"
+
+#: src/pages/ShotReview/ReviewList.jsx
+msgid "Show more"
+msgstr "显示更多"
 
 #: src/components/VisualizerUploadModal.jsx
 msgid "Show password"
@@ -4427,6 +4810,10 @@ msgstr "单卡片"
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotDetailsCard.jsx
 msgid "Single Origin, Blend..."
 msgstr "单品、拼配..."
+
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Slider range"
+msgstr "滑条范围"
 
 #: src/components/PumpFlowCalibration/api.js
 msgid "slog not ready, waiting for flush... ({attempt})"
@@ -4640,6 +5027,10 @@ msgstr "蒸汽开关未关闭"
 msgid "Steam Temp"
 msgstr "蒸汽温度"
 
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Step"
+msgstr "每格"
+
 #: src/pages/DashboardSettings/index.jsx
 msgid "Stick first panel to top"
 msgstr "第一个面板固定在顶部"
@@ -4756,8 +5147,6 @@ msgctxt "profile badge"
 msgid "System"
 msgstr "系统"
 
-#: src/app/AppSettings.jsx
-#: src/pages/Settings/tabs/GeneralTab.jsx
 #: src/utils/themeManager.js
 msgctxt "theme"
 msgid "System"
@@ -4794,6 +5183,14 @@ msgctxt "Tuesday, one letter"
 msgid "T"
 msgstr "二"
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Tap the left half of a star for half a star"
+msgstr "点星星左半边得半星"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Tap to change"
+msgstr "点击更换"
+
 #: src/pages/Settings/tabs/MachineTab.jsx
 msgid "Tare"
 msgstr "去皮"
@@ -4801,6 +5198,10 @@ msgstr "去皮"
 #: src/pages/Settings/tabs/MachineTab.jsx
 msgid "Tare the scale, then place a known weight and calibrate each load cell."
 msgstr "先对秤去皮，然后放上已知重量的物体并校准每个称重传感器。"
+
+#: src/pages/ShotReview/ReviewChart.jsx
+msgid "Target"
+msgstr "目标"
 
 #: src/pages/Home/cards/ProfileCard.jsx
 msgctxt "process"
@@ -4913,6 +5314,10 @@ msgstr "风味笔记、冲煮观察等..."
 msgid "Tasting notes, brewing observations..."
 msgstr "风味笔记、冲煮观察..."
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Tasting notes: acidity, sweetness, body, finish…"
+msgstr "风味笔记：酸质、甜感、醇厚度、余韵……"
+
 #: src/utils/metricDefinitions.js
 msgid "Temp"
 msgstr "温度"
@@ -4999,6 +5404,10 @@ msgstr "仅 Pro 曲线显示图表"
 msgid "The configured or inferred scale delay is unusually high. Review the scale-delay setting before relying on predictive weight stops."
 msgstr "已配置或推算的秤延迟异常偏高。在依赖预测重量停止之前，请检查秤延迟设置。"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "The connection to the machine was lost during the upload."
+msgstr "上传过程中与咖啡机的连接断开了。"
+
 #: src/app/notifications.js
 msgid "The controller reported an error."
 msgstr "控制器报告了错误。"
@@ -5027,6 +5436,10 @@ msgstr "咖啡机已处于蒸汽模式 5 分钟。"
 msgid "The profile's dose is saved to the shot history."
 msgstr "曲线的粉量会保存到萃取历史中。"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "The QR code holds this profile as it is now saved on the machine, which may differ from when this shot was pulled."
+msgstr "二维码里是这条曲线现在保存在咖啡机上的版本，可能和萃取这杯时不一样。"
+
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "The scale was found, but the Bluetooth connection failed. Try again or restart the scale."
 msgstr "已找到秤，但蓝牙连接失败。请重试或重启秤。"
@@ -5035,12 +5448,16 @@ msgstr "已找到秤，但蓝牙连接失败。请重试或重启秤。"
 msgid "The scale wasn't found. Make sure it's switched on and nearby, then scan again."
 msgstr "未找到秤。请确认秤已开机并在附近，然后重新扫描。"
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "The shot's curve couldn't be loaded."
+msgstr "无法加载这杯的萃取曲线。"
+
 #: src/pages/Settings/tabs/SystemTab.jsx
 msgid "The update could not be completed and the device kept its current firmware. Check the network connection and start the update again."
 msgstr "更新未能完成，设备保留了当前固件。请检查网络连接并重新开始更新。"
 
-#: src/app/AppSettings.jsx
-#: src/pages/Settings/tabs/GeneralTab.jsx
+#: src/components/ThemeMenu.jsx
+#: src/components/ThemeSelect.jsx
 msgid "Theme"
 msgstr "主题"
 
@@ -5055,6 +5472,10 @@ msgstr "热前馈增益"
 #: src/app/machines.js
 msgid "this address is not a GaggiMate"
 msgstr "此地址不是 GaggiMate"
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "This browser can't build the profile QR code."
+msgstr "当前浏览器无法生成曲线二维码。"
 
 #: src/pages/ShotAnalyzer/services/ReplayVideoExportService.js
 msgid "This browser cannot record MP4 video. Please use WebM export instead."
@@ -5076,12 +5497,17 @@ msgstr "此功能可控制 Tasmota 插座，在达到目标后关闭磨豆机。
 msgid "This scale model couldn't be set up."
 msgstr "无法设置此型号的秤。"
 
+#: src/pages/ShotReview/index.jsx
+msgid "This shot"
+msgstr "这一杯"
+
 #: src/pages/Settings/PluginCard.jsx
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotMainInfoCard.jsx
 msgid "Thursday"
 msgstr "星期四"
 
 #: src/pages/ShotAnalyzer/components/analysisTable/analysisTableModel.js
+#: src/pages/ShotReview/ReviewForm.jsx
 msgid "Time"
 msgstr "时间"
 
@@ -5224,6 +5650,10 @@ msgstr "不可用 / 未校准"
 msgid "Unclosed quoted value."
 msgstr "引号内的值未闭合。"
 
+#: src/utils/shotNotesLabels.js
+msgid "Undrinkable"
+msgstr "难以下咽"
+
 #: src/pages/ProfileList/index.jsx
 msgid "Unfavorite"
 msgstr "取消收藏"
@@ -5263,6 +5693,8 @@ msgid "Unknown field \"{fieldRaw}\". Supported: {supportedFields}."
 msgstr "未知字段“{fieldRaw}”。支持的字段：{supportedFields}。"
 
 #: src/pages/ShotHistory/HistoryCard.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
+#: src/pages/ShotReview/ReviewList.jsx
 msgid "Unknown Profile"
 msgstr "未知曲线"
 
@@ -5273,6 +5705,10 @@ msgstr "未知秤"
 #: src/pages/Statistics/components/statisticsView/helpers.js
 msgid "Unknown Shot"
 msgstr "未知萃取"
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Unnamed coffee"
+msgstr "未命名咖啡"
 
 #: src/pages/ShotAnalyzer/components/library/LibraryRow.jsx
 msgid "Unpin {displayName}"
@@ -5359,13 +5795,29 @@ msgctxt "date basis"
 msgid "Upload"
 msgstr "上传"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Upload and install"
+msgstr "上传并安装"
+
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Upload done. Sending the firmware to the controller…"
+msgstr "上传完成，正在把固件发送给主控板…"
+
 #: src/utils/profileImage.js
 msgid "Upload failed"
 msgstr "上传失败"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Upload failed: {error}"
+msgstr "上传失败：{error}"
+
 #: src/pages/ShotHistory/HistoryCard.jsx
 msgid "Upload failed: {errorMessage}"
 msgstr "上传失败：{errorMessage}"
+
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Upload firmware"
+msgstr "上传固件"
 
 #: src/pages/ProfileEdit/ProfileImageUpload.jsx
 msgid "Upload image"
@@ -5388,6 +5840,10 @@ msgstr "上传到 Visualizer.coffee"
 msgid "Uploading..."
 msgstr "上传中..."
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Uploading…"
+msgstr "上传中…"
+
 #: src/pages/Settings/tabs/CalibrationTab.jsx
 msgid "Upper bound on the identification test. Most espresso boilers resolve within 60–120 s. Extend if Autotune fails before peak slope is detected."
 msgstr "辨识测试的时长上限。大多数意式咖啡机锅炉在 60–120 秒内完成。如果自动整定在检测到峰值斜率前失败，请延长此值。"
@@ -5399,6 +5855,10 @@ msgstr "使用 <0>></0>、<1>>=</1>、<2><</2>、<3><=</3>、<4>=</4>"
 #: src/pages/Settings/tabs/GeneralTab.jsx
 msgid "Use 24h Format"
 msgstr "使用 24 小时制"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Use for this shot"
+msgstr "用于这一杯"
 
 #: src/pages/Statistics/components/toolbar/helpers.js
 msgid "Use shot timestamp only"
@@ -5472,6 +5932,10 @@ msgstr "阀门状态选择"
 #: src/app/AppSettings.jsx
 msgid "Version {bundleVersion}"
 msgstr "版本 {bundleVersion}"
+
+#: src/utils/shotNotesLabels.js
+msgid "Very good"
+msgstr "很好"
 
 #: src/pages/ShotAnalyzer/components/shotChart/controls/chartReplayControls.jsx
 msgid "Video"
@@ -5656,6 +6120,7 @@ msgstr "周"
 #: src/pages/ShotAnalyzer/components/shotChart/labelVisuals.js
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotMetricCards.jsx
 #: src/pages/ShotHistory/HistoryChart.jsx
+#: src/pages/ShotReview/ReviewChart.jsx
 #: src/pages/Statistics/components/MetricsTable.jsx
 #: src/pages/Statistics/components/PhaseStatistics.jsx
 #: src/utils/metricDefinitions.js
@@ -5732,6 +6197,10 @@ msgstr "年"
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotMainInfoCard.jsx
 msgid "Yesterday"
 msgstr "昨天"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Yield"
+msgstr "液重"
 
 #: src/components/VisualizerUploadModal.jsx
 msgid "Yield:"

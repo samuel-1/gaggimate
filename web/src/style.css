@@ -145,6 +145,77 @@
   --noise: 0;
 }
 
+/* Espresso: warm crema/roast palette, light and dark (the Shot Review page's colors). */
+@plugin "daisyui/theme" {
+  name: 'espresso';
+  default: false;
+  prefersdark: false;
+  color-scheme: 'light';
+  --color-base-100: #faf6f0;
+  --color-base-200: #efe7db;
+  --color-base-300: #ede5d9;
+  --color-base-content: #2b1d14;
+  --color-primary: #3a2418;
+  --color-primary-content: #f8efe3;
+  --color-secondary: #7a4a2c;
+  --color-secondary-content: #faf6f0;
+  --color-accent: #b0592a;
+  --color-accent-content: #ffffff;
+  --color-neutral: #2b1d14;
+  --color-neutral-content: #faf6f0;
+  --color-info: #4f7a90;
+  --color-info-content: #ffffff;
+  --color-success: #5f8a57;
+  --color-success-content: #ffffff;
+  --color-warning: #b98a2e;
+  --color-warning-content: #2b1d14;
+  --color-error: #a8392b;
+  --color-error-content: #ffffff;
+  --radius-selector: 1rem;
+  --radius-field: 0.7rem;
+  --radius-box: 1.125rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+  name: 'espresso-dark';
+  default: false;
+  prefersdark: false;
+  color-scheme: 'dark';
+  --color-base-100: #211813;
+  --color-base-200: #2a201a;
+  --color-base-300: #15100c;
+  --color-base-content: #f2e7d8;
+  --color-primary: #e0a86b;
+  --color-primary-content: #1a120c;
+  --color-secondary: #c9926a;
+  --color-secondary-content: #15100c;
+  --color-accent: #e08a55;
+  --color-accent-content: #1a120c;
+  --color-neutral: #f2e7d8;
+  --color-neutral-content: #211813;
+  --color-info: #83afc4;
+  --color-info-content: #15100c;
+  --color-success: #8fb58b;
+  --color-success-content: #15100c;
+  --color-warning: #ddb35c;
+  --color-warning-content: #15100c;
+  --color-error: #e3735f;
+  --color-error-content: #15100c;
+  --radius-selector: 1rem;
+  --radius-field: 0.7rem;
+  --radius-box: 1.125rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
 @keyframes shimmer {
   0% {
     background-position: -600px 0;
@@ -166,9 +237,11 @@
   border-radius: 0.375rem;
 }
 
-/* Analyzer color mapping (columns + analysis table + shared statistics visuals incl. trends/summary cards):
-   - light uses the root mapping
-   - dark/coffee/nord follow the explicit WebUI data-theme only
+/* Analyzer color mapping (columns + analysis table + shared statistics visuals incl. trends/summary cards).
+   Selected by the explicit WebUI data-theme, never by prefers-color-scheme:
+   - light, espresso and nord use the root mapping
+   - dark, coffee and espresso-dark share the dark mapping
+   - nord and coffee override only the few values that differ
 */
 :root {
   --analyzer-pressure-text: #0066cc;
@@ -267,7 +340,9 @@
   --analyzer-source-web-badge-text: #5b7aa7;
 }
 
-html[data-theme='dark'] {
+html[data-theme='dark'],
+html[data-theme='coffee'],
+html[data-theme='espresso-dark'] {
   --analyzer-pressure-text: #58a6ff;
   --analyzer-pressure-anchor: #58a6ff;
   --analyzer-target-pressure-text: #58a6ff;
@@ -338,148 +413,36 @@ html[data-theme='dark'] {
   --analyzer-source-web-badge-text: #94a3b8;
 }
 
+/* nord uses the root (light) mapping with a more see-through glass surface. */
 html[data-theme='nord'] {
-  --analyzer-pressure-text: #0066cc;
-  --analyzer-pressure-anchor: #0066cc;
-  --analyzer-target-pressure-text: #0066cc;
-  --analyzer-target-pressure-anchor: #0066cc;
-  --analyzer-flow-text: #63993d;
-  --analyzer-flow-anchor: #63993d;
-  --analyzer-target-flow-text: #63993d;
-  --analyzer-target-flow-anchor: #63993d;
-  --analyzer-puckflow-text: #059669;
-  --analyzer-puckflow-anchor: #059669;
-  --analyzer-temp-text: #f0561d;
-  --analyzer-temp-anchor: #f0561d;
-  --analyzer-target-temp-text: #731f00;
-  --analyzer-target-temp-anchor: #731f00;
-  --analyzer-weight-text: #8b5cf6;
-  --analyzer-weight-anchor: #8b5cf6;
-  --analyzer-weight-det-text: #8b5cf6;
-  --analyzer-weight-det-anchor: #8b5cf6;
-  --analyzer-weightflow-text: #6d28d9;
-  --analyzer-weightflow-anchor: #6d28d9;
-  --analyzer-pred-stop-red: #dc2626;
-  --analyzer-pred-info-blue: #2563eb;
-  --analyzer-warning-orange: #ea7a2f;
-  --analyzer-warning-orange-strong: #c95f1d;
-  --analyzer-warning-orange-shadow: rgba(234, 122, 47, 0.3);
-  --analyzer-brew-by-time-label-bg: #475569;
-  --analyzer-brew-by-time-label-border: #334155;
-  --analyzer-brew-by-time-label-text: #ffffff;
-  --analyzer-brew-by-weight-label-bg: #8b5cf6;
-  --analyzer-brew-by-weight-label-border: #6d3fe0;
-  --analyzer-brew-by-weight-label-text: #ffffff;
-  --analyzer-notes-taste-bitter: #b16a3c;
-  --analyzer-notes-taste-balanced: #5f8a57;
-  --analyzer-notes-taste-sour: #b7963f;
-  --analyzer-phase-line: rgba(107, 114, 128, 0.5);
-  --analyzer-stop-label: rgba(220, 38, 38, 0.85);
-  --analyzer-hover-tooltip-bg: rgba(20, 20, 20, 0.92);
-  --analyzer-hover-tooltip-border: rgba(255, 255, 255, 0.08);
-  --analyzer-hover-tooltip-text: #ffffff;
-  --analyzer-hover-tooltip-shadow: rgba(15, 23, 42, 0.26);
-  --statistics-trend-duration: #64748b;
-  --statistics-trend-water: #0ea5e9;
-  --statistics-trend-shots-brown: #8b5e3c;
-  --statistics-trend-axis-tick: #888888;
-  --statistics-trend-grid: rgba(200, 200, 200, 0.1);
-  --statistics-trend-tooltip-bg: rgba(20, 20, 20, 0.9);
-  --statistics-summary-shots-brown: #8b5e3c;
-  --statistics-summary-water: #0ea5e9;
-  --statistics-summary-duration: #64748b;
-  --statistics-summary-surface-strong: color-mix(
-    in srgb,
-    var(--color-base-100) 92%,
-    var(--color-base-content) 2%
-  );
-  --statistics-summary-surface-muted: color-mix(
-    in srgb,
-    var(--color-base-100) 97%,
-    var(--color-base-content) 1%
-  );
-  --statistics-summary-border: color-mix(in srgb, var(--color-base-content) 10%, transparent);
-  --statistics-summary-shadow: rgba(15, 23, 42, 0.08);
   --app-glass-surface-bg: color-mix(in srgb, var(--color-base-100) 72%, transparent);
-  --app-glass-surface-border: color-mix(in srgb, var(--color-base-content) 13%, transparent);
-  --app-glass-surface-shadow: 0 14px 36px rgba(15, 23, 42, 0.16);
-  --app-glass-surface-filter: blur(14px) saturate(1.45);
-  --app-glass-surface-highlight: inset 0 1px 0
-    color-mix(in srgb, var(--color-base-100) 42%, transparent);
 }
 
+/* coffee uses the dark mapping with warmer greys. */
 html[data-theme='coffee'] {
-  --analyzer-pressure-text: #58a6ff;
-  --analyzer-pressure-anchor: #58a6ff;
-  --analyzer-target-pressure-text: #58a6ff;
-  --analyzer-target-pressure-anchor: #58a6ff;
-  --analyzer-flow-text: #82c952;
-  --analyzer-flow-anchor: #82c952;
-  --analyzer-target-flow-text: #82c952;
-  --analyzer-target-flow-anchor: #82c952;
-  --analyzer-puckflow-text: #10b981;
-  --analyzer-puckflow-anchor: #10b981;
-  --analyzer-temp-text: #ff7a45;
-  --analyzer-temp-anchor: #ff7a45;
-  --analyzer-target-temp-text: #bc2d00;
-  --analyzer-target-temp-anchor: #bc2d00;
-  --analyzer-weight-text: #a78bfa;
-  --analyzer-weight-anchor: #a78bfa;
-  --analyzer-weight-det-text: #a78bfa;
-  --analyzer-weight-det-anchor: #a78bfa;
-  --analyzer-weightflow-text: #7c3aed;
-  --analyzer-weightflow-anchor: #7c3aed;
-  --analyzer-pred-stop-red: #ef4444;
-  --analyzer-pred-info-blue: #60a5fa;
-  --analyzer-warning-orange: #f39a52;
-  --analyzer-warning-orange-strong: #dd7f31;
-  --analyzer-warning-orange-shadow: rgba(243, 154, 82, 0.3);
-  --analyzer-brew-by-time-label-bg: #475569;
-  --analyzer-brew-by-time-label-border: #64748b;
-  --analyzer-brew-by-time-label-text: #ffffff;
-  --analyzer-brew-by-weight-label-bg: #a78bfa;
-  --analyzer-brew-by-weight-label-border: #8f6be8;
-  --analyzer-brew-by-weight-label-text: #ffffff;
-  --analyzer-notes-taste-bitter: #d39a6a;
-  --analyzer-notes-taste-balanced: #8fb58b;
-  --analyzer-notes-taste-sour: #d6b66a;
-  --analyzer-phase-line: rgba(148, 163, 184, 0.45);
-  --analyzer-stop-label: rgba(239, 68, 68, 0.85);
   --analyzer-hover-tooltip-bg: rgba(18, 14, 12, 0.94);
   --analyzer-hover-tooltip-border: rgba(255, 255, 255, 0.08);
-  --analyzer-hover-tooltip-text: #ffffff;
-  --analyzer-hover-tooltip-shadow: rgba(0, 0, 0, 0.34);
   --statistics-trend-duration: #a8a29e;
   --statistics-trend-water: #67e8f9;
-  --statistics-trend-shots-brown: #b4835f;
   --statistics-trend-axis-tick: #a8a29e;
-  --statistics-trend-grid: rgba(200, 200, 200, 0.12);
   --statistics-trend-tooltip-bg: rgba(18, 14, 12, 0.94);
-  --statistics-summary-shots-brown: #b4835f;
   --statistics-summary-water: #67e8f9;
   --statistics-summary-duration: #a8a29e;
-  --statistics-summary-surface-strong: color-mix(
-    in srgb,
-    var(--color-base-100) 86%,
-    var(--color-base-content) 4%
-  );
-  --statistics-summary-surface-muted: color-mix(
-    in srgb,
-    var(--color-base-100) 92%,
-    var(--color-base-content) 2%
-  );
-  --statistics-summary-border: color-mix(in srgb, var(--color-base-content) 16%, transparent);
   --statistics-summary-shadow: rgba(0, 0, 0, 0.24);
-  --app-glass-surface-bg: color-mix(in srgb, var(--color-base-100) 70%, transparent);
-  --app-glass-surface-border: color-mix(in srgb, var(--color-base-content) 16%, transparent);
-  --app-glass-surface-shadow: 0 16px 38px rgba(0, 0, 0, 0.24);
-  --app-glass-surface-filter: blur(14px) saturate(1.45);
-  --app-glass-surface-highlight: inset 0 1px 0
-    color-mix(in srgb, var(--color-base-content) 10%, transparent);
 }
 
 @theme {
   --font-logo: 'Montserrat', sans-serif;
+}
+
+/* Full height of the visible viewport. 100vh on iOS is the height with the browser bars
+   hidden, so the bottom of a 100vh layout sits under Chrome's toolbar; 100dvh tracks what is
+   actually visible. 100vh stays as the fallback for browsers without dvh. */
+@utility h-app-screen {
+  height: 100vh;
+  @supports (height: 100dvh) {
+    height: 100dvh;
+  }
 }
 
 @source inline("{,sm:,md:,lg:,xl:}col-span-{1..12}");

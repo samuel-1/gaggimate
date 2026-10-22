@@ -8,9 +8,13 @@
 #include "GitHubOTA.h"
 #include <ArduinoJson.h>
 #include <ESPAsyncWebServer.h>
+#include <atomic>
+#include <display/core/FirmwareUpload.h>
 #include <display/core/Plugin.h>
 #include <display/plugins/WebSocketHandler.h>
 #include <display/util/PsramAllocator.h>
+#include <memory>
+#include <mutex>
 
 constexpr size_t UPDATE_CHECK_INTERVAL = 30 * 60 * 1000;
 constexpr size_t DNS_PERIOD = 50;
@@ -63,6 +67,13 @@ class WebUIPlugin : public Plugin {
     void handleProfileImage(AsyncWebServerRequest *request);
     void handleProfileImageBody(AsyncWebServerRequest *request, uint8_t *data, size_t len, size_t index, size_t total);
 
+    // Firmware upload from the web UI: POST /api/ota/upload?target=display|controller[&force=1], body = the .bin.
+    // The flow lives in firmware_image::UploadSession (unit tested); these feed it and act on its outcome.
+    void handleFirmwareUpload(AsyncWebServerRequest *request);
+    void handleFirmwareUploadBody(AsyncWebServerRequest *request, uint8_t *data, size_t len, size_t index,
+                                  size_t total);
+    void loopFirmwareUpload(uint32_t now);
+
     GitHubOTA *ota = nullptr;
     AsyncWebServer server;
     WebSocketHandler wsHandler;
@@ -83,6 +94,19 @@ class WebUIPlugin : public Plugin {
     AsyncWebServerRequest *imageUploadRequest = nullptr;
     File imageUploadFile;
     String imageUploadError;
+
+    // Firmware upload: the session is fed from the AsyncTCP task, loop() reads it only under fwMutex.
+    std::mutex fwMutex;
+    std::unique_ptr<firmware_image::UploadSink> fwDisplaySink;
+    std::unique_ptr<firmware_image::UploadSink> fwControllerSink;
+    std::unique_ptr<firmware_image::UploadSession> fwSession;
+    // Handed to loop(): the controller flash and the restart must not run in the AsyncTCP task.
+    std::atomic<bool> fwFlashController{false};
+    std::atomic<uint32_t> fwRestartAt{0};
+    // The machine's state for the AsyncTCP task, refreshed by loop().
+    std::atomic<bool> fwProcessActive{false};
+    std::atomic<bool> fwControllerUpdating{false};
+    bool fwHolding = false; // loop() told the machine to hold still for an upload
 };
 
 #endif // WEBUIPLUGIN_H

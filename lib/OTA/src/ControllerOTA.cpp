@@ -54,13 +54,22 @@ bool ControllerOTA::update(NimBLEClient *ble_client, const String &release_url) 
         ESP_LOGE("ControllerOTA", "Download of firmware file failed");
         return false;
     }
+    return updateFromFile(ble_client);
+}
+
+bool ControllerOTA::updateFromFile(NimBLEClient *ble_client) {
+    this->client = ble_client;
+    if (client == nullptr || !client->isConnected()) {
+        ESP_LOGE("ControllerOTA", "Controller not connected, skipping update");
+        return false;
+    }
     if (!resolveCharacteristics()) {
         ESP_LOGE("ControllerOTA", "Could not reach the controller OTA service, aborting");
         return false;
     }
     File file = LittleFS.open(CONTROLLER_FIRMWARE_PATH, FILE_READ);
     if (!file) {
-        ESP_LOGE("ControllerOTA", "Could not open the downloaded firmware file");
+        ESP_LOGE("ControllerOTA", "Could not open the controller firmware file");
         rxChar = nullptr;
         txChar = nullptr;
         return false;

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
 import { faList } from '@fortawesome/free-solid-svg-icons/faList';
 import { faTimeline } from '@fortawesome/free-solid-svg-icons/faTimeline';
+import { faMugHot } from '@fortawesome/free-solid-svg-icons/faMugHot';
 import { faBluetoothB } from '@fortawesome/free-brands-svg-icons/faBluetoothB';
 import { faCog } from '@fortawesome/free-solid-svg-icons/faCog';
 import { faMobileScreen } from '@fortawesome/free-solid-svg-icons/faMobileScreen';
@@ -26,6 +27,7 @@ import { machine } from '../services/ApiService.js';
 import { computed } from '@preact/signals';
 import { isApp } from '../app/platform.js';
 import { MachineSwitcher } from '../app/MachineSwitcher.jsx';
+import { ThemeMenu } from './ThemeMenu.jsx';
 import { msg } from '@lingui/core/macro';
 import { Trans, useLingui } from '@lingui/react/macro';
 
@@ -67,6 +69,7 @@ const NAVIGATION_SECTIONS = [
         editLink: '/dashboard-settings',
         editIcon: faPencil,
       },
+      { label: msg`Shot Review`, link: '/review', icon: faMugHot },
     ],
   },
   {
@@ -246,7 +249,7 @@ export function Navigation({ collapsed = false, onToggleCollapsed }) {
         />
       )}
       <aside
-        className={`sidebar border-base-300 bg-base-100 fixed top-0 left-0 z-9999 flex h-screen flex-col overflow-y-auto border-r px-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(1.25rem,env(safe-area-inset-bottom))] md:static landscape:static ${
+        className={`sidebar border-base-300 bg-base-100 h-app-screen fixed top-0 left-0 z-9999 flex flex-col overflow-y-auto border-r px-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(1.25rem,env(safe-area-inset-bottom))] md:static landscape:static ${
           collapsed ? 'hidden md:flex md:w-[90px] landscape:flex landscape:w-[90px]' : 'w-[290px]'
         }`}
       >
@@ -411,6 +414,10 @@ export function Navigation({ collapsed = false, onToggleCollapsed }) {
               </div>
             </>
           )}
+
+          <div className='mb-1.5'>
+            <ThemeMenu collapsed={collapsed} />
+          </div>
 
           <div>
             <button

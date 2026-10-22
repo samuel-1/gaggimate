@@ -6,6 +6,7 @@
  */
 
 import { t } from '@lingui/core/macro';
+import { halfStarsOf, roastLevel } from '../utils/shotNotes.js';
 
 export class VisualizerService {
   constructor() {
@@ -53,10 +54,9 @@ export class VisualizerService {
     // Convert 0-5 rating to 0-100 enjoyment scale
     // Default to 75 (3.75 stars) if no rating provided
     let enjoyment = 75;
-    if (notes.rating && notes.rating > 0) {
-      enjoyment = Math.round(notes.rating * 20);
-      // Ensure it's within valid range
-      enjoyment = Math.max(0, Math.min(100, enjoyment));
+    const halfStars = halfStarsOf(notes);
+    if (halfStars > 0) {
+      enjoyment = Math.max(0, Math.min(100, halfStars * 10));
     }
 
     // Parse numeric values safely
@@ -92,11 +92,11 @@ export class VisualizerService {
     shotFile.grinder_setting = notes.grindSetting || ''; // Grind setting from notes
     shotFile.espresso_enjoyment = enjoyment; // Convert 0-5 stars to 0-100 scale
     shotFile.espresso_notes = notes.notes || ''; // Free-form tasting notes
-    shotFile.bean_brand = 'Unknown roaster'; // Default since we don't track this in notes
-    shotFile.bean_type = notes.beanType; // Default since we don't track this in notes
+    shotFile.bean_brand = notes.roaster || 'Unknown roaster';
+    shotFile.bean_type = notes.beanType || '';
     shotFile.barista = 'GaggiMate User'; // Default barista name
-    shotFile.roast_level = ''; // Not tracked in current notes schema
-    shotFile.roast_date = ''; // Not tracked in current notes schema
+    shotFile.roast_level = roastLevel(notes.roastLevel)?.name || '';
+    shotFile.roast_date = notes.roastDate || '';
 
     return shotFile;
   }

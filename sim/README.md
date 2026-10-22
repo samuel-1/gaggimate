@@ -19,14 +19,13 @@ brew install sdl2          # the windowing/graphics backend
 
 Linux (Debian/Ubuntu): `sudo apt install build-essential libsdl2-dev`.
 
-If you want the **WebUI**, build its embedded bundle once (needs Node 22 — `nvm use`):
+The **WebUI** needs Node 22 (`nvm use`). The sim `.incbin`s the embedded bundle
+`src/display/webassets/web_ui.bin` (git-ignored); building the sim (re)generates it
+automatically whenever `web/` changed, just like the device build. To build it by hand:
 
 ```shell
-scripts/build_webui.sh     # generates src/display/webassets/web_ui.bin (git-ignored)
+scripts/build_webui.sh     # npm ci + build + gzip + pack into src/display/webassets/
 ```
-
-The sim `.incbin`s that `web_ui.bin`, so it must exist before building with WebUI.
-(`build_webui.sh` is also what the device build uses.)
 
 ## 2. Build & run
 
@@ -44,7 +43,9 @@ IDE (CLion/VSCode) it shows up under the `display-sim` environment as the
   the combined third button, hold one for a long press).
 - **WebUI**: open <http://localhost:8080/> while it runs (port 80 is remapped to
   8080 so it needs no root). Live status streams over the WebSocket just like on
-  the device.
+  the device. It listens on localhost only; run with `GAGGIMATE_SIM_LAN=1` to reach it
+  from other devices on your network (e.g. a phone). The WebUI has no login, so only do
+  that on a network you trust.
 - **Screenshot mode** (renders briefly, writes a BMP, exits — handy for
   validation/CI):
 

@@ -1,0 +1,37 @@
+/* The Shot Review page always shows the Espresso theme (style.css): it swaps the applied
+   theme to espresso / espresso-dark while it is open (setPageTheme). This file only adds
+   the page's own chart colors and card look on top. */
+
+[data-theme='espresso'] {
+  --review-press: #b0592a;
+  --review-flow: #4f7a90;
+  --review-weight: #b98a2e;
+  --review-star: #c9962e;
+  --review-bean: #7a4a2c;
+}
+
+[data-theme='espresso-dark'] {
+  --review-press: #e08a55;
+  --review-flow: #83afc4;
+  --review-weight: #ddb35c;
+  --review-star: #e4b552;
+  --review-bean: #c9926a;
+}
+
+/* Soft warm card shadow instead of Tailwind's grey one. */
+.review-card {
+  box-shadow:
+    0 1px 2px rgb(60 35 15 / 0.05),
+    0 10px 28px -14px rgb(60 35 15 / 0.18);
+}
+[data-theme='espresso-dark'] .review-card {
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.04),
+    0 10px 28px -14px rgb(0 0 0 / 0.6);
+}
+
+/* Tinted icon badges for the section headers. */
+.review-tone {
+  color: var(--tone);
+  background: color-mix(in srgb, var(--tone) 13%, transparent);
+}

@@ -188,6 +188,13 @@ export function machineSocketUrl() {
   return host ? `ws://${host}/ws` : null;
 }
 
+// URL of a machine API path for requests the fetch rewrite below doesn't cover (XMLHttpRequest, used for its
+// upload progress): absolute to the active machine in the app, unchanged in the browser.
+export function machineApiUrl(path) {
+  const host = isApp ? activeMachine.value?.host : null;
+  return host ? `http://${host}${path}` : path;
+}
+
 // Routes same-origin "/api/..." requests (fetch and form actions) to the active machine in the app.
 export function installMachineApiRewrite() {
   if (!isApp) return;

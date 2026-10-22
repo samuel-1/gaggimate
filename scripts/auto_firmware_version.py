@@ -17,12 +17,20 @@ def get_time_specifier_build_flag():
     print ("Build date: " + build_timestamp)
     return build_flag
 
+def get_env_specifier_build_flag():
+    # The PlatformIO env this image is built for; the web UI firmware upload checks it (src/firmware_id.h).
+    build_env = env["PIOENV"]
+    build_flag = "#define BUILD_ENV \"" + build_env + "\""
+    print ("Build env: " + build_env)
+    return build_flag
+
 with open('src/version.h', 'w') as f:
     f.write(
         '#pragma once\n' +
         '#ifndef GIT_VERSION_H\n' +
         '#define GIT_VERSION_H\n' +
         get_firmware_specifier_build_flag() + '\n' +
-        get_time_specifier_build_flag() + '\n'
+        get_time_specifier_build_flag() + '\n' +
+        get_env_specifier_build_flag() + '\n'
         '#endif\n'
     )

@@ -79,6 +79,10 @@ msgstr "{host} が応答しません。マシンの電源が入っていて、�
 msgid "{label} severity"
 msgstr "{label} の重要度"
 
+#: src/pages/ShotReview/HalfStarRating.jsx
+msgid "{label} stars"
+msgstr ""
+
 #: src/app/AppSettings.jsx
 msgid "{machineCount, plural, one {Watches # saved machine.} other {Watches all # saved machines.}}"
 msgstr "{machineCount, plural, other {保存済みの # 台のマシンをすべて監視します。}}"
@@ -106,6 +110,10 @@ msgstr "{rssi}dB（往復: {lat} ms、再送: {rtx}）"
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "{scaleName} disconnected"
 msgstr "{scaleName} の接続が切れました"
+
+#: src/pages/ShotReview/HalfStarRating.jsx
+msgid "{stars} of 5 stars"
+msgstr ""
 
 #: src/pages/ShotHistory/index.jsx
 msgid "{totalFilteredItems} of {historyCount} shots"
@@ -290,6 +298,10 @@ msgstr "すべてのメトリクス"
 msgid "All Shots"
 msgstr "すべてのショット"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Allow files without a GaggiMate firmware id (official releases from before this feature). Files built for another part are always refused."
+msgstr ""
+
 #: src/pages/Settings/tabs/MachineTab.jsx
 msgid "Alt Relay / SSR2 Function"
 msgstr "Alt リレー / SSR2 の機能"
@@ -383,6 +395,10 @@ msgstr "オートチューン失敗"
 #: src/pages/Settings/tabs/CalibrationTab.jsx
 msgid "Autotune in Progress"
 msgstr "オートチューン実行中"
+
+#: src/pages/ShotReview/ReviewList.jsx
+msgid "Average"
+msgstr ""
 
 #: src/pages/Statistics/components/PhaseStatistics.jsx
 msgid "Average target value and deviation"
@@ -500,6 +516,7 @@ msgstr "平均重量流量"
 #: src/pages/ProfileEdit/ExtendedProfileForm.jsx
 #: src/pages/ProfileEdit/StandardProfileForm.jsx
 #: src/pages/Settings/tabs/SystemTab.jsx
+#: src/pages/ShotReview/BeanPicker.jsx
 msgid "Back"
 msgstr "戻る"
 
@@ -536,6 +553,18 @@ msgstr "基本メトリクス"
 msgid "Basics"
 msgstr "基本"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Bean bag"
+msgstr ""
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Bean details"
+msgstr ""
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Bean name"
+msgstr ""
+
 #: src/pages/ShotHistory/ShotNotesCard.jsx
 msgid "Bean Type"
 msgstr "豆の種類"
@@ -543,6 +572,10 @@ msgstr "豆の種類"
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotDetailsCard.jsx
 msgid "Beans"
 msgstr "豆"
+
+#: src/pages/ShotReview/ReviewList.jsx
+msgid "Best"
+msgstr ""
 
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotDetailsCard.jsx
 #: src/pages/ShotHistory/ShotNotesCard.jsx
@@ -613,6 +646,10 @@ msgstr "抽出フェーズ"
 msgid "Brew phases configuration"
 msgstr "抽出フェーズの設定"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Brew profile not found on the machine, so the card has no QR code."
+msgstr ""
+
 #: src/components/OverviewChart.jsx
 msgid "Brew Progress - {windowSeconds}s View"
 msgstr "抽出の進行 - {windowSeconds}s 表示"
@@ -651,6 +688,11 @@ msgstr "構築"
 #: src/pages/Statistics/components/statisticsView/StatisticsView.jsx
 msgid "Build and show Shot Charts"
 msgstr "ショットチャートを作成して表示"
+
+#. placeholder {0}: formData.displayEnv
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Build: {0}"
+msgstr ""
 
 #: src/pages/ProfileList/index.jsx
 msgid "Built-in profile, can be edited but not deleted"
@@ -722,6 +764,14 @@ msgstr "このブラウザーはキャンバスのキャプチャに対応して
 msgid "Canvas export is not supported in this environment."
 msgstr "この環境ではキャンバスのエクスポートはサポートされていません。"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Card style"
+msgstr ""
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Card title"
+msgstr ""
+
 #: src/pages/ProfileEdit/ExtendedPhase.jsx
 #: src/pages/Settings/tabs/MachineTab.jsx
 msgid "celsius"
@@ -735,6 +785,10 @@ msgstr "チャートとメトリクス"
 #: src/pages/Settings/tabs/GeneralTab.jsx
 msgid "Chart First"
 msgstr "チャート優先"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Choose a bean"
+msgstr ""
 
 #: src/app/ConnectionGate.jsx
 msgid "Choose another machine"
@@ -778,8 +832,11 @@ msgid "Click to open the library. Use Import below or drop files here to import.
 msgstr "クリックしてライブラリを開きます。下のインポートを使うか、ここにファイルをドロップしてインポートします。"
 
 #: src/app/MachineSetup.jsx
+#: src/components/ShareCard/ShareCardModal.jsx
+#: src/components/ThemeMenu.jsx
 #: src/components/VisualizerUploadModal.jsx
 #: src/pages/Home/BrewConfirmModal.jsx
+#: src/pages/ShotReview/BeanPicker.jsx
 msgid "Close"
 msgstr "閉じる"
 
@@ -807,6 +864,18 @@ msgstr "切断（コード {code}）"
 msgid "Cmd/Ctrl = Add"
 msgstr "Cmd/Ctrl = 追加"
 
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Coarse"
+msgstr ""
+
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Coarser"
+msgstr ""
+
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Coarsest"
+msgstr ""
+
 #: src/components/PumpFlowCalibration/ResultsPanel.jsx
 msgid "Coefficients"
 msgstr "係数"
@@ -815,7 +884,10 @@ msgstr "係数"
 msgid "Coefficients saved to machine: {newCoeffs}"
 msgstr "係数をマシンに保存しました: {newCoeffs}"
 
-#: src/pages/Settings/tabs/GeneralTab.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Coffee"
+msgstr ""
+
 #: src/utils/themeManager.js
 msgctxt "theme"
 msgid "Coffee"
@@ -972,6 +1044,10 @@ msgstr "接続中…"
 msgid "Control Column Style"
 msgstr "コントロール列のスタイル"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Controller"
+msgstr ""
+
 #: src/app/appSettings.js
 msgid "Controller errors and error-level warnings."
 msgstr "コントローラーのエラーとエラーレベルの警告。"
@@ -1008,6 +1084,10 @@ msgstr "キャリブレーションプロファイルを削除できませんで
 msgid "Could not import {importName}: {importMessage}"
 msgstr "{importName} をインポートできませんでした: {importMessage}"
 
+#: src/pages/ProfileList/index.jsx
+msgid "Could not read that profile code."
+msgstr ""
+
 #: src/pages/ProfileEdit/ProfileImageUpload.jsx
 msgid "Could not read this image."
 msgstr "この画像を読み込めませんでした。"
@@ -1028,6 +1108,14 @@ msgstr "{errorAddress} に接続できませんでした"
 msgid "Couldn't connect to {host}: {reason}. Make sure the machine is on and your phone is on the same Wi-Fi network."
 msgstr "{host} に接続できませんでした: {reason}。マシンの電源が入っていて、スマートフォンが同じ Wi-Fi ネットワークに接続されていることを確認してください。"
 
+#: src/pages/ShotReview/index.jsx
+msgid "Couldn't load shots from the machine."
+msgstr ""
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Couldn't save the review. Check the connection to the machine and try again."
+msgstr ""
+
 #: src/pages/Settings/tabs/MachineTab.jsx
 msgid "Cracking pressure of a grouphead mushroom valve (e.g. 4.0 on Delonghi machines). Subtracted from readings and added to targets only while a brew is running. Leave at 0.0 for a 3-way solenoid."
 msgstr "グループヘッドのマッシュルームバルブのクラッキング圧（例: Delonghi のマシンでは 4.0）。抽出中のみ、測定値から差し引き、目標値に加算されます。三方弁ソレノイドの場合は 0.0 のままにしてください。"
@@ -1039,6 +1127,10 @@ msgstr "<1>Caffinnova S.r.l.</1> がイタリアで <0>{randomIcon}</0> を込�
 #: src/pages/ProfileEdit/index.jsx
 msgid "Create Profile"
 msgstr "プロファイルを作成"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Create share card"
+msgstr ""
 
 #: src/utils/pumpFlowCalibration.js
 msgid "Current coefficients are not numeric: \"{raw}\""
@@ -1098,8 +1190,11 @@ msgstr "カスタマイズ"
 msgid "Daily average: <0>{dailyAvg} shots</0>"
 msgstr "1 日の平均: <0>{dailyAvg} ショット</0>"
 
-#: src/app/AppSettings.jsx
-#: src/pages/Settings/tabs/GeneralTab.jsx
+#: src/utils/shotNotes.js
+msgctxt "roast level"
+msgid "Dark"
+msgstr ""
+
 #: src/utils/themeManager.js
 msgctxt "theme"
 msgid "Dark"
@@ -1187,6 +1282,10 @@ msgstr "アクティブな日数: <0>{daysWithShots}</0>"
 #: src/pages/Settings/PluginCard.jsx
 msgid "Days of week selection"
 msgstr "曜日の選択"
+
+#: src/utils/shotNotesLabels.js
+msgid "Decent"
+msgstr ""
 
 #: src/pages/ShotAnalyzer/shotAnalyzer/ShotAnalyzer.jsx
 msgid "Deep Dive Shot Analyzer"
@@ -1312,6 +1411,10 @@ msgstr "切断"
 msgid "Dismiss"
 msgstr "閉じる"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Display"
+msgstr ""
+
 #: src/pages/Settings/tabs/GeneralTab.jsx
 msgid "Display Settings"
 msgstr "ディスプレイ設定"
@@ -1345,6 +1448,7 @@ msgid "Done"
 msgstr "完了"
 
 #: src/pages/ProfileEdit/ProfileMainInformation.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
 msgid "Dose"
 msgstr "ドーズ"
 
@@ -1353,6 +1457,7 @@ msgid "Dose In"
 msgstr "粉量"
 
 #: src/pages/ShotHistory/ShotNotesCard.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
 msgid "Dose In (g)"
 msgstr "粉量 (g)"
 
@@ -1441,6 +1546,10 @@ msgstr "時間: {duration}s"
 msgid "During the shot, adjust the valve so pressure reaches 1 bar, then 9 bar. Keep it stable during the <0>Measure</0> phases (10 s each)."
 msgstr "ショット中にバルブを調整し、圧力を 1 bar、次に 9 bar に合わせてください。<0>Measure</0>フェーズ（各 10 秒）の間は安定させてください。"
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "e.g. Ethiopia Guji"
+msgstr ""
+
 #: src/app/appSettings.js
 msgid "E.g. water tank low, scale battery low."
 msgstr "例: 水タンクの残量低下、スケールのバッテリー残量低下。"
@@ -1477,6 +1586,10 @@ msgstr "{label} を編集"
 #: src/pages/ProfileList/index.jsx
 msgid "Edit {label} profile"
 msgstr "{label} プロファイルを編集"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Edit bean details"
+msgstr ""
 
 #: src/pages/Statistics/components/toolbar/subcomponents.jsx
 msgid "Edit date range filter"
@@ -1564,6 +1677,10 @@ msgstr "このプロファイルの名前を入力"
 msgid "Enter the bar rating of the pressure sensor being used"
 msgstr "使用している圧力センサーの定格（bar）を入力してください"
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Enter the bean name"
+msgstr ""
+
 #: src/app/MachineSetup.jsx
 msgid "Enter the hostname or IP address of your machine."
 msgstr "マシンのホスト名または IP アドレスを入力してください。"
@@ -1606,6 +1723,20 @@ msgstr "エラー: {message}"
 msgid "Errors"
 msgstr "エラー"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Espresso"
+msgstr ""
+
+#: src/utils/themeManager.js
+msgctxt "theme"
+msgid "Espresso"
+msgstr ""
+
+#: src/utils/themeManager.js
+msgctxt "theme"
+msgid "Espresso Dark"
+msgstr ""
+
 #: src/components/PumpFlowCalibration/ResultsPanel.jsx
 msgid "estimated flow"
 msgstr "推定流量"
@@ -1625,6 +1756,10 @@ msgstr "毎"
 #: src/pages/Statistics/components/StatisticsSearchHelp.jsx
 msgid "Examples"
 msgstr "例"
+
+#: src/utils/shotNotesLabels.js
+msgid "Excellent"
+msgstr ""
 
 #: src/pages/ShotAnalyzer/components/analysisTable/analysisTableModel.js
 msgid "Excessive delay while writing samples. Possible causes include a slow SD card or high OS/system load."
@@ -1725,6 +1860,10 @@ msgstr "拡張記録"
 msgid "External LED ({extLedPct}%)"
 msgstr "外部 LED（{extLedPct}%）"
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Extraction"
+msgstr ""
+
 #: src/pages/ProfileList/index.jsx
 msgctxt "profile tab"
 msgid "Extraction"
@@ -1772,6 +1911,18 @@ msgstr "ファイルのエクスポートに失敗しました。"
 msgid "Filter library source"
 msgstr "ライブラリのソースで絞り込む"
 
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Fine"
+msgstr ""
+
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Finer"
+msgstr ""
+
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Finest"
+msgstr ""
+
 #: src/pages/Home/utils.js
 msgctxt "process action"
 msgid "Finish"
@@ -1790,6 +1941,24 @@ msgstr "完了時の色"
 msgid "Firmware {version} – not all features may be available."
 msgstr "ファームウェア {version} – 一部の機能は利用できない場合があります。"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Firmware file (.bin)"
+msgstr ""
+
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Firmware installed. The display is restarting; this page reloads when it is back."
+msgstr ""
+
+#. placeholder {0}: file.name
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Flash \"{0}\" onto the controller? The machine can't be used until it finishes."
+msgstr ""
+
+#. placeholder {0}: file.name
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Flash \"{0}\" onto the display? It restarts when the upload is done."
+msgstr ""
+
 #: src/utils/panelDefinitions.js
 msgid "Flexible Space"
 msgstr "フレキシブルスペース"
@@ -1797,6 +1966,7 @@ msgstr "フレキシブルスペース"
 #: src/components/ExtendedProfileChart.jsx
 #: src/pages/Home/cards/ProfileCard.jsx
 #: src/pages/Home/cards/RecentShotsCard.jsx
+#: src/pages/ShotReview/ReviewChart.jsx
 #: src/utils/metricDefinitions.js
 msgid "Flow"
 msgstr "流量"
@@ -1867,6 +2037,15 @@ msgstr "フラッシュを推奨"
 msgid "Flush water"
 msgstr "フラッシュ水量"
 
+#. placeholder {0}: formData.displayEnv || 'display'
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "For example .pio/build/{0}/firmware.bin"
+msgstr ""
+
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "For example .pio/build/controller/firmware.bin"
+msgstr ""
+
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "Forget"
 msgstr "削除"
@@ -1897,6 +2076,10 @@ msgstr "金曜日"
 msgctxt "date range start"
 msgid "From"
 msgstr "開始"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "From your recent shots"
+msgstr ""
 
 #: src/pages/DashboardSettings/index.jsx
 msgctxt "panel view"
@@ -1947,6 +2130,10 @@ msgstr "全体のメトリクス平均"
 msgid "Go Home"
 msgstr "ホームへ"
 
+#: src/utils/shotNotesLabels.js
+msgid "Good"
+msgstr ""
+
 #: src/pages/ProfileEdit/ProfileMainInformation.jsx
 #: src/pages/ProfileEdit/StandardProfileForm.jsx
 msgid "grams"
@@ -1957,7 +2144,14 @@ msgstr "グラム"
 msgid "grams per second"
 msgstr "グラム/秒"
 
+#: src/utils/shotNotesLabels.js
+msgid "Great"
+msgstr ""
+
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotDetailsCard.jsx
+#: src/pages/ShotReview/BeanPicker.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
+#: src/pages/ShotReview/ReviewList.jsx
 msgid "Grind"
 msgstr "グラインド"
 
@@ -1982,6 +2176,7 @@ msgid "Grind once with GbS to see which recipe number your grinder reports."
 msgstr "GbS で一度挽いて、グラインダーが報告するレシピ番号を確認してください。"
 
 #: src/pages/ShotHistory/ShotNotesCard.jsx
+#: src/pages/ShotReview/GrindSlider.jsx
 msgid "Grind Setting"
 msgstr "挽き目"
 
@@ -2071,6 +2266,10 @@ msgstr "評価の高い順"
 msgid "Highest Volume"
 msgstr "量の多い順"
 
+#: src/pages/ShotReview/index.jsx
+msgid "History"
+msgstr ""
+
 #: src/pages/Settings/tabs/GeneralTab.jsx
 msgctxt "flush duration"
 msgid "Hold"
@@ -2148,6 +2347,10 @@ msgid "Import failed. Please check the file format."
 msgstr "インポートに失敗しました。ファイル形式を確認してください。"
 
 #: src/pages/ProfileList/index.jsx
+msgid "Import from QR code text"
+msgstr ""
+
+#: src/pages/ProfileList/index.jsx
 msgid "Import profiles"
 msgstr "プロファイルをインポート"
 
@@ -2182,6 +2385,10 @@ msgstr "未完了"
 #: src/pages/Home/utils.js
 msgid "Infusion"
 msgstr "インフュージョン"
+
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Install a firmware file you built yourself. The machine checks that the file is meant for the part you pick before using it."
+msgstr ""
 
 #: src/pages/ProfileEdit/ExtendedPhase.jsx
 msgctxt "ramp style"
@@ -2268,6 +2475,10 @@ msgstr "alpha が大きいほど反応が速く平滑化は弱くなり、小さ
 msgid "Last Row Fill"
 msgstr "最終行の配置"
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Last time with this bean: {lastGrind}"
+msgstr ""
+
 #: src/pages/Settings/tabs/GeneralTab.jsx
 msgid "Last used profile"
 msgstr "最後に使用したプロファイル"
@@ -2280,6 +2491,10 @@ msgstr "先週"
 msgid "Last: {lastTime} · {shotsSince, plural, one {# shot since} other {# shots since}}"
 msgstr "前回: {lastTime} · {shotsSince, plural, other {以降 # ショット}}"
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Latest"
+msgstr ""
+
 #: src/pages/ShotAnalyzer/components/library/LibrarySection.jsx
 msgid "Length (Long)"
 msgstr "長さ（長い順）"
@@ -2288,12 +2503,19 @@ msgstr "長さ（長い順）"
 msgid "Length (Short)"
 msgstr "長さ（短い順）"
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Less dose"
+msgstr ""
+
 #: src/pages/Settings/PluginCard.jsx
 msgid "Lets an E64 WS start shots with its knob and dial in its grind from the shot time and weight. A grind selects the profile mapped to its recipe, and the grinder's target weight overrides that profile's weight target. Save and restart to apply."
 msgstr "E64 WS のノブでショットを開始し、ショットの時間と重量から挽き目を調整できるようにします。挽くとそのレシピに割り当てられたプロファイルが選択され、グラインダーの目標重量がそのプロファイルの重量目標より優先されます。保存して再起動すると適用されます。"
 
-#: src/app/AppSettings.jsx
-#: src/pages/Settings/tabs/GeneralTab.jsx
+#: src/utils/shotNotes.js
+msgctxt "roast level"
+msgid "Light"
+msgstr ""
+
 #: src/utils/themeManager.js
 msgctxt "theme"
 msgid "Light"
@@ -2550,6 +2772,25 @@ msgstr "最大ポンプ出力（0 - 1）"
 msgid "MediaRecorder is not supported in this browser."
 msgstr "このブラウザーは MediaRecorder に対応していません。"
 
+#: src/utils/shotNotes.js
+msgctxt "roast level"
+msgid "Medium"
+msgstr ""
+
+#: src/utils/shotNotes.js
+msgctxt "roast level"
+msgid "Medium-dark"
+msgstr ""
+
+#: src/utils/shotNotes.js
+msgctxt "roast level"
+msgid "Medium-light"
+msgstr ""
+
+#: src/utils/shotNotesLabels.js
+msgid "Meh"
+msgstr ""
+
 #: src/pages/Statistics/components/PhaseStatistics.jsx
 msgid "Metric"
 msgstr "メトリクス"
@@ -2619,6 +2860,10 @@ msgstr "月"
 #: src/pages/ShotAnalyzer/components/library/LibraryActionsMenu.jsx
 msgid "More actions"
 msgstr "その他の操作"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "More dose"
+msgstr ""
 
 #: src/pages/Settings/index.jsx
 msgid "More options"
@@ -2713,9 +2958,17 @@ msgstr "なし"
 msgid "NEW"
 msgstr "NEW"
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "New bean"
+msgstr ""
+
 #: src/components/PumpFlowCalibration/usePumpFlowCalibration.js
 msgid "New shot did not appear in history — was it cancelled?"
 msgstr "新しいショットが履歴に表示されませんでした。キャンセルされましたか？"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Newer shot"
+msgstr ""
 
 #: src/pages/ShotHistory/index.jsx
 msgid "Newest First"
@@ -2743,6 +2996,10 @@ msgstr "Nightly では新機能をいち早く利用できます。Nightly フ�
 #: src/app/machines.js
 msgid "no answer (timed out)"
 msgstr "応答なし（タイムアウト）"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "No bean selected"
+msgstr ""
 
 #: src/pages/Statistics/components/statisticsView/helpers.js
 #: src/pages/Statistics/components/toolbar/helpers.js
@@ -2798,9 +3055,17 @@ msgstr "固定された項目が見つかりません。"
 msgid "No preceding phase"
 msgstr "前のフェーズなし"
 
+#: src/pages/ProfileList/index.jsx
+msgid "No profile found in that text."
+msgstr ""
+
 #: src/pages/ShotAnalyzer/components/library/libraryDisplay.js
 msgid "No Profile Loaded"
 msgstr "プロファイルが読み込まれていません"
+
+#: src/pages/ShotReview/HalfStarRating.jsx
+msgid "No rating"
+msgstr ""
 
 #: src/pages/ShotAnalyzer/services/analyzer/shotAnalysis.js
 msgid "No sample data available for analysis."
@@ -2827,6 +3092,10 @@ msgstr "選択したフィルターに一致するショットが見つかりま
 #: src/pages/ShotHistory/index.jsx
 msgid "No shots match your search and filter criteria"
 msgstr "検索条件とフィルター条件に一致するショットがありません"
+
+#: src/pages/ShotReview/index.jsx
+msgid "No shots yet. Pull a shot and it will show up here to review."
+msgstr ""
 
 #: src/pages/Statistics/components/statisticsView/StatisticsView.jsx
 msgid "No Statistics Built Yet"
@@ -2879,6 +3148,8 @@ msgid "Not in range. Switch it on to reconnect."
 msgstr "範囲外です。電源を入れると再接続します。"
 
 #: src/pages/ShotHistory/HistoryCard.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
+#: src/utils/shotNotesLabels.js
 msgid "Not rated"
 msgstr "未評価"
 
@@ -2910,9 +3181,17 @@ msgctxt "pump mode"
 msgid "Off"
 msgstr "オフ"
 
+#: src/utils/shotNotesLabels.js
+msgid "Okay"
+msgstr ""
+
 #: src/app/FirmwareWarning.jsx
 msgid "Old firmware"
 msgstr "古いファームウェア"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Older shot"
+msgstr ""
 
 #: src/pages/ShotHistory/index.jsx
 msgid "Oldest First"
@@ -2997,6 +3276,10 @@ msgstr "iOS デバイスでホームアプリを開き、「アクセサリを�
 msgid "Opens imported external shots and profiles temporarily without saving them to the browser library."
 msgstr "インポートした外部のショットやプロファイルを、ブラウザーのライブラリに保存せず一時的に開きます。"
 
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Optional"
+msgstr ""
+
 #: src/pages/ProfileEdit/ProfileMainInformation.jsx
 msgid "Optional description for this profile"
 msgstr "このプロファイルの説明（任意）"
@@ -3026,6 +3309,10 @@ msgstr "パネルの選択"
 msgid "Parsed {sampleCount} samples (v{version})."
 msgstr "{sampleCount} 件のサンプルを解析しました（v{version}）。"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Part to update"
+msgstr ""
+
 #: src/pages/Settings/PluginCard.jsx
 msgid "password"
 msgstr "パスワード"
@@ -3033,6 +3320,10 @@ msgstr "パスワード"
 #: src/components/VisualizerUploadModal.jsx
 msgid "Password"
 msgstr "パスワード"
+
+#: src/pages/ProfileList/index.jsx
+msgid "Paste the text from a share-card QR code (starts with GM1.)"
+msgstr ""
 
 #: src/pages/Home/utils.js
 msgctxt "process action"
@@ -3042,6 +3333,10 @@ msgstr "一時停止"
 #: src/pages/ShotAnalyzer/components/shotChart/controls/chartReplayControls.jsx
 msgid "Pause replay"
 msgstr "リプレイを一時停止"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Peak"
+msgstr ""
 
 #: src/pages/ShotAnalyzer/components/shotChart/compare/CompareMetricContent.jsx
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotMetricCards.jsx
@@ -3196,6 +3491,10 @@ msgstr "プラグイン"
 msgid "PNG, JPEG, WebP or BMP. GIFs are not supported. The image is cropped to a square and scaled to 300×300 pixels for the display."
 msgstr "PNG、JPEG、WebP、BMP に対応しています。GIF には対応していません。画像は正方形に切り抜かれ、ディスプレイ用に 300×300 ピクセルに縮小されます。"
 
+#: src/utils/shotNotesLabels.js
+msgid "Poor"
+msgstr ""
+
 #: src/pages/ProfileEdit/ExtendedPhase.jsx
 #: src/pages/ProfileEdit/StandardProfileForm.jsx
 msgctxt "pump mode"
@@ -3261,9 +3560,11 @@ msgid "Press <0><1/></0> to build a statistic."
 msgstr "<0><1/></0> を押して統計を作成します。"
 
 #: src/components/ExtendedProfileChart.jsx
+#: src/components/ShareCard/ShareCardModal.jsx
 #: src/pages/Home/cards/ProfileCard.jsx
 #: src/pages/Home/cards/RecentShotsCard.jsx
 #: src/pages/ShotAnalyzer/components/shotChart/labelVisuals.js
+#: src/pages/ShotReview/ReviewChart.jsx
 #: src/pages/Statistics/components/MetricsTable.jsx
 #: src/pages/Statistics/components/PhaseStatistics.jsx
 #: src/utils/metricDefinitions.js
@@ -3328,6 +3629,10 @@ msgstr "圧力目標"
 msgid "Pressure Target"
 msgstr "圧力目標"
 
+#: src/pages/ShotReview/ReviewChart.jsx
+msgid "Pressure, flow and weight over the shot"
+msgstr ""
+
 #: src/pages/ProfileEdit/ExtendedProfileForm.jsx
 #: src/pages/ShotHistory/index.jsx
 msgid "Previous"
@@ -3367,6 +3672,7 @@ msgstr "ショット履歴ファイルを処理中（{current}/{total}）"
 msgid "profile"
 msgstr "プロファイル"
 
+#: src/components/ShareCard/ShareCardModal.jsx
 #: src/pages/Home/cards/ProfileCard.jsx
 #: src/pages/ShotAnalyzer/components/library/LibrarySection.jsx
 #: src/pages/Statistics/components/ProfileGroupTable.jsx
@@ -3647,7 +3953,10 @@ msgstr "範囲"
 msgid "Rated Only"
 msgstr "評価済みのみ"
 
+#: src/components/ShareCard/ShareCardModal.jsx
 #: src/pages/ShotHistory/ShotNotesCard.jsx
+#: src/pages/ShotReview/HalfStarRating.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
 msgid "Rating"
 msgstr "評価"
 
@@ -3694,6 +4003,14 @@ msgstr "スチームの準備ができました。ワンドを開いてくださ
 #: src/pages/Settings/tabs/SystemTab.jsx
 msgid "Rebuild Shot History"
 msgstr "ショット履歴を再構築"
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Receipt"
+msgstr ""
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Recent beans"
+msgstr ""
 
 #: src/pages/DashboardSettings/index.jsx
 #: src/pages/Home/cards/RecentShotsCard.jsx
@@ -3828,6 +4145,11 @@ msgstr "列をシステムのデフォルトにリセットしますか？"
 msgid "Reset Defaults"
 msgstr "デフォルトに戻す"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Rested {age} days"
+msgstr ""
+
 #: src/components/PumpFlowCalibration/usePumpFlowCalibration.js
 msgid "Restoring previous profile..."
 msgstr "以前のプロファイルを復元中..."
@@ -3852,6 +4174,28 @@ msgstr "フェーズ {phaseNumber} を確認"
 #: src/pages/ShotAnalyzer/components/analysisTable/analysisTableModel.js
 msgid "Review the stop reason for this phase. The algorithm was only able to identify it after several intermediate calculations."
 msgstr "このフェーズの停止理由を確認してください。アルゴリズムは複数の中間計算を経てようやくこれを特定できました。"
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Roast"
+msgstr ""
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Roast date"
+msgstr ""
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Roast level"
+msgstr ""
+
+#. placeholder {0}: n.roastDate
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Roasted {0}"
+msgstr ""
+
+#: src/components/ShareCard/ShareCardModal.jsx
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Roaster"
+msgstr ""
 
 #: src/pages/Statistics/components/StatisticsSearchHelp.jsx
 msgid "Rules are separated with <0>;</0>. Visual filters and DSL are combined with AND."
@@ -3938,6 +4282,10 @@ msgstr "現在の選択を新しい「標準」として保存しますか？"
 msgid "Save failed: {message}"
 msgstr "保存に失敗しました: {message}"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Save image"
+msgstr ""
+
 #: src/app/MachineSetup.jsx
 msgid "Save name"
 msgstr "名前を保存"
@@ -3946,6 +4294,10 @@ msgstr "名前を保存"
 #: src/pages/ProfileEdit/StandardProfileForm.jsx
 msgid "Save profile"
 msgstr "プロファイルを保存"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Save review"
+msgstr ""
 
 #: src/pages/Settings/index.jsx
 #: src/pages/Settings/StickyFormFooter.jsx
@@ -3972,6 +4324,10 @@ msgstr "ブラウザーに保存。インポートしたショットとプロフ
 msgid "Save to machine"
 msgstr "マシンに保存"
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Saved"
+msgstr ""
+
 #: src/app/MachineSetup.jsx
 msgctxt "machine status"
 msgid "Saved"
@@ -3985,6 +4341,10 @@ msgstr "保存済み"
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "Saved scale"
 msgstr "保存済みのスケール"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Saved with this shot's notes on the machine."
+msgstr ""
 
 #: src/components/PumpFlowCalibration/usePumpFlowCalibration.js
 msgid "Saving calibration profile..."
@@ -4030,6 +4390,10 @@ msgstr "スケールは 10 秒ごとに自動更新されます。新しいデ�
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "Scan failed"
 msgstr "スキャンに失敗しました"
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Scan for brew profile"
+msgstr ""
 
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "Scan for Devices"
@@ -4192,6 +4556,14 @@ msgstr "設定はまだ読み込まれていません。"
 msgid "Share"
 msgstr "共有"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Share card"
+msgstr ""
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Share card preview"
+msgstr ""
+
 #: src/pages/Statistics/components/StatisticsMultiSelectDropdown.jsx
 msgid "Shift = Range"
 msgstr "Shift = 範囲"
@@ -4301,6 +4673,12 @@ msgstr "ショットのメトリクス"
 msgid "Shot Notes"
 msgstr "ショットのメモ"
 
+#: src/components/Navigation.jsx
+#: src/components/ShareCard/ShareCardModal.jsx
+#: src/pages/ShotReview/index.jsx
+msgid "Shot Review"
+msgstr ""
+
 #: src/pages/ShotAnalyzer/components/shotChart/compare/compareModel.js
 msgid "Shot start"
 msgstr "ショット開始"
@@ -4327,6 +4705,7 @@ msgid "shots"
 msgstr "ショット"
 
 #: src/pages/ShotAnalyzer/components/library/LibraryDropdown.jsx
+#: src/pages/ShotReview/ReviewList.jsx
 #: src/pages/Statistics/components/ProfileGroupTable.jsx
 #: src/pages/Statistics/components/toolbar/subcomponents.jsx
 #: src/pages/Statistics/components/TrendChart.jsx
@@ -4373,6 +4752,10 @@ msgstr "凡例を表示"
 #: src/pages/ShotAnalyzer/components/shotChart/MobileMetricPager.jsx
 msgid "Show metric page {pageNumber}"
 msgstr "メトリクスのページ {pageNumber} を表示"
+
+#: src/pages/ShotReview/ReviewList.jsx
+msgid "Show more"
+msgstr ""
 
 #: src/components/VisualizerUploadModal.jsx
 msgid "Show password"
@@ -4427,6 +4810,10 @@ msgstr "単一カード"
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotDetailsCard.jsx
 msgid "Single Origin, Blend..."
 msgstr "シングルオリジン、ブレンド..."
+
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Slider range"
+msgstr ""
 
 #: src/components/PumpFlowCalibration/api.js
 msgid "slog not ready, waiting for flush... ({attempt})"
@@ -4640,6 +5027,10 @@ msgstr "スチームスイッチがオンのままです"
 msgid "Steam Temp"
 msgstr "スチーム温度"
 
+#: src/pages/ShotReview/GrindSlider.jsx
+msgid "Step"
+msgstr ""
+
 #: src/pages/DashboardSettings/index.jsx
 msgid "Stick first panel to top"
 msgstr "最初のパネルを上に固定"
@@ -4756,8 +5147,6 @@ msgctxt "profile badge"
 msgid "System"
 msgstr "システム"
 
-#: src/app/AppSettings.jsx
-#: src/pages/Settings/tabs/GeneralTab.jsx
 #: src/utils/themeManager.js
 msgctxt "theme"
 msgid "System"
@@ -4794,6 +5183,14 @@ msgctxt "Tuesday, one letter"
 msgid "T"
 msgstr "火"
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Tap the left half of a star for half a star"
+msgstr ""
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Tap to change"
+msgstr ""
+
 #: src/pages/Settings/tabs/MachineTab.jsx
 msgid "Tare"
 msgstr "風袋引き"
@@ -4801,6 +5198,10 @@ msgstr "風袋引き"
 #: src/pages/Settings/tabs/MachineTab.jsx
 msgid "Tare the scale, then place a known weight and calibrate each load cell."
 msgstr "スケールの風袋引きを行ってから既知の重さの分銅を載せ、各ロードセルをキャリブレーションします。"
+
+#: src/pages/ShotReview/ReviewChart.jsx
+msgid "Target"
+msgstr ""
 
 #: src/pages/Home/cards/ProfileCard.jsx
 msgctxt "process"
@@ -4913,6 +5314,10 @@ msgstr "テイスティングノート、抽出時の気づきなど..."
 msgid "Tasting notes, brewing observations..."
 msgstr "テイスティングノート、抽出時の気づき..."
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Tasting notes: acidity, sweetness, body, finish…"
+msgstr ""
+
 #: src/utils/metricDefinitions.js
 msgid "Temp"
 msgstr "温度"
@@ -4999,6 +5404,10 @@ msgstr "チャートは Pro プロファイルでのみ表示されます"
 msgid "The configured or inferred scale delay is unusually high. Review the scale-delay setting before relying on predictive weight stops."
 msgstr "設定または推定されたスケール遅延が異常に大きくなっています。予測重量停止を使う前にスケール遅延の設定を確認してください。"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "The connection to the machine was lost during the upload."
+msgstr ""
+
 #: src/app/notifications.js
 msgid "The controller reported an error."
 msgstr "コントローラーがエラーを報告しました。"
@@ -5027,6 +5436,10 @@ msgstr "マシンが 5 分間スチームモードのままです。"
 msgid "The profile's dose is saved to the shot history."
 msgstr "プロファイルのドーズがショット履歴に保存されます。"
 
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "The QR code holds this profile as it is now saved on the machine, which may differ from when this shot was pulled."
+msgstr ""
+
 #: src/pages/Settings/tabs/BluetoothTab.jsx
 msgid "The scale was found, but the Bluetooth connection failed. Try again or restart the scale."
 msgstr "スケールは見つかりましたが、Bluetooth 接続に失敗しました。もう一度試すか、スケールを再起動してください。"
@@ -5035,12 +5448,16 @@ msgstr "スケールは見つかりましたが、Bluetooth 接続に失敗し�
 msgid "The scale wasn't found. Make sure it's switched on and nearby, then scan again."
 msgstr "スケールが見つかりませんでした。電源が入っていて近くにあることを確認してから、もう一度スキャンしてください。"
 
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "The shot's curve couldn't be loaded."
+msgstr ""
+
 #: src/pages/Settings/tabs/SystemTab.jsx
 msgid "The update could not be completed and the device kept its current firmware. Check the network connection and start the update again."
 msgstr "アップデートを完了できず、デバイスは現在のファームウェアのままです。ネットワーク接続を確認して、もう一度アップデートを開始してください。"
 
-#: src/app/AppSettings.jsx
-#: src/pages/Settings/tabs/GeneralTab.jsx
+#: src/components/ThemeMenu.jsx
+#: src/components/ThemeSelect.jsx
 msgid "Theme"
 msgstr "テーマ"
 
@@ -5055,6 +5472,10 @@ msgstr "熱フィードフォワードゲイン"
 #: src/app/machines.js
 msgid "this address is not a GaggiMate"
 msgstr "このアドレスは GaggiMate ではありません"
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "This browser can't build the profile QR code."
+msgstr ""
 
 #: src/pages/ShotAnalyzer/services/ReplayVideoExportService.js
 msgid "This browser cannot record MP4 video. Please use WebM export instead."
@@ -5076,12 +5497,17 @@ msgstr "この機能は Tasmota プラグを制御し、目標に達した後に
 msgid "This scale model couldn't be set up."
 msgstr "このスケールモデルをセットアップできませんでした。"
 
+#: src/pages/ShotReview/index.jsx
+msgid "This shot"
+msgstr ""
+
 #: src/pages/Settings/PluginCard.jsx
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotMainInfoCard.jsx
 msgid "Thursday"
 msgstr "木曜日"
 
 #: src/pages/ShotAnalyzer/components/analysisTable/analysisTableModel.js
+#: src/pages/ShotReview/ReviewForm.jsx
 msgid "Time"
 msgstr "時間"
 
@@ -5224,6 +5650,10 @@ msgstr "利用不可 / 未キャリブレーション"
 msgid "Unclosed quoted value."
 msgstr "引用符で囲まれた値が閉じられていません。"
 
+#: src/utils/shotNotesLabels.js
+msgid "Undrinkable"
+msgstr ""
+
 #: src/pages/ProfileList/index.jsx
 msgid "Unfavorite"
 msgstr "お気に入り解除"
@@ -5263,6 +5693,8 @@ msgid "Unknown field \"{fieldRaw}\". Supported: {supportedFields}."
 msgstr "不明なフィールド「{fieldRaw}」。対応フィールド: {supportedFields}。"
 
 #: src/pages/ShotHistory/HistoryCard.jsx
+#: src/pages/ShotReview/ReviewForm.jsx
+#: src/pages/ShotReview/ReviewList.jsx
 msgid "Unknown Profile"
 msgstr "不明なプロファイル"
 
@@ -5273,6 +5705,10 @@ msgstr "不明なスケール"
 #: src/pages/Statistics/components/statisticsView/helpers.js
 msgid "Unknown Shot"
 msgstr "不明なショット"
+
+#: src/components/ShareCard/ShareCardModal.jsx
+msgid "Unnamed coffee"
+msgstr ""
 
 #: src/pages/ShotAnalyzer/components/library/LibraryRow.jsx
 msgid "Unpin {displayName}"
@@ -5359,13 +5795,29 @@ msgctxt "date basis"
 msgid "Upload"
 msgstr "アップロード"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Upload and install"
+msgstr ""
+
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Upload done. Sending the firmware to the controller…"
+msgstr ""
+
 #: src/utils/profileImage.js
 msgid "Upload failed"
 msgstr "アップロードに失敗しました"
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Upload failed: {error}"
+msgstr ""
+
 #: src/pages/ShotHistory/HistoryCard.jsx
 msgid "Upload failed: {errorMessage}"
 msgstr "アップロードに失敗しました: {errorMessage}"
+
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Upload firmware"
+msgstr ""
 
 #: src/pages/ProfileEdit/ProfileImageUpload.jsx
 msgid "Upload image"
@@ -5388,6 +5840,10 @@ msgstr "Visualizer.coffee にアップロード"
 msgid "Uploading..."
 msgstr "アップロード中..."
 
+#: src/pages/Settings/tabs/FirmwareUploadSection.jsx
+msgid "Uploading…"
+msgstr ""
+
 #: src/pages/Settings/tabs/CalibrationTab.jsx
 msgid "Upper bound on the identification test. Most espresso boilers resolve within 60–120 s. Extend if Autotune fails before peak slope is detected."
 msgstr "同定テストの上限時間です。ほとんどのエスプレッソボイラーは 60～120 秒以内に収まります。最大傾きが検出される前にオートチューンが失敗する場合は延長してください。"
@@ -5399,6 +5855,10 @@ msgstr "<0>></0>、<1>>=</1>、<2><</2>、<3><=</3>、<4>=</4> を使用しま�
 #: src/pages/Settings/tabs/GeneralTab.jsx
 msgid "Use 24h Format"
 msgstr "24 時間表示を使用"
+
+#: src/pages/ShotReview/BeanPicker.jsx
+msgid "Use for this shot"
+msgstr ""
 
 #: src/pages/Statistics/components/toolbar/helpers.js
 msgid "Use shot timestamp only"
@@ -5472,6 +5932,10 @@ msgstr "バルブ状態の選択"
 #: src/app/AppSettings.jsx
 msgid "Version {bundleVersion}"
 msgstr "バージョン {bundleVersion}"
+
+#: src/utils/shotNotesLabels.js
+msgid "Very good"
+msgstr ""
 
 #: src/pages/ShotAnalyzer/components/shotChart/controls/chartReplayControls.jsx
 msgid "Video"
@@ -5656,6 +6120,7 @@ msgstr "週"
 #: src/pages/ShotAnalyzer/components/shotChart/labelVisuals.js
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotMetricCards.jsx
 #: src/pages/ShotHistory/HistoryChart.jsx
+#: src/pages/ShotReview/ReviewChart.jsx
 #: src/pages/Statistics/components/MetricsTable.jsx
 #: src/pages/Statistics/components/PhaseStatistics.jsx
 #: src/utils/metricDefinitions.js
@@ -5732,6 +6197,10 @@ msgstr "年"
 #: src/pages/ShotAnalyzer/components/shotDetails/ShotMainInfoCard.jsx
 msgid "Yesterday"
 msgstr "昨日"
+
+#: src/pages/ShotReview/ReviewForm.jsx
+msgid "Yield"
+msgstr ""
 
 #: src/components/VisualizerUploadModal.jsx
 msgid "Yield:"
